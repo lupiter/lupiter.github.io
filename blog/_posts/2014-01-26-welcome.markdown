@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Hello and Welcome"
+date:   2014-01-26 11:02:10
+categories: intro 
+---
+
+I plan to use this blog as an opportunity to explore some technical things. Things mostly related to programming, but also perhaps cooking, art, music, craft, politics, economics, religion, or whatever my current interest is.
+
+If you're looking for my collection of cat pictures, quotations, and so on, please see [my tumblr](http://everbloom.tumblr.com).
