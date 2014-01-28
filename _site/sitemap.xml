@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://localhost:4000</loc>
+        <loc>http://www.cathywise.net</loc>
     </url>
     
     
     <url>
-        <loc>http://localhost:4000/blog/2014/01/26/welcome.html</loc>
+        <loc>http://www.cathywise.net/blog/2014/01/28/flying-high.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://www.cathywise.net/blog/2014/01/26/welcome.html</loc>
     </url>
     
 </urlset>
