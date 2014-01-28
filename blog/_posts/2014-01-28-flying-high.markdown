@@ -35,7 +35,7 @@ That's [$650](http://www.rba.gov.au/calculator/annualPreDecimal.html) today.
 
 Today the flight time is an hour and a half, and the cost goes from about $125 return (JetStar) to $450 at peak times (QANTAS). There's over 90 flights each way per day.
 
-![The "QANTAS" Airway: Save Days of Travel by using "Qantas" Mail and Taxi-Planes]({{ site.url }}/images/quantas4.jpg)
+![The "QANTAS" Airway: Save Days of Travel by using "Qantas" Mail and Taxi-Planes]({{ site.url }}/images/qantas4.jpg)
 [From the collection of [David Zekria](http://www.timetableimages.com/ttimages/qantas4.htm)]
 
 
