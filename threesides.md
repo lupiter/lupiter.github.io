@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /threesides/index.html
+permalink: /threesides-app/index.html
 title: ThreeSides
 tagline: Flashcards for the modern age on iOS
 tags: [about, project, threesides]

@@ -8,11 +8,11 @@ image:
 
 ## Personal Projects
 
-#### [ThreeSides →](/threesides)
+#### [ThreeSides →](/threesides-app)
 
 An iOS flashcard app.
 
-#### [ThreeSides Web →](https://github.com/lupiter/ThreeSides)
+#### [ThreeSides Web →](/ThreeSides)
 
 A flashcard webapp for mobile devices (precursor to ThreeSides).
 

@@ -31,7 +31,9 @@ links:
   - title: Home
     url: /
   - title: ThreeSides
-    url: /threesides/
+    url: /threesides-app/
+  - title: ThreeSides Web
+    url: /ThreeSides/
   - title: Blog
     url: /blog/
 
