@@ -14,6 +14,10 @@ article img {
   border-width: 0; 
   vertical-align: middle; 
   -ms-interpolation-mode: bicubic; 
+  max-height: 400px;
+  display: block;
+  margin: 2em auto;
+  border: 3px solid @black;
 }
 svg:not(:root) {
     overflow: hidden; 
@@ -68,4 +72,16 @@ svg:not(:root) {
   border: 1px solid #e3e3e3;
   .rounded(4px);
   .box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.05));
+}
+
+/* Tables ============= */
+td {
+  border-bottom: 1px solid #eee;
+  padding: 5px;
+}
+th {
+  border-bottom: 3px double #eee;
+  border-right: 4px solid white;
+  vertical-align: bottom;
+  padding: 5px;
 }
