@@ -4,7 +4,7 @@ permalink: /threesides-app/index.html
 title: ThreeSides
 tagline: Flashcards for the modern age on iOS
 tags: [about, project, threesides]
-modified: 26-01-2014
+modified: 19-10-2014
 ---
 
 ![Coming Soon: ThreeSides for iOS]({{ site.url }}/images/comingsoon.png)
@@ -38,4 +38,4 @@ We're sure you'll find new and different ways to use ThreeSides that we never dr
 
 ### Technical
 
-ThreeSides is available for iPhone, iPod Touch, and iPad. It requires [iOS 7](https://www.apple.com/au/ios/).
+ThreeSides will be available for iPhone, iPod Touch, and iPad. It requires [iOS 8](https://www.apple.com/au/ios/).

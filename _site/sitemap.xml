@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://www.cathywise.net</loc>
+        <loc>http://localhost:4000</loc>
     </url>
     
     
     <url>
-        <loc>http://www.cathywise.net/blog/iphone/roundup/bible/review/2014/09/15/bible-roundup.html</loc>
+        <loc>http://localhost:4000/blog/iphone/roundup/bible/review/2014/09/15/bible-roundup.html</loc>
     </url>
     
     <url>
-        <loc>http://www.cathywise.net/blog/women/tech/programming/school/2014/03/25/woman-in-tech.html</loc>
+        <loc>http://localhost:4000/blog/women/tech/programming/school/2014/03/25/woman-in-tech.html</loc>
     </url>
     
     <url>
-        <loc>http://www.cathywise.net/blog/flying/pricing/2014/01/29/flying-high.html</loc>
+        <loc>http://localhost:4000/blog/flying/pricing/2014/01/29/flying-high.html</loc>
     </url>
     
     <url>
-        <loc>http://www.cathywise.net/blog/intro/2014/01/26/welcome.html</loc>
+        <loc>http://localhost:4000/blog/intro/2014/01/26/welcome.html</loc>
     </url>
     
 </urlset>
