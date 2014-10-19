@@ -57,3 +57,7 @@ modified: 19-10-2014
 <img alt="Those who wait on the Lord will renew their strength" src="../images/pixel/strength.png">
 <figcaption>
 <a href="https://www.biblegateway.com/passage/?search=Isaiah+40%3A31&version=NKJV">Isaiah 40:31 (NKJV)</a></figcaption></figure>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
+This means you can use them in surmons, church flyers, & slides (provided you link back), but not anything you're charging money for. ☺︎
