@@ -49,7 +49,7 @@ modified: 31-10-2014
 <a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/27/5/">Proverbs 27:5</a></figcaption></figure>
 
 <figure>
-<img alt="A loud greeting early in the morning is the same as a curse!" src="../images/pixel/morning.png">
+<img alt="A loud greeting early in the morning is the same as a curse!" src="../images/pixel/loud.png">
 <figcaption>
 <a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/12/6/">Proverbs 27:14</a></figcaption></figure>
 
