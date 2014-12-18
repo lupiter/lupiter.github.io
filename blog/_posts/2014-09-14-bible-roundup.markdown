@@ -176,7 +176,7 @@ This table is huge, please scroll sideways for more.
 
 The prices in this table are in AUD at the time of publication. They're all likely to change a bit, but they should give you a rough idea of what to expect to pay or have available in these apps.
 
-Some Bibles contain translations not in this table, especially translations which are out of copyright. I've tried to include the major translations, but if there's one in particular you feel I've missed feel free to [drop me a line](http://twitter.com/everbloom).
+Some Bibles contain translations not in this table, especially translations which are out of copyright. I've tried to include the major translations, but if there's one in particular you feel I've missed feel free to [drop me a line](http://twitter.com/sircathywise).
 
 Note that ESV, Simple Bible, and WORDSearch Bible listed above both only have one translation, ESV, KJV and HCSB respectively, and so are excluded from the table below.
 

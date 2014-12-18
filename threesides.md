@@ -32,7 +32,7 @@ Never be afraid to learn!
 
 ## a² + b² = c², Pythagorean theorem, The square of the length of the hypotenuse is equal to the sum of the squares of the other two sides. 
 
-We're sure you'll find new and different ways to use ThreeSides that we never dreamed of. Let us know how ThreeSides has helped you on Twitter ([@everbloom](http://twitter.com/everbloom)) or leave an App Store review.
+We're sure you'll find new and different ways to use ThreeSides that we never dreamed of. Let us know how ThreeSides has helped you on Twitter ([@sircathywise](http://twitter.com/sircathywise)) or leave an App Store review.
 
 ---
 
