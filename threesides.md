@@ -7,7 +7,7 @@ tags: [about, project, threesides]
 modified: 19-10-2014
 ---
 
-![Coming Soon: ThreeSides for iOS]({{ site.url }}/images/comingsoon.png)
+[![Out Now: ThreeSides for iOS]({{ site.url }}/images/outnow.png)](https://itunes.apple.com/us/app/three-sides/id952654261?ls=1&mt=8)
 
 
 ## 你好, nǐhǎo, hello
