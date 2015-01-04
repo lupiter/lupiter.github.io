@@ -26,13 +26,18 @@ So recycle your huge pile of flashcards, and get out your iPhone or iPad instead
 
 ---
 
-## three, tiga, telu
+iPhone
+![iPhone]({{ site.url }}/images/threesides/iphone5s.png)
 
-Many language students find themselves learning more than one language. Sometimes in classes that aren't in your native language!
+---
 
-In ThreeSides, you can have flashcards with your native language, your classroom language, and the language you're trying to learn, all on one card.
+iPad
+![iPad]({{ site.url }}/images/threesides/ipad.png)
 
-Never be afraid to learn!
+---
+
+iPhone 6 Plus Landscape
+![iPhone 6 Plus Landscape]({{ site.url }}/images/threesides/iphone6plus.png)
 
 ---
 
@@ -115,4 +120,5 @@ We're sure you'll find new and different ways to use ThreeSides that we never dr
 
 ### Technical
 
-ThreeSides is available for iPhone, iPod Touch, and iPad. It requires [iOS 8](https://www.apple.com/au/ios/).
+ThreeSides is a universal app, available for iPhone, iPod Touch, and iPad. It requires [iOS 8](https://www.apple.com/au/ios/), which is available for iPhone 4S, iPhone 5, iPhone 5S, iPhone 6, iPhone 6 Plus, iPad 2, iPad 3 (AKA the New iPad), iPad 4, iPad Air, iPad Mini, iPad Mini 2, iPod Touch 5th Gen (the coloured ones).
+
