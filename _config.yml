@@ -35,12 +35,13 @@ links:
     url: /
   - title: ThreeSides
     url: /threesides-app/
+    note: An iOS flashcard app.
   - title: Pixel Proverbs
     url: /pixel-proverbs/
-  - title: ThreeSides Web
-    url: /ThreeSides/
+    note: Pixel text art.
   - title: Blog
     url: /blog/
+    note: <a href="http://cathywise.net/feed.xml" title="Atom/RSS feed">Feed</a>
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Australia/Canberra

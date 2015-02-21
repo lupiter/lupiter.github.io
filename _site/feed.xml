@@ -3,26 +3,26 @@
 <title type="text">Cathy Wise</title>
 <subtitle type="text"></subtitle>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://www.cathywise.net/feed.xml" />
-<link rel="alternate" type="text/html" href="http://www.cathywise.net" />
-<updated>2015-01-04T14:32:20+11:00</updated>
-<id>http://www.cathywise.net/</id>
+<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://localhost:4000" />
+<updated>2015-02-21T19:37:20+11:00</updated>
+<id>http://localhost:4000/</id>
 <author>
   <name>Cathy Wise</name>
-  <uri>http://www.cathywise.net/</uri>
+  <uri>http://localhost:4000/</uri>
   <email></email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[Bibles on iPhone: Free 2 Pray Editions]]></title>
-  <link rel="alternate" type="text/html" href="http://www.cathywise.net/blog/iphone/roundup/bible/review/2014/09/15/bible-roundup.html" />
-  <id>http://www.cathywise.net/blog/iphone/roundup/bible/review/2014/09/15/bible-roundup</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/blog/iphone/roundup/bible/review/2014/09/15/bible-roundup.html" />
+  <id>http://localhost:4000/blog/iphone/roundup/bible/review/2014/09/15/bible-roundup</id>
   <published>2014-09-15T01:26:10+10:00</published>
   <updated>2014-09-15T01:26:10+10:00</updated>
   <author>
     <name>Cathy Wise</name>
-    <uri>http://www.cathywise.net</uri>
+    <uri>http://localhost:4000</uri>
     <email></email>
   </author>
   <content type="html">&lt;p&gt;There are a lot of Bible apps out there, and like the rest of the App Store, the majority are ugly garbage. But that doesn&amp;#39;t mean a kid on an iTouch needs to be stuck with a King James in Comic Sans. I&amp;#39;ve looked at 19&lt;sup id=&quot;fnref1&quot;&gt;&lt;a href=&quot;#fn1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; Bible apps, to try and cut out some of the chaff.&lt;/p&gt;
@@ -45,7 +45,7 @@
 
 &lt;h3&gt;The People&amp;#39;s Choice: &lt;a href=&quot;https://itunes.apple.com/au/app/bible/id282935706?mt=8&quot;&gt;Bible&lt;/a&gt;&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://www.cathywise.net/images/Bible-YouVersion.png&quot; alt=&quot;Bible by LifeChurch.tv&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/Bible-YouVersion.png&quot; alt=&quot;Bible by LifeChurch.tv&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;If someone says they have &amp;quot;the Bible app&amp;quot; on their iPhone, they almost certainly mean they have &lt;a href=&quot;https://itunes.apple.com/au/app/bible/id282935706?mt=8&quot;&gt;Bible&lt;/a&gt; by YouVersion/LifeChurch.tv. It has a &lt;em&gt;lot&lt;/em&gt; of translations, all of which are free, many of which are available to download for offline use. There are no ads, it&amp;#39;s well updated, and it runs on anything that can run &lt;a href=&quot;http://support.apple.com/kb/DL1578?viewlocale=en_US&amp;amp;locale=en_US&quot;&gt;iOS 6&lt;/a&gt;.&lt;/p&gt;
 
@@ -53,13 +53,13 @@
 
 &lt;h3&gt;The Lightweight: &lt;a href=&quot;https://itunes.apple.com/au/app/bible-reader-bibles.org/id738007515?mt=8&quot;&gt;Bible Reader&lt;/a&gt;&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://www.cathywise.net/images/Bible-Reader.png&quot; alt=&quot;Bible Reader - Bibles.org&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/Bible-Reader.png&quot; alt=&quot;Bible Reader - Bibles.org&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;If storage is a premium, but reception and data aren&amp;#39;t, then you might want to look here. &lt;a href=&quot;https://itunes.apple.com/au/app/bible-reader-bibles.org/id738007515?mt=8&quot;&gt;Bible Reader&lt;/a&gt; from the American Bible Society is less than 15MB (some Bible apps come in at over 200MB), and has a decent selection of translations for free. It&amp;#39;s easy to use and light on the eyes, but it doesn&amp;#39;t have any note taking or highlighting features, so it&amp;#39;s strictly for &lt;em&gt;reading&lt;/em&gt;.&lt;/p&gt;
 
 &lt;h3&gt;The Indie: &lt;a href=&quot;https://itunes.apple.com/au/app/holy-bible/id291877741?mt=8&quot;&gt;Holy Bible&lt;/a&gt;&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://www.cathywise.net/images/HolyBible.png&quot; alt=&quot;Holy Bible&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/HolyBible.png&quot; alt=&quot;Holy Bible&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://itunes.apple.com/au/app/holy-bible/id291877741?mt=8&quot;&gt;Holy Bible&lt;/a&gt; is made by a missionary, Paul Avery, in his spare time. That a side project can compete with the big names in Bibles says a lot about how much care Paul has put into this Bible app. While this only has translations with liberal copyright (or out of copyright), it is very easy to use. Holy Bible lets you view up to five sources (Bibles or notes) side-by-side. You can also buy some study guides in the app, and for a very modest sum you can also get the NET notes (without which I think the NET is not complete).&lt;/p&gt;
 
@@ -67,13 +67,13 @@
 
 &lt;h3&gt;The Study Bible Collection: &lt;a href=&quot;https://itunes.apple.com/au/app/tecarta-bible/id325955298?mt=8&quot;&gt;Tecarta Bible&lt;/a&gt;&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://www.cathywise.net/images/Tecarta-Bible.png&quot; alt=&quot;Tecarta Bible&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/Tecarta-Bible.png&quot; alt=&quot;Tecarta Bible&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;At first glance, you might think that Tecarta&amp;#39;s offering is a slightly nicer YouVersion where you have to pay for the Bible translations, but Tecarta have quite a selection of Study and Devotional Bibles that you might remember from a book shop. These Study Bibles are mostly NIV and NKJV Bibles and cost less than $20 (unlike some other app&amp;#39;s Study Bibles) but if you want some notes from Max Lucado, then this might be the place for you.&lt;/p&gt;
 
 &lt;h3&gt;The Integrated System: &lt;a href=&quot;https://itunes.apple.com/au/app/bible!/id336400266?mt=8&quot;&gt;Bible!&lt;/a&gt; and &lt;a href=&quot;https://itunes.apple.com/au/app/faithlife-study-bible/id485998842?mt=8&quot;&gt;Faithlife Study Bible&lt;/a&gt;&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://www.cathywise.net/images/Bible-Logos.png&quot; alt=&quot;Logos Bible&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/Bible-Logos.png&quot; alt=&quot;Logos Bible&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;I&amp;#39;m pretty sure that Bible! used to be known as Logos Bible. It&amp;#39;s also almost the same as the Faithlife Study Bible, but it appears that Bible! has more available translations, and Faithlife has no option to skip making an account. Bible! doesn&amp;#39;t make you have an account, but the store will appear empty if you aren&amp;#39;t logged in. This Bible app can be used to sync your reading with your church sermon, if they use the &lt;a href=&quot;http://proclaimonline.com/&quot;&gt;Proclaim&lt;/a&gt; presentation software. It also has a built-in social network, where you can have a private group like a Bible study where you can share notes.&lt;/p&gt;
 
@@ -1065,19 +1065,19 @@
 &lt;/ol&gt;
 &lt;/div&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://www.cathywise.net/blog/iphone/roundup/bible/review/2014/09/15/bible-roundup.html&quot;&gt;Bibles on iPhone: Free 2 Pray Editions&lt;/a&gt; was originally published by Cathy Wise at &lt;a href=&quot;http://www.cathywise.net&quot;&gt;Cathy Wise&lt;/a&gt; on September 15, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog/iphone/roundup/bible/review/2014/09/15/bible-roundup.html&quot;&gt;Bibles on iPhone: Free 2 Pray Editions&lt;/a&gt; was originally published by Cathy Wise at &lt;a href=&quot;http://localhost:4000&quot;&gt;Cathy Wise&lt;/a&gt; on September 15, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[A Woman In Tech]]></title>
-  <link rel="alternate" type="text/html" href="http://www.cathywise.net/blog/women/tech/programming/school/2014/03/25/woman-in-tech.html" />
-  <id>http://www.cathywise.net/blog/women/tech/programming/school/2014/03/25/woman-in-tech</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/blog/women/tech/programming/school/2014/03/25/woman-in-tech.html" />
+  <id>http://localhost:4000/blog/women/tech/programming/school/2014/03/25/woman-in-tech</id>
   <published>2014-03-25T06:28:10+11:00</published>
   <updated>2014-03-25T06:28:10+11:00</updated>
   <author>
     <name>Cathy Wise</name>
-    <uri>http://www.cathywise.net</uri>
+    <uri>http://localhost:4000</uri>
     <email></email>
   </author>
   <content type="html">&lt;p&gt;I am a woman, and I work as a &amp;quot;software engineer&amp;quot;. I didn&amp;#39;t plan that, but looking back it should have been obvious that I&amp;#39;d really enjoy this. As far as I can remember I&amp;#39;ve always been interested in computers, as my parents were. But I had so many interests: art, music, writing, crafts, reading, science.&lt;/p&gt;
@@ -1106,19 +1106,19 @@
 
 &lt;p&gt;I think programming is perhaps better taught to youngsters when they have a reason: to make a game, an app, fix an ebook, calculate something, make a nice graph, make a blog theme. And tell them that this is a great career choice.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://www.cathywise.net/blog/women/tech/programming/school/2014/03/25/woman-in-tech.html&quot;&gt;A Woman In Tech&lt;/a&gt; was originally published by Cathy Wise at &lt;a href=&quot;http://www.cathywise.net&quot;&gt;Cathy Wise&lt;/a&gt; on March 25, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog/women/tech/programming/school/2014/03/25/woman-in-tech.html&quot;&gt;A Woman In Tech&lt;/a&gt; was originally published by Cathy Wise at &lt;a href=&quot;http://localhost:4000&quot;&gt;Cathy Wise&lt;/a&gt; on March 25, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Flying High]]></title>
-  <link rel="alternate" type="text/html" href="http://www.cathywise.net/blog/flying/pricing/2014/01/29/flying-high.html" />
-  <id>http://www.cathywise.net/blog/flying/pricing/2014/01/29/flying-high</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/blog/flying/pricing/2014/01/29/flying-high.html" />
+  <id>http://localhost:4000/blog/flying/pricing/2014/01/29/flying-high</id>
   <published>2014-01-29T04:28:10+11:00</published>
   <updated>2014-01-29T04:28:10+11:00</updated>
   <author>
     <name>Cathy Wise</name>
-    <uri>http://www.cathywise.net</uri>
+    <uri>http://localhost:4000</uri>
     <email></email>
   </author>
   <content type="html">&lt;p&gt;There&amp;#39;s been some recent brouhaha over how &lt;a href=&quot;http://www.businessinsider.com.au/25-photos-from-golden-age-of-aviation-2013-7?op=1#passengers-aboard-a-boeing-747-enjoy-the-spacious-economy-class-configuration-date-unknown-24&quot;&gt;&amp;quot;air travel was exciting&amp;quot;&lt;/a&gt; and glamorous in the &amp;#39;50s and &amp;#39;60s. Which isn&amp;#39;t, of course, a &lt;a href=&quot;http://online.wsj.com/news/articles/SB10001424052748704684604575380992283473182&quot;&gt;new complaint&lt;/a&gt;. But it is &lt;a href=&quot;http://www.fastcodesign.com/3022215/terminal-velocity/what-it-was-really-like-to-fly-during-the-golden-age-of-travel#3&quot;&gt;rubbish&lt;/a&gt;. It was boring, smoky, dangerous, noisy, and drunken.&lt;/p&gt;
@@ -1151,29 +1151,29 @@
 
 &lt;p&gt;Today the flight time is an hour and a half, and the cost goes from about $125 return (JetStar) to $450 at peak times (QANTAS). There&amp;#39;s over 90 flights each way per day.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://www.cathywise.net/images/qantas4.jpg&quot; alt=&quot;The &amp;quot;QANTAS&amp;quot; Airway: Save Days of Travel by using &amp;quot;Qantas&amp;quot; Mail and Taxi-Planes&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/qantas4.jpg&quot; alt=&quot;The &amp;quot;QANTAS&amp;quot; Airway: Save Days of Travel by using &amp;quot;Qantas&amp;quot; Mail and Taxi-Planes&quot;&gt;
 [From the collection of &lt;a href=&quot;http://www.timetableimages.com/ttimages/qantas4.htm&quot;&gt;David Zekria&lt;/a&gt;]&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://www.cathywise.net/blog/flying/pricing/2014/01/29/flying-high.html&quot;&gt;Flying High&lt;/a&gt; was originally published by Cathy Wise at &lt;a href=&quot;http://www.cathywise.net&quot;&gt;Cathy Wise&lt;/a&gt; on January 29, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog/flying/pricing/2014/01/29/flying-high.html&quot;&gt;Flying High&lt;/a&gt; was originally published by Cathy Wise at &lt;a href=&quot;http://localhost:4000&quot;&gt;Cathy Wise&lt;/a&gt; on January 29, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hello and Welcome]]></title>
-  <link rel="alternate" type="text/html" href="http://www.cathywise.net/blog/intro/2014/01/26/welcome.html" />
-  <id>http://www.cathywise.net/blog/intro/2014/01/26/welcome</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/blog/intro/2014/01/26/welcome.html" />
+  <id>http://localhost:4000/blog/intro/2014/01/26/welcome</id>
   <published>2014-01-26T22:02:10+11:00</published>
   <updated>2014-01-26T22:02:10+11:00</updated>
   <author>
     <name>Cathy Wise</name>
-    <uri>http://www.cathywise.net</uri>
+    <uri>http://localhost:4000</uri>
     <email></email>
   </author>
   <content type="html">&lt;p&gt;I plan to use this blog as an opportunity to explore some technical things. Things mostly related to programming, but also perhaps cooking, art, music, craft, politics, economics, religion, or whatever my current interest is.&lt;/p&gt;
 
 &lt;p&gt;If you&amp;#39;re looking for my collection of cat pictures, quotations, and so on, please see &lt;a href=&quot;http://everbloom.tumblr.com&quot;&gt;my tumblr&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://www.cathywise.net/blog/intro/2014/01/26/welcome.html&quot;&gt;Hello and Welcome&lt;/a&gt; was originally published by Cathy Wise at &lt;a href=&quot;http://www.cathywise.net&quot;&gt;Cathy Wise&lt;/a&gt; on January 26, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog/intro/2014/01/26/welcome.html&quot;&gt;Hello and Welcome&lt;/a&gt; was originally published by Cathy Wise at &lt;a href=&quot;http://localhost:4000&quot;&gt;Cathy Wise&lt;/a&gt; on January 26, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
