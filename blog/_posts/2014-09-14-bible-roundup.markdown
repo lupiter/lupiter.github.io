@@ -2,7 +2,7 @@
 layout: post
 title: "Bibles on iPhone: Free 2 Pray Editions"
 date:   2014-09-14 15:26:10
-categories: [iphone, roundup, bible, review]
+tags: [iphone, roundup, bible, review]
 ---
 
 There are a lot of Bible apps out there, and like the rest of the App Store, the majority are ugly garbage. But that doesn't mean a kid on an iTouch needs to be stuck with a King James in Comic Sans. I've looked at 19[^1] Bible apps, to try and cut out some of the chaff.

@@ -2,7 +2,7 @@
 layout: post
 title: A Woman In Tech
 date:   2014-03-24 19:28:10
-categories: [women, tech, programming, school]
+tags: [women, tech, programming, school]
 ---
 
 I am a woman, and I work as a "software engineer". I didn't plan that, but looking back it should have been obvious that I'd really enjoy this. As far as I can remember I've always been interested in computers, as my parents were. But I had so many interests: art, music, writing, crafts, reading, science.

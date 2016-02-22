@@ -2,7 +2,7 @@
 layout: post
 title: "A (Baker's) Dozen Drawings"
 date:   2015-04-27 15:26:10
-categories: [drawing, roundup, iPad, review]
+tags: [drawing, roundup, iPad, review]
 ---
 
 I've been trying to become a digital artist since I first had my own computer, banging around in [Kid Pix](http://en.wikipedia.org/wiki/Kid_Pix). But since art has never been my profession (and to be honest I'm not good enough or dedicated enough) I've never been able to shell out for the pro tools: [Wacom Cintiqs](http://www.wacom.com/en-us/products/pen-displays/cintiq-22-hd). I've often used things designed for other purposes: PCs, iPads, even game consoles.

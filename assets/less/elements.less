@@ -16,6 +16,7 @@ article {
     vertical-align: middle; 
     -ms-interpolation-mode: bicubic; 
     max-height: 400px;
+    width: auto;
     display: block;
     margin: 2em auto;
     border: 3px solid @black;
@@ -48,6 +49,47 @@ svg:not(:root) {
   figcaption {
     .grid(12,12);
   }
+}
+
+.story-book {
+	figure:nth-child(even) {
+		float: right;
+		background: linear-gradient(270deg, #ffd 95%, #eec 100%);
+	}
+	
+	figure:nth-child(odd) {
+		float: left;
+		background: linear-gradient(90deg, #ffd 95%, #eec 100%);
+	}
+	
+	figure {
+		background-color: wheat;
+		.grid(12, 6);
+		margin-top: 10px;
+		padding-bottom: 10px;
+		
+		figcaption {
+			margin: 0 1.8em;
+			position: relative;
+			border: 2px solid #3a9116;
+			padding: 5px 10px;
+			border-radius: 5px;
+			margin-top: -75px;
+			height: 40px;
+			color: #1e1d19;
+			font-style: normal;
+			margin-bottom: 10px;
+			background: #fff6d8;
+			font-family: sans-serif;
+			text-align: left;
+		}
+		
+		img {
+			max-width: 90%;
+			margin: 1em auto;
+			min-height: 243px;
+		}
+	}
 }
 /* Buttons ============================================== */
 .btn {

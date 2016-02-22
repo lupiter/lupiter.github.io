@@ -2,7 +2,7 @@
 layout: post
 title: Flying High
 date:   2014-01-28 17:28:10
-categories: [flying, pricing]
+tags: [flying, pricing]
 ---
 
 There's been some recent brouhaha over how ["air travel was exciting"](http://www.businessinsider.com.au/25-photos-from-golden-age-of-aviation-2013-7?op=1#passengers-aboard-a-boeing-747-enjoy-the-spacious-economy-class-configuration-date-unknown-24) and glamorous in the '50s and '60s. Which isn't, of course, a [new complaint](http://online.wsj.com/news/articles/SB10001424052748704684604575380992283473182). But it is [rubbish](http://www.fastcodesign.com/3022215/terminal-velocity/what-it-was-really-like-to-fly-during-the-golden-age-of-travel#3). It was boring, smoky, dangerous, noisy, and drunken.
