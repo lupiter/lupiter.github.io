@@ -14,7 +14,7 @@ modified: 17-02-2016
 
 ## <a name="starting">Starting</a>
 
-Before we begin, this guide assumes you have a copy of this game and are using a real Nintendo DS or 3DS, and not an emulator. Playing rhythm games on an emulator is very frustrating, and I don't recommend it.
+Before we begin, this guide assumes you have a copy of this game and are using a real Nintendo DS or 3DS, and not an emulator. Playing rhythm games on an emulator is very frustrating because of lag, and I don't recommend it.
 
 ![Caution! If you tap too hard you might damage your Touch Screen]({{ site.url }}/images/taiko-no-tatsujin/warning.png)
 
@@ -281,7 +281,7 @@ At some point, you will take some damage in a battle. The _only_ way to heal in 
 
 ![Overworld]({{ site.url }}/images/taiko-no-tatsujin/overworld.png)
 
-To exit the first town, just keep going down and you'll go to the overworld map. Here, the town is just above Don, and another town is visible in the top left corner. To enter a town just walk onto it's tile. As you walk around the overworld, you will have random encounters with enemies, so choose your path carefully. Also here you can see the shortcut, X, for コマンド (command). Press X to open the Command Menu.
+To exit the first town, just keep going down and you'll go to the overworld map. Here, the town is just above Don, and another town is visible in the top left corner. To enter a town just walk onto its tile. As you walk around the overworld, you will have random encounters with enemies, so choose your path carefully. Also here you can see the shortcut, X, for コマンド (command). Press X to open the Command Menu.
 
 ![Command Menu]({{ site.url }}/images/taiko-no-tatsujin/command.png)
 
