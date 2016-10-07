@@ -1,7 +1,7 @@
 name: Cathy Wise
 markdown: kramdown
 
-highlighter: pygments
+highlighter: rouge
 description:      Comings and Goings
 disqus_shortname: cathywise
 url:              http://www.cathywise.net # http://localhost:4000 # 
