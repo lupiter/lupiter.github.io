@@ -1,8 +1,6 @@
 name: Cathy Wise
-markdown: redcarpet
+markdown: kramdown
 
-redcarpet:
-  extensions: ["footnotes", "tables"]
 highlighter: pygments
 description:      Comings and Goings
 disqus_shortname: cathywise
