@@ -31,9 +31,6 @@ google_analytics:   UA-47476877-1
 links:
   - title: Home
     url: /
-  - title: ThreeSides
-    url: /threesides-app/
-    note: An iOS flashcard app.
   - title: Pixel Proverbs
     url: /pixel-proverbs/
     note: Pixel text art.
