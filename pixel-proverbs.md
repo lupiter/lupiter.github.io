@@ -10,63 +10,63 @@ modified: 31-10-2014
 <figure>
 <img alt="Good advice is like a sheild" src="../images/pixel/sheild.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/12/6/">Proverbs 12:6b</a>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/12/6/">Proverbs 12:6b</a>
 </figcaption></figure>
 
 <figure>
 <img alt="Sharp words cut like a sword" src="../images/pixel/sword.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/12/18/">Proverbs 12:18a</a></figcaption></figure>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/12/18/">Proverbs 12:18a</a></figcaption></figure>
 
 <figure>
 <img alt="Worry is a heavy burden" src="../images/pixel/worry.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/12/25/">Proverbs 12:25a</a></figcaption></figure>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/12/25/">Proverbs 12:25a</a></figcaption></figure>
 
 <figure>
 <img alt="Sorrow may hide behind laughter" src="../images/pixel/sorrow.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/14/13/">Proverbs 14:13a</a></figcaption></figure>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/14/13/">Proverbs 14:13a</a></figcaption></figure>
 
 <figure>
 <img alt="If you ill-treat the poor you insult your creator" src="../images/pixel/creator.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/14/31/">Proverbs 14:31</a></figcaption></figure>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/14/31/">Proverbs 14:31</a></figcaption></figure>
 
 <figure>
 <img alt="Kind words are good medicine" src="../images/pixel/kind.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/15/4/">Proverbs 15:4a</a></figcaption></figure>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/15/4/">Proverbs 15:4a</a></figcaption></figure>
 
 <figure>
 <img alt="If you stop learning you will forget what you already know" src="../images/pixel/learning.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/19/27/">Proverbs 19:27</a></figcaption></figure>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/19/27/">Proverbs 19:27</a></figcaption></figure>
 
 <figure>
 <img alt="A truly good friend will correct you openly." src="../images/pixel/correct.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/27/5/">Proverbs 27:5</a></figcaption></figure>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/27/5/">Proverbs 27:5</a></figcaption></figure>
 
 <figure>
 <img alt="A loud greeting early in the morning is the same as a curse!" src="../images/pixel/loud.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/12/6/">Proverbs 27:14</a></figcaption></figure>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/12/6/">Proverbs 27:14</a></figcaption></figure>
 
 <figure>
 <img alt="When you are far from home, you feel like a bird without a nest." src="../images/pixel/nest.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/27/8/">Proverbs 27:8</a></figcaption></figure>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/27/8/">Proverbs 27:8</a></figcaption></figure>
 
 <figure>
 <img alt="Just as iron sharpens iron, friends sharpen the minds of each other." src="../images/pixel/minds.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/27/17/">Proverbs 27:17</a></figcaption></figure>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/27/17/">Proverbs 27:17</a></figcaption></figure>
 
 <figure>
 <img alt="Death and the grave are never satisfied... and neither are we." src="../images/pixel/death.png">
 <figcaption>
-<a href="http://www.biblesociety.org.uk/the-bible/search-the-bible/CEVUK/Prov/27/20/">Proverbs 27:20</a></figcaption></figure>
+<a href="http://www.biblesociety.org.uk/explore-the-bible/search-the-bible/CEVUK/Prov/27/20/">Proverbs 27:20</a></figcaption></figure>
 
 
 

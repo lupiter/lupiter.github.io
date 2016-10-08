@@ -15,7 +15,7 @@ It is Monday December 1st, 1947 and a QANTAS [Lockheed Constellation](http://en.
 
 It will take them nearly four days. You see, the plane can't fly well at night, and it needs to refuel regularly. So they'll be stopping in [Darwin](http://en.wikipedia.org/wiki/Darwin,_Northern_Territory), [Singapore](http://en.wikipedia.org/wiki/Singapore), [Karachi](http://en.wikipedia.org/wiki/Karachi), [Cairo](http://en.wikipedia.org/wiki/Cairo), [Castel Benito](http://en.wikipedia.org/wiki/Castel_Benito) (Tripoli), and London. They'll spend the nights in Singapore, Karachi, and Cairo.
 
-Six years later, in 1953, this same trip will be leaving [every day except Sunday](http://www.timetableimages.com/ttimages/complete/qf53/qf53-2.jpg) and cost [£529 4s](http://www.timetableimages.com/ttimages/complete/qf53/qf53-6.jpg) (that's British pounds, not Australian). The [cabin](http://www.aussieairliners.org/l-1049/vh-eab2/1802.113.html) looks rather like a [Dash-8](http://www.flickr.com/photos/brandon301095/6837910940/).
+Six years later, in 1953, this same trip will be leaving [every day except Sunday](http://www.timetableimages.com/ttimages/complete/qf53/qf53-2.jpg) and cost [£529 4s](http://www.timetableimages.com/ttimages/complete/qf53/qf53-6.jpg) (that's British pounds, not Australian). The [cabin](http://www.aussieairliners.org/dc-3/vh-anh/vhanh.html) looks rather like a [Dash-8](http://www.flickr.com/photos/brandon301095/6837910940/).
 
 A flight cost of just £529 4s? Well, that's in 1953. That's equivalent to [£12,500](http://www.measuringworth.com/ppoweruk/result.php?use%5B%5D=CPI&use%5B%5D=NOMINALEARN&year_early=1953&pound71=529&shilling71=4&pence71=&amount=529.2&year_source=1953&year_result=2012) today, equal to $23,650 AUD, or $20,750 USD.
 
