@@ -28,7 +28,7 @@ When looking at additional resources and translations, consider carefully what t
 
 The big three Bible software companies, Tecarta, Faithlife (Logos), and HarperCollins (OliveTree), all provide a main app as well as extra applications with a particular in-app purchase included. In this case, I've looked at some of the variants and noted if they're different, but I'm mainly focused on the primary app.
 
-![Tecarta and Logos]({{ site.url }}/images/logos-tecarta.png)
+![Tecarta and Logos]({{ site.url }}/images/logos-tecarta.jpg)
 Tecarta (left) and Logos (right) in split-screen
 
 ### Tecarta, Inc
@@ -51,7 +51,7 @@ There are excellent included note-taking and document (sermon) writing features[
 
 ### Olive Tree (HarperCollins Cristian Publishing)
 
-![Olive Tree]({{ site.url }}/images/olive-tree.png)
+![Olive Tree]({{ site.url }}/images/olive-tree.jpg)
 Olive Tree showing split between Bible and notes
 
 HarperCollins seem to have a never-ending list of apps, but they really only have two, [Olive Tree Bible+](https://appsto.re/au/i_00t.i) and [Bible Gateway](https://appsto.re/au/DwmmE.i), all the other apps are actually Olive Tree. The Bible Gateway app has two major flaws: it hasn't been optimised for iPad Pro, and it contains ads. I've not seen any other Bible app with ads, and I'm not sure why the excellent Bible Gateway site thinks this is a good idea here. If you like the Bible Gateway site, just use that and skip the app.
