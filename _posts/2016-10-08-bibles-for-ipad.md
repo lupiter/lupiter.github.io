@@ -13,12 +13,12 @@ While there are hundreds of Bible apps for iPhone, the market for iPad is much s
 * Split screen within the app showing personal notes, other translations, study resources, etc.
 * Multiple translations
 * Additional resources such as:
- - study notes (like in a study Bible)
- - commentaries (single volume and multi-volume)
- - maps
- - dictionaries
- - cross-referencing tools
- - interlinear Greek, Hebrew, Latin
+    - study notes (like in a study Bible)
+    - commentaries (single volume and multi-volume)
+    - maps
+    - dictionaries
+    - cross-referencing tools
+    - interlinear Greek, Hebrew, Latin
 * Note, highlight, and bookmark management features (not limited to verse boundaries)
 * Supporting all three iPad sizes (primarily the large iPad Pro)
 
