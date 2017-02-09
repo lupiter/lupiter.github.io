@@ -2,12 +2,10 @@
 <div id="inner-wrap">
     <nav id="nav" role="navigation">
         <div class="block">
-            <!--<h2 class="block-title">Chapters</h2>-->
             <ul>
                 {% for link in site.links %}
 				<li><a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{{ link.title }}</a>{% if link.note %}<br><span class="linknote">{{ link.note }}</span>{% endif %}</li>
 		        {% endfor %}
             </ul>
-            <!--<a class="close-btn" id="nav-close-btn" href="#top">Return to Content</a>-->
         </div>
     </nav>
