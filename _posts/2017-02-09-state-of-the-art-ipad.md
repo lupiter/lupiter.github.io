@@ -26,9 +26,10 @@ Free with AUD$9 IAP or AUD$9 upfront
 * Clean interface
 * Good range of tools with customisation
 * Layers and layer modes
-* Heavy reliance on gestures
 * Lovely hatching fills
 * Nice pencil
+
+* Heavy reliance on gestures
 * Ink and paint tools too laggy
 
 ## [Paper by 53](https://appsto.re/au/KfqkE.i) 
@@ -37,6 +38,7 @@ Free
 
 * Clean interface
 * Social features
+
 * Small range of tools, not much customisation
 * Ink and paint tools too laggy
 * Watercolour behaviour erratic
@@ -50,9 +52,11 @@ Free with AUD$8 IAP, advanced tools also available as a AUD$8/month cross-platfo
 * Excellent range of tools
 * Real paint emulation
 * Copic colours
-* Lacks a good pencil tool
 * Quite responsive
-* DeviantArt sharing
+* DeviantArt integration
+
+* Lacks a good pencil tool
+* Has some poor defaults
 
 
 # Painting
@@ -61,27 +65,30 @@ Free with AUD$8 IAP, advanced tools also available as a AUD$8/month cross-platfo
 
 Free with ads
 
+Similar to Manga Studio in Windows tablet mode, but without the vector or 3D tools
+
 * Excellent range of templates, including manga
-* Similar to Manga Studio in Windows tablet mode, but without the vector or 3D tools
-* Complicated interface
 * Social integration
 * Stroke smoothing
 * Good digital and traditional emulation tools
 * Lots of tools for manga such as halftone and 8-bit layers
+
+* Complicated interface
 * Has ads on main screen
 
 ## [Paintstorm Studio (Lite)](https://appsto.re/au/Dxszbb.i)
 
-Free for Lite, AUD$20 for full
+Free for Lite, AUD$20 for full. Lite version only has JPEG export.
 
-* Desktop style UI including File, Edit menus etc.
-* Complicated interface
-* Floating pallets
+Feels like Painter
+
 * Good latency (without smoothing)
 * Stroke smoothing
 * Excellent traditional emulation tools
-* Feels like Painter
-* Lite version only has JPEG export
+
+* Desktop style UI including File, Edit menus etc.
+* Complicated interface
+* strange zooming floating pallets
 * No native file format
 * No gallery
 
