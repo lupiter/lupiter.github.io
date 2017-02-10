@@ -19,7 +19,7 @@ Unfortunately, I don't know anymore which of these apps I paid for, were cheaper
 
 # Drawing and Sketching
 
-## [Tayasui Sketches](https://appsto.re/au/3eQqM.i) 
+## [Tayasui Sketches →](https://appsto.re/au/3eQqM.i) 
 
 Free with AUD$9 IAP or AUD$9 upfront
 
@@ -32,7 +32,7 @@ Free with AUD$9 IAP or AUD$9 upfront
 * Heavy reliance on gestures
 * Ink and paint tools too laggy
 
-## [Paper by 53](https://appsto.re/au/KfqkE.i) 
+## [Paper by 53 →](https://appsto.re/au/KfqkE.i) 
 
 Free
 
@@ -43,7 +43,7 @@ Free
 * Ink and paint tools too laggy
 * Watercolour behaviour erratic
 
-## [Autodesk Sketchbook](https://appsto.re/au/LzmR0.i) 
+## [Autodesk Sketchbook →](https://appsto.re/au/LzmR0.i) 
 
 Free with AUD$8 IAP, advanced tools also available as a AUD$8/month cross-platform subscription.
 
@@ -61,7 +61,7 @@ Free with AUD$8 IAP, advanced tools also available as a AUD$8/month cross-platfo
 
 # Painting
 
-## [Medibang Paint](https://appsto.re/au/eZy07.i) 
+## [Medibang Paint →](https://appsto.re/au/eZy07.i) 
 
 Free with ads
 
@@ -76,7 +76,7 @@ Similar to Manga Studio in Windows tablet mode, but without the vector or 3D too
 * Complicated interface
 * Has ads on main screen
 
-## [Paintstorm Studio (Lite)](https://appsto.re/au/Dxszbb.i)
+## [Paintstorm Studio (Lite) →](https://appsto.re/au/Dxszbb.i)
 
 Free for Lite, AUD$20 for full. Lite version only has JPEG export.
 
@@ -92,7 +92,7 @@ Feels like Painter
 * No native file format
 * No gallery
 
-## [Procreate](https://appsto.re/au/ATHvz.i) 
+## [Procreate →](https://appsto.re/au/ATHvz.i) 
 
 AUD$10
 
