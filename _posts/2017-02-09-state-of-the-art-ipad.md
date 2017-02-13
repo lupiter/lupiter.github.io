@@ -29,8 +29,9 @@ Free with AUD$9 IAP or AUD$9 upfront
 * Lovely hatching fills
 * Nice pencil
 
-* Heavy reliance on gestures
+* Too much reliance on gestures
 * Ink and paint tools too laggy
+* Does to suppeor ipad split screen
 
 ## [Paper by 53 →](https://appsto.re/au/KfqkE.i) 
 
@@ -42,6 +43,7 @@ Free
 * Small range of tools, not much customisation
 * Ink and paint tools too laggy
 * Watercolour behaviour erratic
+* Doesn't support split screen
 
 ## [Autodesk Sketchbook →](https://appsto.re/au/LzmR0.i) 
 
@@ -54,6 +56,7 @@ Free with AUD$8 IAP, advanced tools also available as a AUD$8/month cross-platfo
 * Copic colours
 * Quite responsive
 * DeviantArt integration
+* Supports ipad split screen
 
 * Lacks a good pencil tool
 * Has some poor defaults
@@ -70,11 +73,13 @@ Similar to Manga Studio in Windows tablet mode, but without the vector or 3D too
 * Excellent range of templates, including manga
 * Social integration
 * Stroke smoothing
+* Free!
 * Good digital and traditional emulation tools
 * Lots of tools for manga such as halftone and 8-bit layers
 
 * Complicated interface
 * Has ads on main screen
+* Does not support iPad split screen
 
 ## [Paintstorm Studio (Lite) →](https://appsto.re/au/Dxszbb.i)
 
