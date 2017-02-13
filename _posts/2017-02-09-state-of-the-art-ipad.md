@@ -31,7 +31,7 @@ Free with AUD$9 IAP or AUD$9 upfront
 
 * Too much reliance on gestures
 * Ink and paint tools too laggy
-* Does to suppeor ipad split screen
+* Does not support iPad split screen
 
 ## [Paper by 53 →](https://appsto.re/au/KfqkE.i) 
 
@@ -56,7 +56,7 @@ Free with AUD$8 IAP, advanced tools also available as a AUD$8/month cross-platfo
 * Copic colours
 * Quite responsive
 * DeviantArt integration
-* Supports ipad split screen
+* Supports iPad split screen
 
 * Lacks a good pencil tool
 * Has some poor defaults
@@ -105,6 +105,7 @@ AUD$10
 * Excellent digital painting and drawing tools
 * Stroke smoothing
 * Layers and layer groups
+* Supports iPad split screen
 * I love this app
 
 
