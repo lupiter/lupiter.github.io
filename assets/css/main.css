@@ -3,4 +3,64 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: middle;
+	padding: 2em;
+	margin: 0;
+}
+
+a {
+	color: #a78496;
+	text-decoration: none;
+}
+
+h2, h3 {
+	font-weight: normal;
+}
+
+.bio-photo, .author-bio-para {
+	border-radius: 50%;
+	max-width: 150px;
+	display: block;
+	font-size: 0.8em;
+}
+
+.index, .author-bio-text {
+	display: flex;
+	flex-direction: column;
+	align-items: middle;
+	justify-content: center;
+	flex: 1;
+}
+
+.article-author-side, .author-bio-body {
+	display: flex;
+	flex-direction: row;
+	align-items: middle;
+	flex: 1;
+	text-align: center;
+	justify-content: center;
+}
+
+.author-bio-body a {
+	flex: none;
+	margin: 0 1em;
+}
+
+nav ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	list-style: none;
+}
+
+nav ul li {
+	margin: 0 1em;
+	text-align: center;
+}
+
+nav ul li a {
+	font-size: 1.5em;
+}
+
+nav ul li .linknote, nav ul li .linknote a {
+	font-size: 1em;
 }
