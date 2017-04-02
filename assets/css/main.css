@@ -52,6 +52,7 @@ h2, h3 {
 	text-align: center;
 	justify-content: center;
 	flex-wrap: wrap;
+	object-fit: contain;
 }
 
 .article-author-side > * {
