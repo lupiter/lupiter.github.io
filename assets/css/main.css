@@ -1,5 +1,5 @@
 body {
-	font-family: "San Francisco", "Helvetica Neue", "Helvetica", sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", "Helvetica", sans-serif;
 	display: flex;
 	flex-direction: column;
 	align-items: middle;
@@ -10,17 +10,24 @@ body {
 a {
 	color: #a78496;
 	text-decoration: none;
+	font-weight: normal;
 }
 
 h2, h3 {
 	font-weight: normal;
+	font-size: 1.5em;
+	font-weight: 200;
 }
 
 .bio-photo, .author-bio-para {
 	border-radius: 50%;
-	max-width: 150px;
+	max-width: 125px;
+	max-height: 125px;
+	min-width: 50px;
+	min-height: 50px;
 	display: block;
 	font-size: 0.8em;
+	flex: 1;
 }
 
 .index, .author-bio-text {
@@ -31,6 +38,12 @@ h2, h3 {
 	flex: 1;
 }
 
+.author-bio-text h3 {
+	margin: 0 0 0.5em 0;
+	font-weight: 100;
+	font-size: 2.5em;
+}
+
 .article-author-side, .author-bio-body {
 	display: flex;
 	flex-direction: row;
@@ -38,6 +51,14 @@ h2, h3 {
 	flex: 1;
 	text-align: center;
 	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.article-author-side > * {
+}
+
+.article-author-side > * > * {
+	flex: none;
 }
 
 .author-bio-body a {
@@ -50,6 +71,9 @@ nav ul {
 	flex-direction: row;
 	justify-content: center;
 	list-style: none;
+	padding: 0;
+	margin: 1em;
+	flex-wrap: wrap;
 }
 
 nav ul li {
@@ -59,8 +83,11 @@ nav ul li {
 
 nav ul li a {
 	font-size: 1.5em;
+	font-weight: 200;
 }
 
 nav ul li .linknote, nav ul li .linknote a {
 	font-size: 1em;
+	font-weight: normal;
 }
+
