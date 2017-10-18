@@ -19,10 +19,10 @@ h2, h3 {
 	font-weight: 200;
 }
 
-.bio-photo, .author-bio-para {
+.bio-photo {
 	border-radius: 50%;
-	max-width: 125px;
-	max-height: 125px;
+	max-width: 100px;
+	max-height: 100px;
 	min-width: 50px;
 	min-height: 50px;
 	display: block;
@@ -43,16 +43,23 @@ h2, h3 {
 	margin: 0 0 0.5em 0;
 	font-weight: 100;
 	font-size: 2.5em;
-}
+}	
 
 .article-author-side, .author-bio-body {
 	display: flex;
-	flex-direction: row;
 	align-items: middle;
 	flex: 1;
 	text-align: center;
 	justify-content: center;
 	flex-wrap: wrap;
+}
+
+.article-author-side {
+	flex-direction: column;
+}
+
+.author-bio-body {
+	flex-direction: row;
 }
 
 .article-author-side > * {
