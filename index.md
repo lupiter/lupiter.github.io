@@ -1,9 +1,7 @@
 ---
 layout: home
-description: "Comings and Goings: Cathy Wise"
+title: "Cathy Wise"
 tags: [homepage]
-image:
-  feature: poppies.JPG
 ---
 
 ## External Links
