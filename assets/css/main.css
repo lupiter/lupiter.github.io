@@ -55,11 +55,11 @@ h2, h3 {
 }
 
 .article-author-side {
-	flex-direction: row;
+	flex-direction: column;
 }
 
 .author-bio-body {
-	flex-direction: column;
+	flex-direction: row;
 }
 
 .article-author-side > * {
