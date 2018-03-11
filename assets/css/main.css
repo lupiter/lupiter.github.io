@@ -2,9 +2,10 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", "Helvetica", sans-serif;
 	display: flex;
 	flex-direction: column;
-	align-items: middle;
+	align-items: center;
 	padding: 2em;
 	margin: 0;
+  max-width: 80%;
 }
 
 a {
@@ -43,7 +44,7 @@ h2, h3 {
 	margin: 0 0 0.5em 0;
 	font-weight: 100;
 	font-size: 2.5em;
-}	
+}
 
 .article-author-side, .author-bio-body {
 	display: flex;
