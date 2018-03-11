@@ -5,6 +5,8 @@ date:   2018-03-11 15:00:00
 tags: [ipad, roundup, art, drawing, review]
 ---
 
+![Clip Studio on iPad]({{ site.url }}/images/clip-studio-ipad.jpg)
+
 # Changes
 
 I first looked at digital painting in [2015]({{ site.baseurl }}{% post_url 2015-04-27-drawing-roundup %}) (where I was largely disappointed). In [2017]({{ site.baseurl }}{% post_url 2017-02-09-state-of-the-art-ipad %}) I'd settled on Procreate on the iPad Pro 12.9" with the Apple Pencil. Since that review I've spent a lot more time painting—both on the iPad and with acrylics—and developers have spent time improving the tools.
