@@ -2,7 +2,7 @@
 layout: post
 title: "A (Baker's) Dozen Drawings"
 date:   2015-04-27 15:26:10
-categories: [drawing, roundup, iPad, review]
+tags: [drawing, roundup, iPad, review]
 ---
 
 I've been trying to become a digital artist since I first had my own computer, banging around in [Kid Pix](http://en.wikipedia.org/wiki/Kid_Pix). But since art has never been my profession (and to be honest I'm not good enough or dedicated enough) I've never been able to shell out for the pro tools: [Wacom Cintiqs](http://www.wacom.com/en-us/products/pen-displays/cintiq-22-hd). I've often used things designed for other purposes: PCs, iPads, even game consoles.
@@ -67,7 +67,7 @@ Paper by 53 is a cool-looking sketchbook, but I find the gestures infuriating. U
 
 I really want to love ArtRage, but it is just unbelievably slow. I'm running it on an iPad Air, and the lag is bad. Especially with the smudge tools. Sometimes the smudge tools don't even load, the app just does nothing when I use them. I haven't used it with the pressure sensitivity, because that will only make the lag worse.
 
-This is an app with great potential, but it lacks the polish of its desktop kin. The tools are good fun, all highly customisable, and I like the pen smoothing a lot. 
+This is an app with great potential, but it lacks the polish of its desktop kin. The tools are good fun, all highly customisable, and I like the pen smoothing a lot.
 
 ### Adobe Ideas
 
