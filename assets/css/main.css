@@ -46,7 +46,7 @@ h2, h3 {
 	font-size: 2.5em;
 }
 
-.article-author-side, .author-bio-body {
+.article-author-side, .author-bio-body, .article-author-bottom {
 	display: flex;
 	align-items: center;
 	flex: 1;
@@ -55,7 +55,7 @@ h2, h3 {
 	flex-wrap: wrap;
 }
 
-.article-author-side {
+.article-author-side, .article-author-bottom {
 	flex-direction: column;
 }
 
