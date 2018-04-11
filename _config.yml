@@ -4,7 +4,7 @@ markdown: kramdown
 highlighter: rouge
 description:      Comings and Goings
 disqus_shortname: cathywise
-url:              http://www.cathywise.net # http://localhost:4000 # 
+url:              http://www.cathywise.net # http://localhost:4000 #
 title: Cathy Wise
 # Owner/author information
 owner:
@@ -24,7 +24,7 @@ owner:
   google_plus:    https://plus.google.com/113703753421537375035
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:   UA-47476877-1
+# google_analytics:   UA-47476877-1
 
 # Links to include in top navigation
 # For external links add external: true
