@@ -1,6 +1,6 @@
 ---
 layout: post
-title: “Crippled by Design”
+title: Crippled by Design
 date:   2018-04-22 14:00:00
 tags: [ipad, tech, review]
 ---
@@ -11,7 +11,7 @@ For two and a half years I’ve been gathering my thoughts about the iPad Pro. T
 
 ## A Short History of My Relationship with iPad
 
-I bought the very [first iPad](https://en.m.wikipedia.org/wiki/IPad_(1st_generation)) shortly after launch. I was a student, it was far too much money to spend. I got the 3G model which was daft, 3G coverage at my uni was terrible. 
+I bought the very [first iPad](https://en.m.wikipedia.org/wiki/IPad_(1st_generation)) shortly after launch. I was a student, it was far too much money to spend. I got the 3G model which was daft, 3G coverage at my uni was terrible.
 
 I wanted to take notes for uni on it, which I did with a fat stylus that looked like a giant rubber-tipped crayon. I thought it was glorious, but really it was very slow and for the most part I switched back to typing my lecture notes on my laptop.
 
@@ -78,7 +78,7 @@ The “legacy” iPhone-on-an-iPad view, which is still around, respects the dev
 
 My favourite way to use the iPad is with the Apple Pencil, they're such a great pair. But when you're not using them, when you're carrying them together or charging the pencil, it's daft.
 
-To charge the pencil, you need to connect it to [some kind of lightning port](https://www.imore.com/how-charge-your-apple-pencil). They're expecting you to plug it into the iPad, but it looks silly and takes up a huge amount of space. It makes it hard to charge while sitting on the couch. I can only imagine how annoying it would be on an aeroplane tray table. 
+To charge the pencil, you need to connect it to [some kind of lightning port](https://www.imore.com/how-charge-your-apple-pencil). They're expecting you to plug it into the iPad, but it looks silly and takes up a huge amount of space. It makes it hard to charge while sitting on the couch. I can only imagine how annoying it would be on an aeroplane tray table.
 
 It's not even hard to fix the problem, just make the lightning end able to twist so the port is on the side. Then it would sit nicely along the side of the iPad. Charging with the iPad is a good idea; the iPad has a huge battery and only one power port. The pencil also comes with the teeny-tiny lightning cable adapter (female-to-female) which is very easy to lose.
 
@@ -86,7 +86,7 @@ Speaking of losing things, there's no easy way to carry the pencil and iPad toge
 
 ### Cover, Stand
 
-If you’ve used any of the other sizes of iPad, you’re probably familiar with the Smart Cover (and the many similar designs by other manufacturers). The Smart Cover has had a few [very similar](https://support.apple.com/en-au/HT204158) incarnations; the original had four panels and a metal hinge, these days they have three and a fabric hinge. 
+If you’ve used any of the other sizes of iPad, you’re probably familiar with the Smart Cover (and the many similar designs by other manufacturers). The Smart Cover has had a few [very similar](https://support.apple.com/en-au/HT204158) incarnations; the original had four panels and a metal hinge, these days they have three and a fabric hinge.
 
 On every other size iPad I consider the Smart Cover to be a must-have accessory. But the cover for the largest iPad really doesn’t work well. It seems that while the Smart Cover scales down from the original size nicely to the iPad Mini, on the iPad Pro it doesn’t scale up well. The cover itself is relatively heavy, which means it doesn’t stick as well to the magnets that keep it closed. There is a lot more twist in it, which means it doesn’t stay in the correct shape quite as well. Closed, folded behind, or folded up as a stand, it has a tendency to collapse. The weight of the iPad Pro also means that it has a disturbing tendency to tip backwards. Thankfully my iPad hasn’t fallen much further than my lap to the couch.
 
@@ -138,11 +138,11 @@ On top of that, there’s no easy way to work on the same video on iOS and on Ma
 
 ### GarageBand
 
-After quite a lot of neglect, GarageBand just received a [small update](https://www.macrumors.com/2018/03/27/apple-updates-clips-and-garageband-education/). But the two major issues with GarageBand are still haunting me. 
+After quite a lot of neglect, GarageBand just received a [small update](https://www.macrumors.com/2018/03/27/apple-updates-clips-and-garageband-education/). But the two major issues with GarageBand are still haunting me.
 
 The first should be trivial to fix. The maximum project length needs to be extended. It’s currently 25 minutes, which is fine for a pop song but not enough for a video score.
 
-The second is much harder. There’s a pretty powerful inter-app audio system in iOS that allows you to route audio and MIDI between various apps. So in theory I can set up [Korg iM1](http://www.korg.com/us/products/software/korg_im1_for_ipad/) to take my piano’s MIDI out, and then take the sound out of iM1 and put that into GarageBand and record it. And _in theory_ I could first route that audio through another app to apply effects, or route the MIDI through two apps and mix the sound later. 
+The second is much harder. There’s a pretty powerful inter-app audio system in iOS that allows you to route audio and MIDI between various apps. So in theory I can set up [Korg iM1](http://www.korg.com/us/products/software/korg_im1_for_ipad/) to take my piano’s MIDI out, and then take the sound out of iM1 and put that into GarageBand and record it. And _in theory_ I could first route that audio through another app to apply effects, or route the MIDI through two apps and mix the sound later.
 
 The reality is that inter-app audio works for simple setups, but not for complex ones. That’s largely because it’s impossible to see what is actually going on. There needs to be some way in GarageBand to view the full routing setup for audio and MIDI and _edit_ that setup. It should work without having to go out to each app and change its settings, or in some cases force-quit apps to get them to “release” the inter-app audio connection.
 
@@ -158,11 +158,11 @@ It would also be a marked improvement if it was possible to use the camera conne
 
 ### Files vs Finder
 
-Files is my great hope for the iPad as an environment for getting work done. When Apple first announced Files, I wasn’t sure exactly what the point was. But as more apps and syncing services have started supporting Files, I’ve realised that Files is Finder for the iPad. 
+Files is my great hope for the iPad as an environment for getting work done. When Apple first announced Files, I wasn’t sure exactly what the point was. But as more apps and syncing services have started supporting Files, I’ve realised that Files is Finder for the iPad.
 
 Maybe that seems obvious, but Files is actually a pretty big change for iOS. A central shared space for all your files in various cloud services is incredibly useful, because it can be accessed by a variety of apps. I can have folders based on projects, with different media types in them and open them with different apps. Welcome to Classic Mac OS!
 
-Unfortunately in some ways Files is still an exciting _potential_ rather than an exciting _reality_. At the moment, file management in Files is cumbersome. 
+Unfortunately in some ways Files is still an exciting _potential_ rather than an exciting _reality_. At the moment, file management in Files is cumbersome.
 
 Renaming files requires a long press to get a popup menu, and then you get a modal dialogue to enter the name. Inline editing with a single touch on the file name would be a lot easier.
 
@@ -194,13 +194,13 @@ What iOS needs is some way for advanced users to get access to more information.
 
 ![A flowchart showing a loop that rolls a dice ten times]({{ site.url }}/images/ipad-pro/flowchart.jpg)
 
-## Workflow is Not Magic 
+## Workflow is Not Magic
 
 [Workflow](https://workflow.is) is very cool, and very clever. Within the sandbox of iOS, the developers have built up an app that almost has the power of [Automator](https://support.apple.com/en-au/guide/automator/welcome/mac). It has also integrated with various social network services, making content sharing a lot easier.
 
 What is even more exciting about Workflow is that Apple has [bought it](https://www.theverge.com/2017/3/22/15030462/apple-acquires-workflow-iphone-utility) and [hasn’t abandoned it](https://www.workflow.is/whatsnew). I’m optimistic that Workflow will get more integrations with more services and apps.
 
-However cool Workflow is, like Automator, there’s always a point where it just can’t do enough. As a developer, I’m used to being able to fill this gap with things I make myself; mostly scripts but sometimes I put in the effort to make them into something worth at least throwing up on [Github](https://github.com). 
+However cool Workflow is, like Automator, there’s always a point where it just can’t do enough. As a developer, I’m used to being able to fill this gap with things I make myself; mostly scripts but sometimes I put in the effort to make them into something worth at least throwing up on [Github](https://github.com).
 
 There is one half-solution to this on iOS at the moment, [Pythonista](http://omz-software.com/pythonista/). But what iOS really needs isn’t [Playgrounds](https://www.apple.com/swift/playgrounds/) or Pythonista, it needs [Xcode](https://developer.apple.com/xcode/). When you can develop apps for iOS on iOS, the circle will be complete and the iPad and iPhone will truly be untethered from the Mac.
 
@@ -212,7 +212,7 @@ I’ve noticed a small trend in iOS development. An increasing number of apps I�
 
 Basically these apps are porting their Windows or Mac app to iOS with few if any changes. In some ways, I’m horrified. Apple hasn’t sold a Mac with a floppy drive since 2000; I’m sure many students getting iPads for school or home have never even seen a floppy. On the other hand, the density of information and controls is refreshing. It’s nice to see a UI which isn’t a giant bold heading floating in a white landscape like a modernist artwork.
 
-I’m worried that this trend shows that large companies aren’t seeing the value in substantially rethinking their apps when porting them for iOS. I’m also worried that Apple will dismiss this out-of-hand as bad design. 
+I’m worried that this trend shows that large companies aren’t seeing the value in substantially rethinking their apps when porting them for iOS. I’m also worried that Apple will dismiss this out-of-hand as bad design.
 
 For the iPad to move forward, the density of information in “Pro” apps must increase, or users will become frustrated as common tasks require more steps. So far I haven’t seen Apple particularly interested in addressing density. The worst example is Music Memos, but even Pages and Numbers have issues.
 
@@ -236,6 +236,6 @@ If Apple keep up the pressure on themselves to improve and outdo their own work,
 
 [^4]: I've since found out that `fn + home` is escape, but it's not at all obvious.
 
-[^5]: This seems to be a mashup based on connected devices (like headphones) and recently used. Perhaps if the logic behind what it showed was more clear it would be more useful. 
+[^5]: This seems to be a mashup based on connected devices (like headphones) and recently used. Perhaps if the logic behind what it showed was more clear it would be more useful.
 
 [^6]: You don’t want to be using the USB version of the camera connection, it’s slow, and for some reason mine won’t delete anything off my SD cards.
