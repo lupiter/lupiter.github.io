@@ -2,7 +2,7 @@ name: Cathy Wise
 markdown: kramdown
 
 highlighter: rouge
-description:      Comings and Goings
+description:      Cathy Wise
 disqus_shortname: cathywise
 url:              http://www.cathywise.net # http://localhost:4000 #
 title: Cathy Wise
@@ -18,7 +18,7 @@ owner:
   github:         lupiter
   stackexchange:  912607/cathy
   instagram:      sircathywise
-  flickr:         44632322@N00
+  # flickr:         44632322@N00
   tumblr:         everbloom
   # For Google Authorship https://plus.google.com/authorship
   google_plus:    https://plus.google.com/113703753421537375035
@@ -33,7 +33,7 @@ links:
     url: /
   - title: Pixel Proverbs
     url: /pixel-proverbs/
-    note: Pixel text art.
+    note: Pixel text art
   - title: Taiko no Tatsujin
     url: /taiko-no-tatsujin/
     note: Game Guide
