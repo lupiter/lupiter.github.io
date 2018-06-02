@@ -2,14 +2,14 @@ name: Cathy Wise
 markdown: kramdown
 
 highlighter: rouge
-description:      Comings and Goings
+description:      Cathy Wise
 disqus_shortname: cathywise
-url:              http://www.cathywise.net # http://localhost:4000 # 
+url:              http://www.cathywise.net # http://localhost:4000 #
 title: Cathy Wise
 # Owner/author information
 owner:
   name:           Cathy Wise
-  avatar:         me-pixeld.jpg
+  avatar:         me-pixeld.png
   bio:            "Software developer, hobby collector."
   disclaimer:     "All opinions on this site are my own and not my employer's etc."
   #email:          you@email.com
@@ -24,7 +24,7 @@ owner:
   google_plus:    https://plus.google.com/113703753421537375035
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:   UA-47476877-1
+# google_analytics:   UA-47476877-1
 
 # Links to include in top navigation
 # For external links add external: true
@@ -33,7 +33,7 @@ links:
     url: /
   - title: Pixel Proverbs
     url: /pixel-proverbs/
-    note: Pixel text art.
+    note: Pixel text art
   - title: Taiko no Tatsujin
     url: /taiko-no-tatsujin/
     note: Game Guide
