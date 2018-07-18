@@ -4,7 +4,7 @@ markdown: kramdown
 highlighter: rouge
 description:      Cathy Wise
 disqus_shortname: cathywise
-url:              http://www.cathywise.net # http://localhost:4000 #
+url:              https://www.cathywise.net # http://localhost:4000 #
 title: Cathy Wise
 # Owner/author information
 owner:
@@ -39,7 +39,7 @@ links:
     note: Game Guide
   - title: Blog
     url: /blog
-    note: <a href="http://cathywise.net/feed.xml" title="Atom/RSS feed">Feed</a>
+    note: <a href="https://cathywise.net/feed.xml" title="Atom/RSS feed">Feed</a>
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Australia/Canberra

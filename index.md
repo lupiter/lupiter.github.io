@@ -6,7 +6,7 @@ tags: [homepage]
 
 ## Projects
 
-#### [ThreeSides Web](http://cathywise.net/ThreeSides)
+#### [ThreeSides Web](https://cathywise.net/ThreeSides)
 
 A flashcard webapp for mobile devices.
 
@@ -14,7 +14,7 @@ A flashcard webapp for mobile devices.
 
 Drawing all 720 Pokémon.
 
-#### [Copic Colour Explorer](http://www.cathywise.net/copic-colour-explorer/)
+#### [Copic Colour Explorer](https://www.cathywise.net/copic-colour-explorer/)
 
 Browse the colours available in Copic Markers.
 
