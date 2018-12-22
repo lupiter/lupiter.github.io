@@ -4,7 +4,7 @@ markdown: kramdown
 highlighter: rouge
 description:      Cathy Wise
 disqus_shortname: cathywise
-url:              https://www.cathywise.net # http://localhost:4000 #
+url:              https://cathywise.net # http://localhost:4000 #
 title: Cathy Wise
 # Owner/author information
 owner:

@@ -14,7 +14,7 @@ A flashcard webapp for mobile devices.
 
 Drawing all 720 Pokémon.
 
-#### [Copic Colour Explorer](https://www.cathywise.net/copic-colour-explorer/)
+#### [Copic Colour Explorer](https://cathywise.net/copic-colour-explorer/)
 
 Browse the colours available in Copic Markers.
 
@@ -25,4 +25,3 @@ Eurovision Song Contest commentary podcast.
 #### [Building History](https://www.youtube.com/playlist?list=PLZxzmAgtkINoe2K-CEt0M64N88it4FnwG)
 
 Building various historical houses in The Sims 4 on Mac.
-
