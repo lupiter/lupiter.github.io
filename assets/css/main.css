@@ -35,10 +35,24 @@ a {
 	font-weight: normal;
 }
 
+h1 {
+	font-weight: 100;
+	font-size: 3em;
+	text-align: center;
+	margin: 0;
+}
+
 h2, h3 {
 	font-weight: normal;
 	font-size: 1.5em;
 	font-weight: 200;
+}
+
+subtitle {
+	font-size: smaller;
+	text-align: center;
+	width: 100%;
+	display: block;
 }
 
 .bio-photo {
