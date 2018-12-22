@@ -1,15 +1,36 @@
+:root {
+	--background: aliceblue;
+	--overlay: white;
+	--link: #008273;
+	--highlight: #9FE8DC;
+	--highlight-trans: rgba(159, 232, 220, 0.5);
+}
+
+html {
+	background: var(--background);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 body {
 	font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", "Helvetica", sans-serif;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 2em;
-	margin: auto;
+	margin: 0;
   max-width: 800px;
+	min-height: 100vh;
+}
+
+body > * {
+	background: var(--overlay);
+	width: calc(100% - 2em);
+	padding: 1em;
 }
 
 a {
-	color: #a78496;
+	color: var(--link);
 	text-decoration: none;
 	font-weight: normal;
 }
@@ -21,7 +42,6 @@ h2, h3 {
 }
 
 .bio-photo {
-	border-radius: 50%;
 	max-width: 100px;
 	max-height: 100px;
 	min-width: 50px;
@@ -80,6 +100,17 @@ footer {
   font-weight: lighter;
 }
 
+nav {
+	width: 100%;
+	background: var(--highlight);
+	box-shadow: 5px 10px 0 var(--highlight-trans);
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--highlight);
+}
+
 nav ul {
 	display: flex;
 	flex-direction: row;
@@ -105,6 +136,30 @@ nav ul li .linknote, nav ul li .linknote a {
 	font-weight: normal;
 }
 
+table {
+	overflow-x: scroll;
+	max-width: 100%;
+	display: block;
+	border-collapse: collapse;
+}
+
+td {
+	padding: 1em 0.5em;
+}
+
+th {
+	border-bottom: 1px solid var(--highlight);
+}
+
 img {
 	max-width: 100%;
+	max-height: 100vh;
+	display: block;
+	margin: auto;
+}
+
+@media screen and (min-height: 400px) {
+  img {
+		max-height: 400px;
+	}
 }
