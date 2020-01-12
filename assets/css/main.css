@@ -178,6 +178,35 @@ img {
 	margin: auto;
 }
 
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: auto;
+}
+
+button {
+	padding: 0.5rem;
+	background: var(--highlight);
+	color: var(--link);
+	border: 0;
+	box-shadow: 5px 10px 0 var(--highlight-trans);
+	font-size: 1rem;
+}
+
+button:hover {
+	box-shadow: 3px 8px 0 var(--highlight-trans);
+}
+
+button:active {
+	box-shadow: 1px 6px 0 var(--highlight-trans);
+}
+
+label {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
 @media screen and (min-height: 400px) {
   img {
 		max-height: 400px;

@@ -1,10 +1,8 @@
 ---
 layout: page
-title: "Privacy Policy — Lord How — Australian Weather for Apple Watch"
+title: "Privacy Policy"
 modified: 12-01-2020
 ---
-
-# Privacy Policy
 
 We are committed to providing quality services to you and this policy outlines our ongoing obligations to you in respect of how we manage your Personal Information.
 
