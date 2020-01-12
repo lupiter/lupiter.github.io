@@ -1,7 +1,8 @@
---
-layout: Page
-title: "Contact"
---
+---
+layout: page
+title: "Contact — Lord How — Australian Weather for Apple Watch"
+modified: 12-01-2020
+---
 
 # Contact
 
@@ -9,11 +10,14 @@ title: "Contact"
   <label>Name:
     <input type="text" name="name">
   </label>
+
   <label>Email:
     <input type="email" name="_replyto">
   </label>
+
   <label>Message:
-    <textarea name="message"></textarea>
+    <textarea name="message" rows="5" cols="50"></textarea>
   </label>
+
   <input type="submit" value="Send">
 </form>

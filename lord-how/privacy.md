@@ -1,6 +1,7 @@
 ---
-layout: Page
+layout: page
 title: "Privacy Policy — Lord How — Australian Weather for Apple Watch"
+modified: 12-01-2020
 ---
 
 # Privacy Policy
