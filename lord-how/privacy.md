@@ -42,4 +42,4 @@ This Policy may change from time to time and is available on our website.
 
 ## Privacy Policy Complaints and Enquiries
 
-If you have any queries or complaints about our Privacy Policy please contact us using our [Contact Form](/contact).
+If you have any queries or complaints about our Privacy Policy please contact us using our [Contact Form](/lord-how/contact).
