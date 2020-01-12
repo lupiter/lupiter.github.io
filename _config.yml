@@ -31,12 +31,9 @@ owner:
 links:
   - title: Home
     url: /
-  - title: Pixel Proverbs
-    url: /pixel-proverbs/
-    note: Pixel text art
-  - title: Taiko no Tatsujin
-    url: /taiko-no-tatsujin/
-    note: Game Guide
+  - title: Lord How
+    url: /lord-how/
+    note: 🍎⌚️🇦🇺🌦
   - title: Blog
     url: /blog
     note: <a href="https://cathywise.net/feed.xml" title="Atom/RSS feed">Feed</a>

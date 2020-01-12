@@ -6,6 +6,14 @@ tags: [homepage]
 
 ## Projects
 
+#### [Pixel Proverbs](/pixel-proverbs/)
+
+Pixel text art
+
+#### [Taiko no Tatsujin](/taiko-no-tatsujin/)
+
+DS game guide
+
 #### [Let Me Show You My Pokémons](http://lupiter.tumblr.com)
 
 Drawing all 720 Pokémon.
