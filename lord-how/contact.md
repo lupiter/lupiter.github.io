@@ -14,5 +14,5 @@ modified: 12-01-2020
   <label>Message
     <textarea name="message" rows="5" cols="50"></textarea>
   </label>
-  <input type="submit" value="Send">
+  <button>Send</button>
 </form>
