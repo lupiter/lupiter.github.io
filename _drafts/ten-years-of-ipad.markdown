@@ -15,4 +15,19 @@ The answer from Apple's ad is: a computer is something you can do homework on. F
 
 Where does the iPad fit in education? [Awkwardly](https://www.speirs.org/blog/2019/7/27/on-switching-from-ipad-to-chromebook-in-school). Apple seems to have rested on their laurels once again in education, and Google has basically stolen their lunch. Education needs hardwearing devices with rock solid software that require minimal management. They need backups. They need to be able to hand a child a device and have them sign in and all the student's work be ready to go. This is not any of the modern iPads.
 
-If an iPad isn't for education, is it for work? 
+If an iPad isn't for education, is it for work? Around the iPad 2, I noticed a small surge in interest amongst the 11" MacBook Air devotees for the iPad as a replacement. Since then I have felt interest drop off. [Not completely](https://www.macstories.net/author/viticci/) of course, but then it was never very large to begin with. But why?
+
+## Communication
+
+### Email
+
+### Chat
+
+### Presentations
+
+### Video Conference
+
+### 
+
+
+
