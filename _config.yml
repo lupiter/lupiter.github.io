@@ -36,6 +36,8 @@ links:
   - title: Blog
     url: /blog
     note: <a href="https://cathywise.net/feed.xml" title="Atom/RSS feed">Feed</a>
+  - title: Projects
+    url: /projects
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Australia/Canberra
