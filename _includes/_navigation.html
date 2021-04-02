@@ -1,8 +1,7 @@
-
-    <nav id="nav" role="navigation">
-            <ul>
-                {% for link in site.links %}
-				<li><a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{{ link.title }}</a>{% if link.note %}<br><span class="linknote">{{ link.note }}</span>{% endif %}</li>
-		        {% endfor %}
-            </ul>
-    </nav>
+<nav id="nav" role="navigation">
+	<ul>
+    {% for link in site.links %}
+		<li><a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+	{% endfor %}
+    </ul>
+</nav>

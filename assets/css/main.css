@@ -86,7 +86,8 @@ footer {
 nav {
 	width: 100%;
 	background-color: var(--highlight);
-	background: url('/images/header.png') center cover no-repeat;
+	background: url("/images/header.png") center no-repeat;
+	background-size: cover;
 }
 
 hr {
@@ -100,17 +101,17 @@ nav ul {
 	justify-content: center;
 	list-style: none;
 	padding: 0;
-	margin: 1em;
+	margin: 0.75em;
 	flex-wrap: wrap;
 }
 
 nav ul li {
-	margin: 0 1em;
+	margin: 0 0.75em;
 	text-align: center;
 }
 
 nav ul li a {
-	font-size: 1.5em;
+	font-size: 2em;
 	font-weight: 200;
 }
 
