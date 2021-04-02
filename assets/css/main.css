@@ -34,6 +34,10 @@ footer {
   font-size: smaller;
 }
 
+footer .bio {
+	text-align: left;
+}
+
 nav {
 	background-color: var(--highlight);
 	background: url("/images/header.png") center no-repeat;
