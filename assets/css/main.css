@@ -88,9 +88,9 @@ footer {
 
 nav {
 	width: 100%;
-	background: var(--highlight);
+	background-color: var(--highlight);
 	box-shadow: 5px 10px 0 var(--highlight-trans);
-	background-image: url('/images/header.png');
+	background: url('/images/header.png') center cover no-repeat;
 }
 
 @media screen and (max-width: 800px) {
