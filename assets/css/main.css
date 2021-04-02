@@ -1,5 +1,5 @@
 :root {
-	--background: aliceblue;
+	--background: white;
 	--overlay: white;
 	--link: #008273;
 	--highlight: #9FE8DC;
@@ -80,7 +80,7 @@ subtitle {
 
 footer {
   font-size: smaller;
-  text-align: centre;
+  text-align: center;
 }
 
 nav {
@@ -116,7 +116,7 @@ nav ul li a {
 
 nav ul li .linknote, nav ul li .linknote a {
 	font-size: 1em;
-	font-weight: normal;
+	font-weight: 200;
 }
 
 table {

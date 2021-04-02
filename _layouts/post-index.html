@@ -24,6 +24,8 @@
       <p itemprop="text">{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | truncatewords: 50 }}{% endif %}</p>
     </article>
   {% endfor %}
+  
+  {{ content }}
 </section><!-- /#index -->
 
 <footer>
