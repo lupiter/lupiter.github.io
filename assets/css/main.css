@@ -66,11 +66,11 @@ subtitle {
 	object-fit: contain;
 }
 
-.index, .author-bio-text {
+.index, .author-bio-body {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	align-items: left;
+	justify-content: left;
 	flex: 1;
 }
 
@@ -78,35 +78,7 @@ subtitle {
 	margin: 0 0 0.5em 0;
 	font-weight: 100;
 	font-size: 2.5em;
-}
-
-.article-author-side, .author-bio-body, .article-author-bottom {
-	display: flex;
-	align-items: center;
-	flex: 1;
-	text-align: center;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-
-.article-author-side, .article-author-bottom {
-	flex-direction: column;
-}
-
-.author-bio-body {
-	flex-direction: row;
-}
-
-.article-author-side > * {
-}
-
-.article-author-side > * > * {
-	flex: none;
-}
-
-.author-bio-body a {
-	flex: none;
-	margin: 0 1em;
+	text-align: centre;
 }
 
 footer {
