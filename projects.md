@@ -4,6 +4,10 @@ title: Projects
 tags: [projects, blogs, video, podcasts, art]
 ---
 
+## [Elias Augustus Brough](https://cathywise.net/elias-augustus-brough/)
+
+The WWI diary and ephemera of my great-grandfather.
+
 ## [Nul Points](https://www.youtube.com/channel/UC6I3FoS8Y3oVsM8Z92eXegQ)
 
 Eurovision Song Contest commentary podcast.
