@@ -9,7 +9,7 @@ tags: [ipad, roundup, art, drawing, review]
 
 # Changes
 
-I first looked at digital painting in [2015]({{ site.baseurl }}{% post_url 2015-04-27-drawing-roundup %}) (where I was largely disappointed). In [2017]({{ site.baseurl }}{% post_url 2017-02-09-state-of-the-art-ipad %}) I'd settled on Procreate on the iPad Pro 12.9" with the Apple Pencil. Since that review I've spent a lot more time painting—both on the iPad and with acrylics—and developers have spent time improving the tools.
+I first looked at digital painting in [2015]({% post_url 2015-04-27-drawing-roundup %}) (where I was largely disappointed). In [2017]({% post_url 2017-02-09-state-of-the-art-ipad %}) I'd settled on Procreate on the iPad Pro 12.9" with the Apple Pencil. Since that review I've spent a lot more time painting—both on the iPad and with acrylics—and developers have spent time improving the tools.
 
 Hardware-wise, not a lot has changed; although Apple has released a new large and regular-sized iPad Pro, I haven't been tempted to update yet. There hasn't been a new Apple Pencil. I'm still hopeful that Apple will find a way to make the pencil work without a battery, or at least find a way to charge it where it doesn't [look absurd](https://forums.macrumors.com/attachments/image-jpeg.580195/).
 

@@ -1,11 +1,11 @@
 name: Cathy Wise
 markdown: kramdown
 
-highlighter: rouge
+highlighter:      rouge
 description:      Cathy Wise
 disqus_shortname: cathywise
 url:              https://cathywise.net # http://localhost:4000 #
-title: Cathy Wise
+title:            Cathy Wise
 # Owner/author information
 owner:
   name:           Cathy Wise
