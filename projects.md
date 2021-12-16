@@ -1,8 +1,12 @@
 ---
 layout: page
 title: Projects
-tags: [projects, blogs, video, podcasts, art]
+tags: [projects, blogs, video, podcasts, art, craft]
 ---
+
+## [Silhouette Projects](/silhouette/)
+
+SVG files to cut on your Silhouette, Cricut, or other cutting machine.
 
 ## [Elias Augustus Brough](https://cathywise.net/elias-augustus-brough/)
 
@@ -31,5 +35,3 @@ DS game guide
 ## [Let Me Show You My Pokémons](http://lupiter.tumblr.com)
 
 Drawing all 720 Pokémon.
-
-
