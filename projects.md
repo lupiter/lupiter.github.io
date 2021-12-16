@@ -4,7 +4,7 @@ title: Projects
 tags: [projects, blogs, video, podcasts, art, craft]
 ---
 
-## [Silhouette Projects](/silhouette/)
+## [Silhouette Projects](/silhouette)
 
 SVG files to cut on your Silhouette, Cricut, or other cutting machine.
 
