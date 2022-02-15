@@ -1,2 +1,7 @@
 <p class="author-bio-para">{{ site.owner.bio }}<br>{{ site.owner.disclaimer}}</p>
 <span>&copy; {{ site.time | date: '%Y' }} {{ site.owner.name }}. Powered by <a href="http://jekyllrb.com">Jekyll</a>.</span>
+<script>
+    document.querySelectorAll('a[href="'+document.URL+'"]').forEach(e => {
+        e.className = 'current';
+    });
+</script>
