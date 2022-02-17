@@ -7,8 +7,8 @@ modified: 12-01-2020
 
 # Coming Soon
 
-[Help](/lord-how/help)
+[Help](/apps/lord-how/help)
 
-[Privacy Policy](/lord-how/privacy)
+[Privacy Policy](/apps/lord-how/privacy)
 
-[Contact](/lord-how/contact)
+[Contact](/apps/lord-how/contact)

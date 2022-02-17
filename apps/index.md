@@ -4,7 +4,7 @@ title: Apps
 tags: [apps, software development, web apps]
 ---
 
-## [Lord How](/lord-how/)
+## [Lord How](/apps/lord-how/)
 
 Australian weather for the Apple Watch
 

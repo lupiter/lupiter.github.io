@@ -4,7 +4,7 @@ title: Projects
 tags: [projects, blogs, video, podcasts, art, craft]
 ---
 
-## [Silhouette Projects](/silhouette)
+## [Silhouette Projects](/projects/silhouette)
 
 SVG files to cut on your Silhouette, Cricut, or other cutting machine.
 
@@ -24,11 +24,11 @@ Craft kit reviews
 
 Building various historical houses in The Sims 4 on Mac.
 
-## [Pixel Proverbs](/pixel-proverbs/)
+## [Pixel Proverbs](/projects/pixel-proverbs/)
 
 Pixel text art
 
-## [Taiko no Tatsujin](/taiko-no-tatsujin/)
+## [Taiko no Tatsujin](/projects/taiko-no-tatsujin/)
 
 DS game guide
 
