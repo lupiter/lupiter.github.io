@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css" />
+    <title>Dotty</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        canvas {
+            cursor: crosshair;
+        }
+        .field-label {
+            font-family: Chicago_12;
+            display: flex;
+            align-items: center;
+        }
+        ul[role="menu-bar"] {
+            border-bottom: 1px solid black;
+        }
+        label.field-label {
+            justify-content: right;
+        }
+        input[type="number"] {
+            margin-right: 0.5rem;
+            width: 3rem;
+        }
+        .modal-grid {
+            display: grid; 
+            grid-template-columns: 1fr 2fr;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .modal-wrapper {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+        canvas {
+            image-rendering: pixelated;
+            background: repeating-linear-gradient(45deg, silver 0, silver 5px, white 5px, white 10px);
+        }
+        .window {
+            display: flex;
+        }
+        #canvas-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            overflow: auto;
+            height: 75vh;
+        }
+        input[type="radio"] + label:not(:last-child) {
+            margin-right: 18px;
+            position: relative;
+        }
+        .details-bar {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .details-bar [class^="field-row"] + [class^="field-row"] {
+            margin-top: 0;
+        }
+        [role="menu-item"]:hover img {
+            filter: invert(100%);
+        }
+        ul[role="menu"] > [role="menu-item"] > a.disabled {
+            color: #b6b7b8;
+        }
+        .btn.icon-button {
+            height: 32px;
+            width: 32px;
+            padding: 2px;
+            min-width: unset;
+            min-height: unset;
+        }
+        .btn.icon-button img, .pixel-icon {
+            image-rendering: pixelated;
+        }
+        .btn.icon-button:disabled img {
+            opacity: 0.4;
+        }
+        fieldset {
+            display: flex;
+            flex-direction: row;
+            border: 0;
+            padding: 0;
+        }
+        .radio-button {
+            width: 29px;
+            height: 29px;
+            margin: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: unset;
+            min-height: unset;
+            overflow: hidden;
+            border: 0.1rem solid black;
+        }
+        legend {
+            display: none;
+        }
+        input[type="radio"] + label, input[type="radio"] + label:not(:last-child) {
+            margin: 0;
+            padding: 0;
+        }
+        input[type="radio"]:checked + label {
+            background-color: black;
+        }
+        input[type="radio"]:checked + label img {
+            filter: invert(100%);
+        }
+        input[type="radio"] + label::before, input[type="radio"]:checked + label::after {
+            content: none;
+        }
+        input[type="color"] {
+            width: 32px;
+            height: 32px;
+            border: 0.1rem solid black;
+            background-color: white;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body style="padding: 0; margin: 0;">
+<ul role="menu-bar">
+    <li role="menu-item" tabindex="0" aria-haspopup="true">
+        <img src="/images/dotty/logo.png" class="pixel-icon" alt="Dotty" />
+        <ul role="menu">
+            <li role="menu-item">
+                <a id="about" url="#">About Dotty...</a>
+            </li>
+        </ul>
+    </li>
+    <li role="menu-item" tabindex="0" aria-haspopup="true">
+        File
+        <ul role="menu">
+            <li role="menu-item">
+                <a><label>Open...
+                <input type="file" id="file" class="btn" style="display: none;">
+                </label></a>
+            </li>
+            <li role="menu-item">
+                <a id="new" url="#">New...</a>
+            </li>
+            <li role="menu-item">
+                <a id="download" url="#">Download</a>
+            </li>
+        </ul>
+    </li>
+    <li role="menu-item" tabindex="0" aria-haspopup="true">
+        Edit
+        <ul role="menu">
+            <li role="menu-item">
+                <a id="undo-menu" class="disabled" url="#" aria-disabled="true">Undo</a>
+            </li>
+            <li role="menu-item">
+                <a id="redo-menu" class="disabled" url="#" aria-disabled="true">Redo</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<div class="window" id="win">
+    <div class="title-bar" id="main-title"><h1 class="title"><span id="name">Dotty</span>—<span id="size"></span></h1></div>
+    <div class="details-bar">
+        <fieldset class="field-row tools">
+            <legend>Tool</legend>
+            <input id="eraser" type="radio" name="tool" value="eraser">
+            <label for="eraser" class="btn radio-button"><img src="/images/dotty/eraser.png" class="pixel-icon" alt="Eraser" /></label>
+            <input id="pen" type="radio" name="tool" value="pen" checked>
+            <label for="pen" class="btn radio-button"><img src="/images/dotty/pen.png" class="pixel-icon" alt="Pen" /></label>
+            <input id="pencil" type="radio" name="tool" value="pencil">
+            <label for="pencil" class="btn radio-button"><img src="/images/dotty/pencil.png" class="pixel-icon" alt="Pencil" /></label>
+        </fieldset>
+        <div class="field-row">
+            <input type="color" id="color" />
+            <input type="number" id="alpha" min="0" max="100" placeholder="opacity" value="100" />%
+        </div>
+        <div class="field-row">
+            <button class="btn icon-button" id="undo-btn" disabled><img src="/images/dotty/undo.png" alt="Undo" /></button>
+            <button class="btn icon-button" id="redo-btn" disabled><img src="/images/dotty/redo.png" alt="Redo" /></button>
+        </div>
+    </div>
+
+    <div id="canvas-wrapper">
+        <canvas id="canvas" width="16" height="16"></canvas>
+    </div>
+
+    <div class="tool-bar details-bar">
+        <div class="info">
+        </div>
+        <div class="field-row">
+            <button class="btn icon-button" id="zoom-out" aria-label="zoom out"><img src="/images/dotty/zoom-out.png" alt="-" /></button>
+            <button class="btn icon-button" id="zoom-in" aria-label="zoom in"><img src="/images/dotty/zoom-in.png" alt="+" /></button>
+            <button class="btn icon-button" id="zoom-reset" aria-label="zoom to fit"><img src="/images/dotty/zoom-fit.png" alt="=" /></button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-wrapper" id="modal-wrapper-new">
+    <div class="modal-dialog outer-border">
+        <div class="inner-border center">
+            <div class="modal-contents">
+                <h1 class="modal-text" style="text-align:center">New</h1>
+  
+                <div class="modal-grid">
+                    <label class="modeless-text field-label" for="new-name">Name:</label>
+                    <input type="text" value="My Cool Art" id="new-name" />
+                    <label class="modeless-text field-label" for="new-preset">Presets:</label>
+                    <select id="new-preset">
+                        <option value="16">Small - 16x16</option>
+                        <option value="32">Medium - 32x32</option>
+                        <option value="64">Large - 64x64</option>
+                        <option value="64">XL - 128x128</option>
+                    </select>
+                    <label for="new-width" class="modeless-text field-label">Width:</label>
+                    <span class="field-label"><input id="new-width" type="number" value="16" /> px</span>
+                    <label for="new-height" class="modeless-text field-label">Height:</label>
+                    <span class="field-label"><input id="new-height" type="number" value="16" /> px</span>
+                </div>
+
+                <section class="field-row" style="justify-content: flex-end">
+                    <button class="btn" id="new-cancel">Cancel</button>
+                    <button class="btn" id="new-create">Create</button>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-wrapper" id="modal-wrapper-about">
+    <div class="modal-dialog outer-border">
+        <div class="inner-border center">
+            <div class="modal-contents">
+                <h1 class="modal-text" style="text-align:center">About Dotty</h1>
+  
+                    <p class="modeless-text">Download your work to save it!
+                    <p class="modeless-text">Made using just plain JavaScript baked into the page and <a href="https://sakofchit.github.io/system.css">System.css</a> ©️2022
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let canvas = document.getElementById("canvas");
+let canvasWrapper = document.getElementById("canvas-wrapper");
+let ctx = canvas.getContext('2d');
+let output = document.getElementById("download");
+let input = document.getElementById("file");
+let newDocument = document.getElementById("new");
+let modalNew = document.getElementById("modal-wrapper-new");
+let about = document.getElementById("about");
+let modalAbout = document.getElementById("modal-wrapper-about");
+let mainTitle = document.getElementById("main-title");
+let win = document.getElementById("win");
+let color = document.getElementById("color");
+let alpha = document.getElementById("alpha");
+let pen = document.getElementById("pen");
+let pencil = document.getElementById("pencil");
+let eraser = document.getElementById("eraser");
+let undoButton = document.getElementById("undo-btn");
+let redoButton = document.getElementById("redo-btn");
+let undoMenu = document.getElementById("undo-menu");
+let redoMenu = document.getElementById("redo-menu");
+let name = "My Cool Art";
+
+// Zoom
+
+let zoom = 1;
+let height = 16;
+let width = 16;
+
+const adjustZoom = function () {
+    canvas.style.height = Math.floor(height * zoom) + "px";
+    canvas.style.width = Math.floor(width * zoom) + "px";
+}
+let zoomIn = document.getElementById("zoom-in");
+zoomIn.onclick = function () {
+    zoom += 0.25;
+    adjustZoom();
+};
+let zoomOut = document.getElementById("zoom-out");
+zoomOut.onclick = function () {
+    zoom -= 0.25;
+    adjustZoom();
+};
+let zoomReset = document.getElementById("zoom-reset");
+zoomReset.onclick = function () {
+    if (canvasWrapper.offsetWidth  < canvasWrapper.offsetHeight ) {
+        zoom = Math.floor(canvasWrapper.offsetWidth / width);
+    } else {
+        zoom = Math.floor(canvasWrapper.offsetHeight / height);
+    }
+    adjustZoom();
+};
+zoomReset.click();
+
+// Undo History
+
+var historyBack = [];
+var historyForward = [];
+
+const updateHistoryButtons = function () {
+    const backDisabled = historyBack.length === 0;
+    const forwardDisabled = historyForward.length === 0;
+    undoButton.disabled = backDisabled;
+    redoButton.disabled = forwardDisabled;
+    undoMenu.ariaDisabled = backDisabled;
+    if (backDisabled) {
+        undoMenu.classList.add("disabled")
+    } else {
+        undoMenu.classList.remove("disabled")
+    }
+    redoMenu.ariaDisabled = forwardDisabled;
+    if (forwardDisabled) {
+        redoMenu.classList.add("disabled")
+    } else {
+        redoMenu.classList.remove("disabled")
+    }
+}
+
+const addHistory = function () {
+    historyBack.push(canvas.toDataURL());
+    historyForward = [];
+    updateHistoryButtons();
+}
+
+const paintHistory = function (blobURL) {
+    const img = new Image();
+    img.src = blobURL;
+
+    img.onload = function () {
+        URL.revokeObjectURL(this.src);
+        ctx.beginPath();
+        ctx.clearRect(0, 0, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
+        ctx.closePath();
+    };
+}
+
+const historyGoBack = function () {
+    var data = historyBack.pop();
+    paintHistory(data);
+    historyForward.push(canvas.toDataURL());
+    updateHistoryButtons();
+}
+
+const historyGoForward = function () {
+    var data = historyForward.pop();
+    paintHistory(data);
+    historyBack.push(canvas.toDataURL());
+    updateHistoryButtons();
+}
+
+undoButton.onclick = historyGoBack;
+undoMenu.onclick = historyGoBack;
+redoButton.onclick = historyGoForward;
+redoMenu.onclick = historyGoForward;
+
+// Draw
+
+var drawMode = pen.value;
+const updateDrawMode = function() {
+    drawMode = pen.checked ? pen.value : eraser.checked ?  eraser.value : pencil.value;
+}
+updateDrawMode();
+pen.onchange = updateDrawMode;
+eraser.onchange = updateDrawMode;
+pencil.onchange = updateDrawMode;
+
+let mouseDown = false;
+
+const paint = function (e) {
+    const x = Math.floor(e.offsetX / zoom);
+    const y = Math.floor(e.offsetY / zoom);
+    const fillStyle = color.value + Math.floor(((alpha.value / 100) * 255)).toString(16);
+    // console.log(drawMode, fillStyle);
+    ctx.beginPath();
+    if (drawMode === pen.value) {
+        ctx.fillStyle = fillStyle;
+        ctx.fillRect(x, y, 1, 1);
+    } else if (drawMode == eraser.value) {
+        ctx.clearRect(x, y, 1, 1);
+    } else if (drawMode == pencil.value) {
+        let remainX = (e.offsetX / zoom) - x;
+        let remainY = (e.offsetY / zoom) - y;
+        if (remainX > 0.2 && remainY > 0.2 && remainX < 0.8 && remainY < 0.8) {
+            ctx.fillStyle = fillStyle;
+            ctx.fillRect(x, y, 1, 1);
+        }
+    }
+    ctx.closePath();
+}
+
+canvas.onmousedown = function (e) {
+    addHistory();
+    paint(e);
+    mouseDown = true;
+}
+
+canvas.onmouseup = function (e) {
+    mouseDown = false;
+}
+
+canvas.ontouchmove = function (e) {
+    if (!mouseDown) {
+        return;
+    }
+    paint(e);
+}
+
+canvas.onmousemove = function (e) {
+    if(!mouseDown) {
+        return;
+    }
+    paint(e);
+}
+
+// UI
+
+const updateName = function(newName) {
+    name = newName;
+    document.getElementById("name").textContent = name;
+}
+updateName(name);
+
+const updateSize = function(newH, newW) {
+    height = newH;
+    width = newW;
+    document.getElementById("size").textContent = "" + height + "x" + width;
+}
+updateSize(width, height);
+
+// Canvas
+
+const resizeCanvas = function() {
+    canvas.width  = width;
+    canvas.height = height;
+    win.height = height;
+    win.width = width;
+}
+
+// New Dialog
+
+let newPreset = document.getElementById("new-preset");
+let newWidth = document.getElementById("new-width");
+let newHeight = document.getElementById("new-height");
+newPreset.onchange = function (e) {
+    const size = e.target.value;
+    newWidth.value = size;
+    newHeight.value = size;
+}
+let newCancel = document.getElementById("new-cancel");
+newCancel.onclick = function () {
+    modalNew.style.display = "none";
+    mainTitle.className = "title-bar";
+}
+let newCreate = document.getElementById("new-create");
+newCreate.onclick = function () {
+    modalNew.style.display = "none";
+    mainTitle.className = "title-bar";
+    updateName(document.getElementById("new-name").value);
+    ctx.clearRect(0, 0, height, width);
+    updateSize(document.getElementById("new-height").value, document.getElementById("new-width").value);
+    resizeCanvas();
+}
+
+newDocument.onclick = function () {
+    modalNew.style.display = "flex";
+    mainTitle.className = "inactive-title-bar";
+}
+
+// About Dialog
+
+about.onclick = function () {
+    console.log("show about");
+    modalAbout.style.display = "flex";
+    mainTitle.className = "inactive-title-bar";
+}
+
+modalAbout.onclick = function () {
+    modalAbout.style.display = "none";
+    mainTitle.className = "title-bar";
+}
+
+// Download Document
+
+output.onclick = function () {
+    const uri = canvas.toDataURL();
+    var link = document.createElement('a');
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    delete link;
+}
+
+// Load Document
+
+input.onchange = function (ev) {
+    const file = ev.target.files[0]; // get the file
+    updateName(file.name);
+    const blobURL = URL.createObjectURL(file);
+    const img = new Image();
+    img.src = blobURL;
+
+    img.onerror = function () {
+        URL.revokeObjectURL(this.src);
+        // Todo: handle the failure properly
+        console.log("Cannot load image: " + name);
+    };
+
+    img.onload = function () {
+        URL.revokeObjectURL(this.src);
+        updateSize(img.height, img.width);
+        resizeCanvas();
+        ctx.beginPath();
+        ctx.drawImage(img, 0, 0, width, height);
+        ctxt.closePath();
+        zoomReset.click();
+        adjustZoom();
+    };
+}
+</script>
+</body>
