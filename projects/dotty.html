@@ -317,6 +317,12 @@ let currentColor = "#000000ff";
 let colorHistory = [];
 
 // Zoom
+    
+// prevent ios scroll
+function preventDefault(e){
+    e.preventDefault();
+}
+document.body.addEventListener('touchmove', preventDefault, { passive: false });
 
 let zoom = 1;
 let height = 16;
@@ -491,6 +497,7 @@ canvas.ontouchmove = function (e) {
         return;
     }
     paint(e);
+    e.preventDefault();
 }
 
 canvas.onmousemove = function (e) {
