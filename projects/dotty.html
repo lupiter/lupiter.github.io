@@ -455,8 +455,8 @@ pencil.onchange = updateDrawMode;
 let mouseDown = false;
 
 const paint = function (e) {
-    const x = Math.floor(e.offsetX / zoom);
-    const y = Math.floor(e.offsetY / zoom);
+    const x = Math.floor(e.offsetX ? e.offsetX : e.layerX / zoom);
+    const y = Math.floor(e.offsetY ? e.offsetY : e.layerY / zoom);
     const fillStyle = currentColor;
     // console.log(drawMode, fillStyle);
     ctx.beginPath();
@@ -476,34 +476,32 @@ const paint = function (e) {
     ctx.closePath();
 }
 
-canvas.onmousedown = function (e) {
+const onStart = function (e) {
     addHistory();
     paint(e);
     mouseDown = true;
 }
 
-canvas.onmouseup = function (e) {
+const onStop = function (e) {
     mouseDown = false;
 }
 
+canvas.onmousedown = onStart;
+canvas.ontouchstart = onStart;
+canvas.onmouseup = onStop;
+canvas.ontouchend = onStop;
+
 const onMove = function (e) {
+    e.preventDefault();
     if (!mouseDown) {
         return;
     }
     paint(e);
-    e.preventDefault();
 }
 
 document.body.addEventListener('touchmove', onMove, { passive: false });
 canvas.addEventListener('touchmove', onMove, {passive: false });
-
-canvas.onmousemove = function (e) {
-    if(!mouseDown) {
-        return;
-    }
-    paint(e);
-    e.preventDefault();
-}
+canvas.onmousemove = onMove;
 
 // UI
 
