@@ -317,12 +317,6 @@ let currentColor = "#000000ff";
 let colorHistory = [];
 
 // Zoom
-    
-// prevent ios scroll
-function preventDefault(e){
-    e.preventDefault();
-}
-document.body.addEventListener('touchmove', preventDefault, { passive: false });
 
 let zoom = 1;
 let height = 16;
@@ -492,7 +486,7 @@ canvas.onmouseup = function (e) {
     mouseDown = false;
 }
 
-canvas.ontouchmove = function (e) {
+const onMove = function (e) {
     if (!mouseDown) {
         return;
     }
@@ -500,11 +494,15 @@ canvas.ontouchmove = function (e) {
     e.preventDefault();
 }
 
+document.body.addEventListener('touchmove', onMove, { passive: false });
+canvas.addEventListener('touchmove', onMove, {passive: false });
+
 canvas.onmousemove = function (e) {
     if(!mouseDown) {
         return;
     }
     paint(e);
+    e.preventDefault();
 }
 
 // UI
