@@ -291,6 +291,9 @@ let redoMenu = document.getElementById("redo-menu");
 let name = "My Cool Art";
 
 // Zoom
+    
+// prevent ios scroll
+document.body.addEventListener('touchmove', preventDefault, { passive: false });
 
 let zoom = 1;
 let height = 16;
