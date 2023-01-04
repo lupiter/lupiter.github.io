@@ -1,0 +1,157 @@
+html {
+    height: 100%;
+    background-color: white;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.window {
+    flex: 1;
+}
+canvas {
+    cursor: crosshair;
+}
+.field-label {
+    font-family: Chicago_12;
+    display: flex;
+    align-items: center;
+}
+ul[role="menu-bar"] {
+    border-bottom: 1px solid black;
+}
+label.field-label {
+    justify-content: right;
+}
+input[type="number"] {
+    margin-right: 0.5rem;
+    width: 3rem;
+}
+.modal-grid {
+    display: grid; 
+    grid-template-columns: 1fr 2fr;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.modal-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+canvas {
+    image-rendering: pixelated;
+    background: repeating-linear-gradient(45deg, silver 0, silver 5px, white 5px, white 10px);
+}
+.window {
+    display: flex;
+}
+#canvas-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    overflow: auto;
+    flex: 1;
+}
+input[type="radio"] + label:not(:last-child) {
+    margin-right: 18px;
+    position: relative;
+}
+.details-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.details-bar [class^="field-row"] + [class^="field-row"] {
+    margin-top: 0;
+}
+ul[role="menu-bar"] {
+    align-items: center;
+}
+[role="menu-item"]:hover img {
+    filter: invert(100%);
+}
+ul[role="menu"] > [role="menu-item"] > a.disabled {
+    color: #b6b7b8;
+}
+.btn.icon-button {
+    height: 32px;
+    width: 32px;
+    padding: 2px;
+    min-width: unset;
+    min-height: unset;
+}
+.btn.icon-button img, .pixel-icon {
+    image-rendering: pixelated;
+}
+.btn.icon-button:disabled img {
+    opacity: 0.4;
+}
+.btn.icon-button:active img, .btn.radio-button:active img {
+    filter: invert();
+}
+fieldset {
+    display: flex;
+    flex-direction: row;
+    border: 0;
+    padding: 0;
+}
+.radio-button {
+    width: 29px;
+    height: 29px;
+    margin: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: unset;
+    min-height: unset;
+    overflow: hidden;
+    border: 0.1rem solid black;
+    border-right-width: 0;
+}
+.radio-button:last-child {
+    border-right-width: 0.1rem;
+}
+.btn.radio-button:active {
+    border-radius: 0;
+}
+legend {
+    display: none;
+}
+input[type="radio"] + label, input[type="radio"] + label:not(:last-child) {
+    margin: 0;
+    padding: 0;
+}
+input[type="radio"]:checked + label {
+    background-color: black;
+}
+input[type="radio"]:checked + label img {
+    filter: invert(100%);
+}
+input[type="radio"] + label::before, input[type="radio"]:checked + label::after {
+    content: none;
+}
+input[type="color"] {
+    width: 32px;
+    height: 32px;
+    border: 0.1rem solid black;
+    background-color: white;
+    padding: 2px;
+}
+.color-chip.btn.icon-button {
+    overflow: hidden;
+    border: 0.1rem solid black;
+    padding: 2px;
+}
