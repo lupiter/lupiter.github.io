@@ -61,8 +61,8 @@ zoomReset.click();
 
 // Undo History
 
-var historyBack = [];
-var historyForward = [];
+let historyBack = [];
+let historyForward = [];
 
 const updateHistoryButtons = function () {
     const backDisabled = historyBack.length === 0;
@@ -166,9 +166,18 @@ const autoSave = function() {
 }
 
 const loadSave = function() {
-    paintHistory(localStorage.getItem('canvas'));
+    let saveData = localStorage.getItem('canvas');
+    if (!!saveData) {
+        paintHistory(saveData);
+    }
     historyBack = JSON.parse(localStorage.getItem('undo'));
+    if (historyBack === null || historyBack === undefined) {
+        historyBack = [];
+    }
     colorHistory = JSON.parse(localStorage.getItem('colors'));
+    if (colorHistory === null || colorHistory === undefined) {
+        colorHistory = [];
+    }
 }
 loadSave();
 
