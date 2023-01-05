@@ -17,6 +17,7 @@ body {
 }
 canvas {
     cursor: crosshair;
+    touch-action: manipulation;
 }
 .field-label {
     font-family: Chicago_12;
@@ -33,6 +34,7 @@ label.field-label {
 input[type="number"] {
     margin-right: 0.5rem;
     width: 3rem;
+    touch-action: manipulation;
 }
 .modal-grid {
     display: grid; 
@@ -71,6 +73,7 @@ canvas {
 input[type="radio"] + label.btn:not(:last-child) {
     margin-right: 18px;
     position: relative;
+    touch-action: manipulation;
 }
 .details-bar {
     display: flex;
@@ -101,16 +104,19 @@ ul[role="menu"] > [role="menu-item"] > a.disabled {
     min-width: unset;
     min-height: unset;
     display: flex;
+    touch-action: manipulation;
 }
 .btn.icon-button img, .pixel-icon {
     image-rendering: pixelated;
     flex: 1;
+    touch-action: manipulation;
 }
 .btn.icon-button:disabled img {
     opacity: 0.4;
 }
 .btn.icon-button:active img, .btn.radio-button:active img {
     filter: invert();
+    touch-action: manipulation;
 }
 fieldset.tools {
     display: flex;
@@ -137,6 +143,7 @@ fieldset.tools {
 }
 .btn.radio-button:active {
     border-radius: 0;
+    touch-action: manipulation;
 }
 .tools legend {
     display: none;
@@ -144,12 +151,15 @@ fieldset.tools {
 input[type="radio"] + label.btn, input[type="radio"] + label.btn:not(:last-child) {
     margin: 0;
     padding: 0.5rem;
+    touch-action: manipulation;
 }
 input[type="radio"]:checked + label.btn {
     background-color: black;
+    touch-action: manipulation;
 }
 input[type="radio"]:checked + label.btn img {
     filter: invert(100%);
+    touch-action: manipulation;
 }
 input[type="radio"] + label.btn::before, input[type="radio"]:checked + label.btn::after {
     content: none;
@@ -160,6 +170,7 @@ input[type="color"] {
     border: 0.1rem solid black;
     background-color: white;
     padding: 2px;
+    touch-action: manipulation;
 }
 .bottom-bar {
     flex-wrap: nowrap;
@@ -177,6 +188,7 @@ input[type="color"] {
     flex-shrink: 0;
     border: 0;
     margin: 0;
+    touch-action: manipulation;
 }
 fieldset.resize-mode-grid {
     display: grid;

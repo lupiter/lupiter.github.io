@@ -44,12 +44,12 @@ const adjustZoom = function () {
 }
 let zoomIn = document.getElementById("zoom-in");
 zoomIn.onclick = function () {
-    zoom += 0.25;
+    zoom += 3;
     adjustZoom();
 };
 let zoomOut = document.getElementById("zoom-out");
 zoomOut.onclick = function () {
-    zoom -= 0.25;
+    zoom -= 3;
     adjustZoom();
 };
 let zoomReset = document.getElementById("zoom-reset");
@@ -337,7 +337,7 @@ resizeConfirm.onclick = function() {
         newX = Math.round((newWidth - width) / 2);
     }
     const data = ctx.getImageData(0, 0, width, height);
-    
+
     updateSize(newHeight, newWidth);
     resizeCanvas();
     zoomReset.click();
