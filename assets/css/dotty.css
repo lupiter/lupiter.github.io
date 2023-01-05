@@ -9,6 +9,8 @@ body {
     display: flex;
     flex-direction: column;
     background-color: white;
+    background: linear-gradient(90deg,#fff 7px,transparent 1%) 50%,linear-gradient(#fff 7px,transparent 1%) 50%,#000;
+    background-size: 8px 8px;
 }
 .window {
     flex: 1;
@@ -23,6 +25,7 @@ canvas {
 }
 ul[role="menu-bar"] {
     border-bottom: 1px solid black;
+    min-height: 44px;
 }
 label.field-label {
     justify-content: right;
@@ -55,6 +58,7 @@ canvas {
 }
 .window {
     display: flex;
+    margin: 0.5rem;
 }
 #canvas-wrapper {
     display: flex;
@@ -64,7 +68,7 @@ canvas {
     overflow: auto;
     flex: 1;
 }
-input[type="radio"] + label:not(:last-child) {
+input[type="radio"] + label.btn:not(:last-child) {
     margin-right: 18px;
     position: relative;
 }
@@ -73,12 +77,16 @@ input[type="radio"] + label:not(:last-child) {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.5rem;
+    padding: 0.4rem;
 }
 .details-bar [class^="field-row"] + [class^="field-row"] {
     margin-top: 0;
 }
-ul[role="menu-bar"] {
+[role="menu-item"] {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 [role="menu-item"]:hover img {
     filter: invert(100%);
@@ -87,14 +95,16 @@ ul[role="menu"] > [role="menu-item"] > a.disabled {
     color: #b6b7b8;
 }
 .btn.icon-button {
-    height: 32px;
-    width: 32px;
+    height: 42px;
+    width: 42px;
     padding: 2px;
     min-width: unset;
     min-height: unset;
+    display: flex;
 }
 .btn.icon-button img, .pixel-icon {
     image-rendering: pixelated;
+    flex: 1;
 }
 .btn.icon-button:disabled img {
     opacity: 0.4;
@@ -102,15 +112,15 @@ ul[role="menu"] > [role="menu-item"] > a.disabled {
 .btn.icon-button:active img, .btn.radio-button:active img {
     filter: invert();
 }
-fieldset {
+fieldset.tools {
     display: flex;
     flex-direction: row;
     border: 0;
     padding: 0;
 }
 .radio-button {
-    width: 29px;
-    height: 29px;
+    width: 25px;
+    height: 25px;
     margin: 2px;
     display: flex;
     justify-content: center;
@@ -120,6 +130,7 @@ fieldset {
     overflow: hidden;
     border: 0.1rem solid black;
     border-right-width: 0;
+    display: flex;
 }
 .radio-button:last-child {
     border-right-width: 0.1rem;
@@ -127,31 +138,48 @@ fieldset {
 .btn.radio-button:active {
     border-radius: 0;
 }
-legend {
+.tools legend {
     display: none;
 }
-input[type="radio"] + label, input[type="radio"] + label:not(:last-child) {
+input[type="radio"] + label.btn, input[type="radio"] + label.btn:not(:last-child) {
     margin: 0;
-    padding: 0;
+    padding: 0.5rem;
 }
-input[type="radio"]:checked + label {
+input[type="radio"]:checked + label.btn {
     background-color: black;
 }
-input[type="radio"]:checked + label img {
+input[type="radio"]:checked + label.btn img {
     filter: invert(100%);
 }
-input[type="radio"] + label::before, input[type="radio"]:checked + label::after {
+input[type="radio"] + label.btn::before, input[type="radio"]:checked + label.btn::after {
     content: none;
 }
 input[type="color"] {
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
     border: 0.1rem solid black;
     background-color: white;
     padding: 2px;
+}
+.bottom-bar {
+    flex-wrap: nowrap;
+}
+#color-history {
+    overflow: hidden;
+    border: 0.1rem solid black;
 }
 .color-chip.btn.icon-button {
     overflow: hidden;
     border: 0.1rem solid black;
     padding: 2px;
+    word-break: break-all;
+    font-size: 14px;
+    flex-shrink: 0;
+    border: 0;
+    margin: 0;
+}
+fieldset.resize-mode-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column: 1 / 3;
 }

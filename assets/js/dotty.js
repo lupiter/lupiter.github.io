@@ -12,6 +12,7 @@ let undoMenu = document.getElementById("undo-menu");
 let redoMenu = document.getElementById("redo-menu");
 let clearMenu = document.getElementById("clear-menu");
 let resizeMenu = document.getElementById("resize-menu");
+let resizeModal = document.getElementById("modal-wrapper-resize");
 
 let mainTitle = document.getElementById("main-title");
 let win = document.getElementById("win");
@@ -19,12 +20,15 @@ let colorInput = document.getElementById("color");
 let alphaInput = document.getElementById("alpha");
 let colorHistoryView = document.getElementById("color-history");
 let colorChipTemplate = document.getElementById("color-chip");
+
 let pen = document.getElementById("pen");
 let pencil = document.getElementById("pencil");
 let eraser = document.getElementById("eraser");
+let dropper = document.getElementById("dropper");
+
 let undoButton = document.getElementById("undo-btn");
 let redoButton = document.getElementById("redo-btn");
-let name = "My Cool Art";
+let filename = "My Cool Art";
 let currentColor = "#000000ff";
 let colorHistory = [];
 
@@ -129,26 +133,32 @@ redoMenu.onclick = historyGoForward;
 
 // Colors
 
+const setColor = (color) => {
+    currentColor = color;
+    colorInput.value = currentColor.slice(0, 7);
+    alphaInput.value = Math.round((Number.parseInt(currentColor.slice(7), 16) / 255) * 100);
+}
+
 const updateChips = function() {
     colorHistoryView.innerHTML = "";
-    for (const color of colorHistory) {
+    for (const color of [...colorHistory].reverse()) {
         const clone = colorChipTemplate.content.cloneNode(true);
         let button = clone.querySelector("button");
         button.textContent = color;
         button.style.color = color;
         button.style.backgroundColor = color;
-        button.onclick = () => {
-            currentColor = color;
-            colorInput.value = currentColor.slice(0, 7);
-            alphaInput.value = (Number.parseInt(currentColor.slice(7), 16) / 255) * 100;
-        }
+        button.onclick = () => setColor(color);
         colorHistoryView.appendChild(button);
     }
 }
 
 const updateColor = function() {
     currentColor = colorInput.value + Math.floor(((alphaInput.value / 100) * 255)).toString(16);
+    if (colorHistory.includes(currentColor)) {
+        colorHistory = colorHistory.filter(x => x !== currentColor);
+    }
     colorHistory.push(currentColor);
+    autoSave();
     updateChips();
 }
 
@@ -167,16 +177,17 @@ const autoSave = function() {
 
 const loadSave = function() {
     let saveData = localStorage.getItem('canvas');
-    if (!!saveData) {
+    if (!!saveData && saveData.length > 0) {
         paintHistory(saveData);
     }
-    historyBack = JSON.parse(localStorage.getItem('undo'));
-    if (historyBack === null || historyBack === undefined) {
-        historyBack = [];
+    editHistory = JSON.parse(localStorage.getItem('undo'));
+    if (!!editHistory && editHistory.length > 0) {
+        historyBack = editHistory;
     }
-    colorHistory = JSON.parse(localStorage.getItem('colors'));
-    if (colorHistory === null || colorHistory === undefined) {
-        colorHistory = [];
+    colors = JSON.parse(localStorage.getItem('colors'));
+    if (!!colors && colors.length > 0) {
+        colorHistory = colors;
+        updateChips();
     }
 }
 loadSave();
@@ -185,12 +196,13 @@ loadSave();
 
 var drawMode = pen.value;
 const updateDrawMode = function() {
-    drawMode = pen.checked ? pen.value : eraser.checked ?  eraser.value : pencil.value;
+    drawMode = [pen, eraser, pencil, dropper].find((tool) => tool.checked).value;
 }
 updateDrawMode();
 pen.onchange = updateDrawMode;
 eraser.onchange = updateDrawMode;
 pencil.onchange = updateDrawMode;
+dropper.onchange = updateDrawMode;
 
 let mouseDown = false;
 
@@ -224,6 +236,14 @@ const onStart = function (e) {
 
 const onStop = function (e) {
     mouseDown = false;
+    if (drawMode == dropper.value) {
+        const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / zoom);
+        const y = Math.floor((e.offsetY ? e.offsetY : e.layerY) / zoom);
+        const pixel = new DataView(ctx.getImageData(x, y, 1, 1).data.buffer);
+        const pixelToHex = (idx) => ('00'+(pixel.getUint8(idx).toString(16))).slice(-2);
+        const color = "#" + pixelToHex(0) + pixelToHex(1) + pixelToHex(2) + pixelToHex(3);
+        setColor(color);
+    }
     autoSave();
 }
 
@@ -254,10 +274,10 @@ clearMenu.onclick = () => {
 // UI
 
 const updateName = function(newName) {
-    name = newName;
-    document.getElementById("name").textContent = name;
+    filename = newName;
+    document.getElementById("name").textContent = filename;
 }
-updateName(name);
+updateName(filename);
 
 const updateSize = function(newH, newW) {
     height = newH;
@@ -273,6 +293,58 @@ const resizeCanvas = function() {
     canvas.height = height;
     win.height = height;
     win.width = width;
+}
+
+let resizeCancel = document.getElementById("resize-cancel");
+let resizeConfirm = document.getElementById("resize-confirm");
+let resizeWidth = document.getElementById("resize-width");
+let resizeHeight = document.getElementById("resize-height");
+let resizeModes = Array.from(document.querySelectorAll("input[type='radio'][name='resize']"));
+resizeMenu.onclick = function() {
+    resizeWidth.value = width;
+    resizeHeight.value = height;
+    resizeModal.style.display = "flex";
+    mainTitle.className = "inactive-title-bar";
+}
+
+resizeCancel.onclick = function() {
+    resizeModal.style.display = "none";
+    mainTitle.className = "title-bar";
+}
+
+resizeConfirm.onclick = function() {
+    resizeCancel.click();
+    historyBack = [];
+    historyForward = [];
+
+    const resizeMode = resizeModes.find(input => input.checked).value;
+    const newWidth = resizeWidth.value;
+    const newHeight = resizeHeight.value;
+    let newX, newY
+    if (resizeMode === "top-left") {
+        newX = 0, newY = 0;
+    } else if (resizeMode == "top-right") {
+        newY = 0;
+        newX = newWidth - width;
+    } else if (resizeMode == "bottom-left") {
+        newY = newHeight - height;
+        newX = 0;
+    } else if (resizeMode == "bottom-right") {
+        newY = newHeight - height;
+        newX = newWidth - width;
+    } else if (resizeMode == "center-center") {
+        newY = Math.round((newHeight - height) / 2);
+        newX = Math.round((newWidth - width) / 2);
+    }
+    const data = ctx.getImageData(0, 0, width, height);
+    
+    updateSize(newHeight, newWidth);
+    resizeCanvas();
+    zoomReset.click();
+    adjustZoom();
+    ctx.putImageData(data, newX, newY);
+
+    autoSave();
 }
 
 // New Dialog
@@ -323,7 +395,7 @@ modalAbout.onclick = function () {
 output.onclick = function () {
     const uri = canvas.toDataURL();
     var link = document.createElement('a');
-    link.download = name;
+    link.download = filename;
     link.href = uri;
     document.body.appendChild(link);
     link.click();
@@ -343,7 +415,7 @@ input.onchange = function (ev) {
     img.onerror = function () {
         URL.revokeObjectURL(this.src);
         // Todo: handle the failure properly
-        console.log("Cannot load image: " + name);
+        console.log("Cannot load image: " + filename);
     };
 
     img.onload = function () {

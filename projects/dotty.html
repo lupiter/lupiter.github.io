@@ -68,10 +68,12 @@
             <label for="pen" class="btn radio-button"><img src="/images/dotty/pen.png" class="pixel-icon" alt="Pen" /></label>
             <input id="pencil" type="radio" name="tool" value="pencil">
             <label for="pencil" class="btn radio-button"><img src="/images/dotty/pencil.png" class="pixel-icon" alt="Pencil" /></label>
+            <input id="dropper" type="radio" name="tool" value="dropper">
+            <label for="dropper" class="btn radio-button"><img src="/images/dotty/dropper.png" class="pixel-icon" alt="Dropper" /></label>
         </fieldset>
         <div class="field-row">
-            <input type="color" id="color" />
-            <input type="number" id="alpha" min="0" max="100" placeholder="opacity" value="100" />%
+            <input type="color" id="color" aria-label="Color" />
+            <input type="number" id="alpha" min="0" max="100" step="1" placeholder="opacity" value="100" aria-label="Opacity" />%
         </div>
         <div class="field-row">
             <button class="btn icon-button" id="undo-btn" disabled><img src="/images/dotty/undo.png" alt="Undo" /></button>
@@ -83,7 +85,7 @@
         <canvas id="canvas" width="16" height="16"></canvas>
     </div>
 
-    <div class="tool-bar details-bar">
+    <div class="tool-bar details-bar bottom-bar">
         <div class="field-row" id="color-history">
         </div>
         <div class="field-row">
@@ -111,14 +113,55 @@
                         <option value="64">XL - 128x128</option>
                     </select>
                     <label for="new-width" class="modeless-text field-label">Width:</label>
-                    <span class="field-label"><input id="new-width" type="number" value="16" /> px</span>
+                    <span class="field-label"><input id="new-width" type="number" value="16" max="256" /> px</span>
                     <label for="new-height" class="modeless-text field-label">Height:</label>
-                    <span class="field-label"><input id="new-height" type="number" value="16" /> px</span>
+                    <span class="field-label"><input id="new-height" type="number" value="16" max="256" /> px</span>
                 </div>
 
                 <section class="field-row" style="justify-content: flex-end">
                     <button class="btn" id="new-cancel">Cancel</button>
                     <button class="btn" id="new-create">Create</button>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-wrapper" id="modal-wrapper-resize">
+    <div class="modal-dialog outer-border">
+        <div class="inner-border center">
+            <div class="modal-contents">
+                <h1 class="modal-text" style="text-align:center">Resize</h1>
+  
+                <div class="modal-grid">
+                    <label for="resize-width" class="modeless-text field-label">Width:</label>
+                    <span class="field-label"><input id="resize-width" type="number" value="16" max="256" /> px</span>
+                    <label for="resize-height" class="modeless-text field-label">Height:</label>
+                    <span class="field-label"><input id="resize-height" type="number" value="16" max="256" /> px</span>
+                    <fieldset class="field-label resize-mode-grid">
+                        <legend>From</legend>
+                        <input id="resize-mode-top-left" type="radio" name="resize" value="top-left">
+                        <label for="resize-mode-top-left">Top Left</label>
+                        <span></span>
+                        <input id="resize-mode-top-right" type="radio" name="resize" value="top-right">
+                        <label for="resize-mode-top-right">Top Right</label>
+                        <span></span>
+                        <input id="resize-mode-center-center" type="radio" name="resize" value="center-center" checked>
+                        <label for="resize-mode-center-center">Center</label>
+                        <span></span>
+                        <input id="resize-mode-bottom-left" type="radio" name="resize" value="bottom-left">
+                        <label for="resize-mode-bottom-left">Bottom Left</label>
+                        <span></span>
+                        <input id="resize-mode-bottom-right" type="radio" name="resize" value="bottom-right">
+                        <label for="resize-mode-bottom-right">Bottom Right</label>
+                    </fieldset>
+                </div>
+
+                <div class="modal-text">Warning: This action cannot be undone! If your new size is smaller than your curren size, you might loose data!</div>
+
+                <section class="field-row" style="justify-content: flex-end">
+                    <button class="btn" id="resize-cancel">Cancel</button>
+                    <button class="btn" id="resize-confirm">Resize</button>
                 </section>
             </div>
         </div>
