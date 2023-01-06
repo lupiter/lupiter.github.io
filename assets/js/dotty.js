@@ -1,3 +1,6 @@
+// TODO:
+// * select and move
+
 let canvas = document.getElementById("canvas");
 let canvasWrapper = document.getElementById("canvas-wrapper");
 let ctx = canvas.getContext('2d');
@@ -196,15 +199,95 @@ loadSave();
 
 var drawMode = pen.value;
 const updateDrawMode = function() {
-    drawMode = [pen, eraser, pencil, dropper].find((tool) => tool.checked).value;
+    drawMode = [pen, eraser, pencil, dropper, bucket].find((tool) => tool.checked).value;
 }
 updateDrawMode();
 pen.onchange = updateDrawMode;
 eraser.onchange = updateDrawMode;
 pencil.onchange = updateDrawMode;
 dropper.onchange = updateDrawMode;
+bucket.onchange = updateDrawMode;
 
 let mouseDown = false;
+
+const floodFill = function (startX, startY) {
+    // Credit: Tom Cantwell https://cantwell-tom.medium.com/flood-fill-and-line-tool-for-html-canvas-65e08e31aec6
+    let imageData = ctx.getImageData(0, 0, height, width);
+
+    let start = (startY * width + startX) * 4;
+    let pixel = imageData.data.slice(start, start + 16);
+    // exit if color is the same
+    let color = pixelToColor(pixel);
+    let newColor = colorToPixel(currentColor);
+    if (currentColor === color) {
+        return;
+    }
+
+    const matchStartColor = (pixelPos) => {
+        let col = pixelToColor(imageData.data.slice(pixelPos, pixelPos + 16));
+        return col === color;
+    }
+    const colorPixel = (pixelPos) => {
+        imageData.data[pixelPos] = newColor.r;
+        imageData.data[pixelPos + 1] = newColor.g;
+        imageData.data[pixelPos + 2] = newColor.b;
+        imageData.data[pixelPos + 3] = newColor.a;
+    }
+
+    let pixelStack = [[startX, startY]];
+    let newPos, x, y, pixelPos, reachLeft, reachRight;
+    fill();
+    function fill () {
+        newPos = pixelStack.pop();
+        x = newPos[0];
+        y = newPos[1]; // get current pixel position
+        pixelPos = (y * width + x) * 4;
+        // Go up as long as the color matches and are inside the canvas
+        while (y >= 0 && matchStartColor(pixelPos)) {
+            y--;
+            pixelPos -= width * 4;
+        }
+        // Don't overextend
+        pixelPos += width * 4;
+        y++;
+        reachLeft = false;
+        reachRight = false;    
+        // Go down as long as the color matches and in inside the canvas
+
+        while (y < height && matchStartColor(pixelPos)) {
+            colorPixel(pixelPos);      
+            if (x > 0) {
+                if (matchStartColor(pixelPos - 4)) {
+                    if (!reachLeft) {
+                        //Add pixel to stack
+                        pixelStack.push([x - 1, y]);
+                        reachLeft = true;
+                    }
+                } else if (reachLeft) {
+                    reachLeft = false;
+                }
+            } if (x < width - 1) {
+                if (matchStartColor(pixelPos + 4)) {
+                    if (!reachRight) {
+                        // Add pixel to stack
+                        pixelStack.push([x + 1, y]);
+                        reachRight = true;
+                    }
+                } else if (reachRight) {
+                    reachRight = false;
+                }
+            }
+            y++;
+            pixelPos += width * 4;
+        }    // recursive until no more pixels to change
+        if (pixelStack.length) {
+            fill();
+        }
+    }  
+    
+    // render floodFill result
+    ctx.putImageData(imageData, 0, 0);
+}
 
 const paint = function (e) {
     const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / zoom);
@@ -224,6 +307,8 @@ const paint = function (e) {
             ctx.fillStyle = fillStyle;
             ctx.fillRect(x, y, 1, 1);
         }
+    } else if (drawMode == bucket.value) {
+        floodFill(x,y);
     }
     ctx.closePath();
 }
@@ -234,15 +319,31 @@ const onStart = function (e) {
     mouseDown = true;
 }
 
+const pixelToColor = function (imageData) {
+    const pixel = new DataView(imageData.buffer);
+    const pixelToHex = (idx) => ('00'+(pixel.getUint8(idx).toString(16))).slice(-2);
+    return "#" + pixelToHex(0) + pixelToHex(1) + pixelToHex(2) + pixelToHex(3);
+}
+
+const colorToPixel = function (color) {
+    const red = Number.parseInt(color.slice(1, 3), 16);
+    const green = Number.parseInt(color.slice(3, 5), 16);
+    const blue = Number.parseInt(color.slice(5, 7), 16);
+    const alpha = Number.parseInt(color.slice(7), 16);
+    return {
+        r: red,
+        g: green,
+        b: blue,
+        a: alpha
+    }
+}
+
 const onStop = function (e) {
     mouseDown = false;
     if (drawMode == dropper.value) {
         const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / zoom);
         const y = Math.floor((e.offsetY ? e.offsetY : e.layerY) / zoom);
-        const pixel = new DataView(ctx.getImageData(x, y, 1, 1).data.buffer);
-        const pixelToHex = (idx) => ('00'+(pixel.getUint8(idx).toString(16))).slice(-2);
-        const color = "#" + pixelToHex(0) + pixelToHex(1) + pixelToHex(2) + pixelToHex(3);
-        setColor(color);
+        setColor(pixelToColor(ctx.getImageData(x, y, 1, 1).data));
     }
     autoSave();
 }
