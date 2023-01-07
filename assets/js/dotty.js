@@ -1,6 +1,5 @@
 // TODO:
 // * select and move
-// * hot keys & keyboard shortcuts
 
 let canvas = document.getElementById("canvas");
 let canvasWrapper = document.getElementById("canvas-wrapper");
@@ -48,18 +47,25 @@ const adjustZoom = function () {
     canvas.style.width = Math.floor(width * zoom) + "px";
     canvas.style.backgroundSize = (zoom * 2) + "px";
 }
-let zoomIn = document.getElementById("zoom-in");
-zoomIn.onclick = function () {
+let zoomInButton = document.getElementById("zoom-in");
+let zoomInMenu = document.getElementById("zoom-in-menu");
+const zoomIn = function () {
     zoom += 3;
     adjustZoom();
 };
-let zoomOut = document.getElementById("zoom-out");
-zoomOut.onclick = function () {
+zoomInButton.onclick = zoomIn;
+zoomInMenu.onclick = zoomIn;
+let zoomOutButton = document.getElementById("zoom-out");
+let zoomOutMenu = document.getElementById("zoom-out-menu");
+const zoomOut = function () {
     zoom -= 3;
     adjustZoom();
 };
-let zoomReset = document.getElementById("zoom-reset");
-zoomReset.onclick = function () {
+zoomOutButton.onclick = zoomOut;
+zoomOutMenu.onclick = zoomOut;
+let zoomResetButton = document.getElementById("zoom-reset");
+let zoomResetMenu = document.getElementById("zoom-fit-menu");
+const zoomReset = function () {
     if (canvasWrapper.offsetWidth  < canvasWrapper.offsetHeight ) {
         zoom = Math.floor(canvasWrapper.offsetWidth / width);
     } else {
@@ -67,7 +73,9 @@ zoomReset.onclick = function () {
     }
     adjustZoom();
 };
-zoomReset.click();
+zoomResetButton.onclick = zoomReset;
+zoomResetMenu.onclick = zoomReset;
+zoomReset();
 
 // Undo History
 
@@ -425,6 +433,19 @@ document.onkeydown = (e) => {
                 historyGoForward();
                 e.preventDefault();
                 break;
+            case '=':
+                if (!e.shiftKey) {
+                    zoomIn();
+                    e.preventDefault();
+                    break;
+                }
+            case '+':
+                zoomReset();
+                e.preventDefault();
+                break;
+            case '-':
+                zoomOut();
+                e.preventDefault();
         }
     } else {
         switch(e.key) {
