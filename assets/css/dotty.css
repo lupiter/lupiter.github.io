@@ -7,7 +7,7 @@ body {
     padding: 0;
     height: 100%;
     display: grid;
-    grid-template-columns: calc(44px + 0.5rem * 2) auto;
+    grid-template-columns: calc(34px + 0.5rem * 2) auto;
     background-color: white;
     background: url('/images/dotty/bg.png');
     grid-template-rows: calc(44px + 0.5rem) 1fr calc(44px * 2 + 0.5rem);
@@ -55,7 +55,7 @@ canvas {
 }
 ul[role="menu-bar"] {
     border-bottom: 1px solid black;
-    height: 44px;
+    height: 34px;
 }
 label.field-label {
     justify-content: right;
@@ -135,6 +135,7 @@ ul[role="menu"] > [role="menu-item"] > a, ul[role="menu"] > [role="menu-item"] >
 }
 [role="menu-item"] .shortcut {
     opacity: 0.4;
+    font-size: 9pt;
 }
 .btn.icon-button {
     height: 44px;
@@ -257,7 +258,7 @@ fieldset.resize-mode-grid {
 @media (max-width: 900px) {
     body {
         grid-template-columns: 1fr;
-        grid-template-rows: calc(44px + 0.5rem) calc(44px + 0.5rem) 1fr calc(44px * 2 + 0.5rem);
+        grid-template-rows: calc(34px + 0.5rem) calc(44px + 0.5rem) 1fr calc(44px * 2 + 0.5rem);
     }
     .palette.tools {
         grid-column: 1 / 3;
