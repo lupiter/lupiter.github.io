@@ -392,8 +392,8 @@ updateSize(width, height);
 
 // Keyboard Shortcuts
 
-document.onkeyup = (e) => {
-    console.log(e);
+document.onkeydown = (e) => {
+    console.log(e, e.key);
     if (e.metaKey || e.ctrlKey) {
         switch(e.key) {
             case 'S':
