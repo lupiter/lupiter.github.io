@@ -29,6 +29,7 @@ let pencil = document.getElementById("pencil");
 let eraser = document.getElementById("eraser");
 let dropper = document.getElementById("dropper");
 let bucket = document.getElementById("bucket");
+let move = document.getElementById("move");
 
 let undoButton = document.getElementById("undo-btn");
 let redoButton = document.getElementById("redo-btn");
@@ -107,7 +108,7 @@ const addHistory = function () {
     updateHistoryButtons();
 }
 
-const paintHistory = function (blobURL) {
+const paintHistory = function (blobURL, x = 0, y = 0) {
     const img = new Image();
     img.src = blobURL;
 
@@ -115,7 +116,7 @@ const paintHistory = function (blobURL) {
         URL.revokeObjectURL(this.src);
         ctx.beginPath();
         ctx.clearRect(0, 0, width, height);
-        ctx.drawImage(img, 0, 0, width, height);
+        ctx.drawImage(img, x, y, width, height);
         ctx.closePath();
     };
 }
@@ -210,7 +211,7 @@ loadSave();
 
 var drawMode = pen.value;
 const updateDrawMode = function() {
-    drawMode = [pen, eraser, pencil, dropper, bucket].find((tool) => tool.checked).value;
+    drawMode = [pen, eraser, pencil, dropper, bucket, move].find((tool) => tool.checked).value;
 }
 updateDrawMode();
 pen.onchange = updateDrawMode;
@@ -218,8 +219,10 @@ eraser.onchange = updateDrawMode;
 pencil.onchange = updateDrawMode;
 dropper.onchange = updateDrawMode;
 bucket.onchange = updateDrawMode;
+move.onchange = updateDrawMode;
 
 let mouseDown = false;
+let moveOrigin = undefined;
 
 const floodFill = function (startX, startY) {
     // Credit: Tom Cantwell https://cantwell-tom.medium.com/flood-fill-and-line-tool-for-html-canvas-65e08e31aec6
@@ -300,6 +303,10 @@ const floodFill = function (startX, startY) {
     ctx.putImageData(imageData, 0, 0);
 }
 
+const getCanvaMovement = function () {
+    return canvas.style.translate.split(" ").map(x => Number.parseInt(x.slice(undefined, -2)));
+}
+
 const paint = function (e) {
     const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / zoom);
     const y = Math.floor((e.offsetY ? e.offsetY : e.layerY) / zoom);
@@ -320,12 +327,27 @@ const paint = function (e) {
         }
     } else if (drawMode == bucket.value) {
         floodFill(x,y);
+    } else if (drawMode == move.value) {
+        const current = getCanvaMovement();
+        if (current.length > 1) {
+            const expected = Math.floor((x - moveOrigin.x) * zoom + current[0]) + "px " + Math.floor((y - moveOrigin.y) * zoom + current[1]) + "px";
+            if (expected != current) {
+                canvas.style.translate = expected;
+            }
+        } else {
+            canvas.style.translate = Math.floor((x - moveOrigin.x) * zoom) + "px " + Math.floor((y - moveOrigin.y) * zoom) + "px";
+        }
     }
     ctx.closePath();
 }
 
 const onStart = function (e) {
     addHistory();
+    if (drawMode === move.value) {
+        const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / zoom);
+        const y = Math.floor((e.offsetY ? e.offsetY : e.layerY) / zoom);
+        moveOrigin = { x, y };
+    }
     paint(e);
     mouseDown = true;
 }
@@ -351,10 +373,16 @@ const colorToPixel = function (color) {
 
 const onStop = function (e) {
     mouseDown = false;
-    if (drawMode == dropper.value) {
+    if (drawMode === dropper.value) {
         const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / zoom);
         const y = Math.floor((e.offsetY ? e.offsetY : e.layerY) / zoom);
         setColor(pixelToColor(ctx.getImageData(x, y, 1, 1).data));
+    } else if (drawMode === move.value) {
+        const current = getCanvaMovement().map(x => Math.floor(x / zoom));
+        const data = canvas.toDataURL();
+        paintHistory(data, current[0], current[1]);
+        canvas.style.translate = "";
+        moveOrigin = undefined;
     }
     autoSave();
 }
@@ -401,7 +429,6 @@ updateSize(width, height);
 // Keyboard Shortcuts
 
 document.onkeydown = (e) => {
-    console.log(e, e.key);
     if (e.metaKey || e.ctrlKey) {
         switch(e.key) {
             case 'S':
