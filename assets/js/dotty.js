@@ -550,7 +550,7 @@ resizeConfirm.onclick = function() {
 
     updateSize(newHeight, newWidth);
     resizeCanvas();
-    zoomReset.click();
+    zoomReset();
     adjustZoom();
     ctx.putImageData(data, newX, newY);
 
@@ -576,10 +576,16 @@ let newCreate = document.getElementById("new-create");
 newCreate.onclick = function () {
     modalNew.style.display = "none";
     mainTitle.className = "title-bar";
+    clearHistory();
     updateName(document.getElementById("new-name").value);
     ctx.clearRect(0, 0, height, width);
-    updateSize(document.getElementById("new-height").value, document.getElementById("new-width").value);
+    const newHeight = document.getElementById("new-height").value;
+    const newWidth = document.getElementById("new-width").value;
+    updateSize(newHeight, newWidth);
     resizeCanvas();
+    zoomReset();
+    adjustZoom();
+    autoSave();
 }
 
 const newDocument = function () {
@@ -642,7 +648,7 @@ input.onchange = function (ev) {
         ctx.beginPath();
         ctx.drawImage(img, 0, 0, width, height);
         ctxt.closePath();
-        zoomReset.click();
+        zoomReset();
         adjustZoom();
     };
 }
