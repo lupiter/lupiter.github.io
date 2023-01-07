@@ -17,7 +17,7 @@
         <img src="/images/dotty/logo.png" class="pixel-icon" alt="Dotty" />
         <ul role="menu">
             <li role="menu-item">
-                <a id="about" url="#">About Dotty...</a>
+                <a id="about" url="#">About Dotty... <span class="shortcut">⌘ ?</span></a>
             </li>
         </ul>
     </li>
@@ -25,15 +25,16 @@
         File
         <ul role="menu">
             <li role="menu-item">
-                <a><label>Open...
-                <input type="file" id="file" class="btn" style="display: none;">
-                </label></a>
+                <label>Open...
+                    <input type="file" id="file" class="btn" style="display: none;">
+                    <span class="shortcut">⌘ O</span>
+                </label>
             </li>
             <li role="menu-item">
-                <a id="new" url="#">New...</a>
+                <a id="new" url="#">New... <span class="shortcut">⌘ N</span></a>
             </li>
             <li role="menu-item">
-                <a id="download" url="#">Download</a>
+                <a id="download" url="#">Download <span class="shortcut">⌘ S</span></a>
             </li>
         </ul>
     </li>
@@ -41,10 +42,10 @@
         Edit
         <ul role="menu">
             <li role="menu-item">
-                <a id="undo-menu" class="disabled" url="#" aria-disabled="true">Undo</a>
+                <a id="undo-menu" class="disabled" url="#" aria-disabled="true">Undo <span class="shortcut">⌘ Z</span></a>
             </li>
             <li role="menu-item" class="divider">
-                <a id="redo-menu" class="disabled" url="#" aria-disabled="true">Redo</a>
+                <a id="redo-menu" class="disabled" url="#" aria-disabled="true">Redo <span class="shortcut">⇧ ⌘ Z</span></a>
             </li>
             <li role="menu-item">
                 <a id="clear-menu" class="" url="#">Clear All</a>
@@ -55,47 +56,63 @@
             
         </ul>
     </li>
+    <li role="menu-item" tabindex="0" aria-haspopup="true">
+        View
+        <ul role="menu">
+            <li role="menu-item">
+                <a id="zoom-in-menu" class="" url="#">Zoom In <span class="shortcut">⌘ =</span></a>
+            </li>
+                <a id="zoom-out-menu" class="" url="#">Zoom Out <span class="shortcut">⌘ -</span></a>
+            </li>
+            <li role="menu-item">
+                <a id="zoom-fit-menu" class="" url="#">Zoom to Fit <span class="shortcut">⇧ ⌘ =</span></a>
+            </li>
+        </ul>
+    </li>
 </ul>
+
+<div class="window palette tools">
+    <fieldset class="field-row tools">
+        <legend>Tool</legend>
+        <input id="pen" type="radio" name="tool" value="pen" checked>
+        <label for="pen" class="btn radio-button"><img src="/images/dotty/pen.png" class="pixel-icon" alt="Pen, hotkey P" /></label>
+        <input id="pencil" type="radio" name="tool" value="pencil">
+        <label for="pencil" class="btn radio-button"><img src="/images/dotty/pencil.png" class="pixel-icon" alt="Pencil, hotkey B" /></label>
+        <input id="bucket" type="radio" name="tool" value="bucket">
+        <label for="bucket" class="btn radio-button"><img src="/images/dotty/bucket.png" class="pixel-icon" alt="Bucket, hotkey G" /></label>
+        <input id="eraser" type="radio" name="tool" value="eraser">
+        <label for="eraser" class="btn radio-button"><img src="/images/dotty/eraser.png" class="pixel-icon" alt="Eraser, hotkey E" /></label>
+        <input id="dropper" type="radio" name="tool" value="dropper">
+        <label for="dropper" class="btn radio-button"><img src="/images/dotty/dropper.png" class="pixel-icon" alt="Dropper, hotkey I" /></label>
+        <input id="move" type="radio" name="tool" value="move">
+        <label for="move" class="btn radio-button"><img src="/images/dotty/move.png" class="pixel-icon" alt="Move, hotkey M" /></label>
+    </fieldset>
+</div>
 
 <div class="window" id="win">
     <div class="title-bar" id="main-title"><h1 class="title"><span id="name">Dotty</span>—<span id="size"></span></h1></div>
-    <div class="details-bar">
-        <fieldset class="field-row tools">
-            <legend>Tool</legend>
-            <input id="eraser" type="radio" name="tool" value="eraser">
-            <label for="eraser" class="btn radio-button"><img src="/images/dotty/eraser.png" class="pixel-icon" alt="Eraser" /></label>
-            <input id="pen" type="radio" name="tool" value="pen" checked>
-            <label for="pen" class="btn radio-button"><img src="/images/dotty/pen.png" class="pixel-icon" alt="Pen" /></label>
-            <input id="pencil" type="radio" name="tool" value="pencil">
-            <label for="pencil" class="btn radio-button"><img src="/images/dotty/pencil.png" class="pixel-icon" alt="Pencil" /></label>
-            <input id="dropper" type="radio" name="tool" value="dropper">
-            <label for="dropper" class="btn radio-button"><img src="/images/dotty/dropper.png" class="pixel-icon" alt="Dropper" /></label>
-            <input id="bucket" type="radio" name="tool" value="bucket">
-            <label for="bucket" class="btn radio-button"><img src="/images/dotty/bucket.png" class="pixel-icon" alt="Bucket" /></label>
-        </fieldset>
-        <div class="field-row">
-            <input type="color" id="color" aria-label="Color" />
-            <input type="number" id="alpha" min="0" max="100" step="1" placeholder="opacity" value="100" aria-label="Opacity" />%
-        </div>
-        <div class="field-row">
-            <button class="btn icon-button" id="undo-btn" disabled><img src="/images/dotty/undo.png" alt="Undo" /></button>
-            <button class="btn icon-button" id="redo-btn" disabled><img src="/images/dotty/redo.png" alt="Redo" /></button>
-        </div>
-    </div>
-
+    
     <div id="canvas-wrapper">
         <canvas id="canvas" width="16" height="16"></canvas>
     </div>
+</div>
 
-    <div class="tool-bar details-bar bottom-bar">
-        <div class="field-row" id="color-history">
-        </div>
-        <div class="field-row">
-            <button class="btn icon-button" id="zoom-out" aria-label="zoom out"><img src="/images/dotty/zoom-out.png" alt="-" /></button>
-            <button class="btn icon-button" id="zoom-in" aria-label="zoom in"><img src="/images/dotty/zoom-in.png" alt="+" /></button>
-            <button class="btn icon-button" id="zoom-reset" aria-label="zoom to fit"><img src="/images/dotty/zoom-fit.png" alt="=" /></button>
-        </div>
+
+<div class="window palette actions">
+    <button class="btn icon-button" id="undo-btn" disabled><img src="/images/dotty/undo.png" alt="Undo" /></button>
+    <button class="btn icon-button" id="redo-btn" disabled><img src="/images/dotty/redo.png" alt="Redo" /></button>
+    <span></span>
+    <button class="btn icon-button" id="zoom-out" aria-label="zoom out"><img src="/images/dotty/zoom-out.png" alt="-" /></button>
+    <button class="btn icon-button" id="zoom-in" aria-label="zoom in"><img src="/images/dotty/zoom-in.png" alt="+" /></button>
+    <button class="btn icon-button" id="zoom-reset" aria-label="zoom to fit"><img src="/images/dotty/zoom-fit.png" alt="=" /></button>
+</div>
+
+<div class="window palette colors">
+    <div class="active-color">
+        <input type="color" id="color" aria-label="Color" />
+        <label><input type="number" id="alpha" min="0" max="100" step="1" placeholder="opacity" value="100" aria-label="Opacity" />%</label>
     </div>
+    <div class="color-history" id="color-history"></div>
 </div>
 
 <div class="modal-wrapper" id="modal-wrapper-new">

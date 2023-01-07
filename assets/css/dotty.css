@@ -6,13 +6,38 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: calc(44px * 2 + 0.5rem * 2) auto;
     background-color: white;
-    background: linear-gradient(90deg,#fff 7px,transparent 1%) 50%,linear-gradient(#fff 7px,transparent 1%) 50%,#000;
-    background-size: 8px 8px;
+    background: url('/images/dotty/bg.png');
+    grid-template-rows: calc(44px + 0.4rem) 1fr calc(44px * 3 + 0.5rem * 2) calc(44px * 2 + 0.5rem * 2);
+    /* grid-template-rows: repeat(83, 1fr); */
 }
+
+ul[role="menu-bar"] {
+    grid-column: 1 / 3;
+}
+.palette.tools {
+    border-width: 0 0.1rem 0.1rem 0;
+}
+.palette.actions {
+    border-width: 0 0.1rem 0.1rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#win {
+    grid-row: 2 / 4;
+    grid-column: 2 / 3;
+}
+.palette.colors {
+    grid-column: 1 / 3;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+
 .window {
+    min-width: unset;
     flex: 1;
 }
 canvas {
@@ -26,7 +51,7 @@ canvas {
 }
 ul[role="menu-bar"] {
     border-bottom: 1px solid black;
-    min-height: 44px;
+    height: 44px;
 }
 label.field-label {
     justify-content: right;
@@ -75,14 +100,14 @@ input[type="radio"] + label.btn:not(:last-child) {
     position: relative;
     touch-action: manipulation;
 }
-.details-bar {
+.palette {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 0.4rem;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
-.details-bar [class^="field-row"] + [class^="field-row"] {
+.palette [class^="field-row"] + [class^="field-row"] {
     margin-top: 0;
 }
 [role="menu-item"] {
@@ -97,14 +122,34 @@ input[type="radio"] + label.btn:not(:last-child) {
 ul[role="menu"] > [role="menu-item"] > a.disabled {
     color: #b6b7b8;
 }
+ul[role="menu"] > [role="menu-item"] > label, ul[role="menu"] > [role="menu-item"] > button, ul[role="menu"] > [role="menu-item"][aria-haspopup="true"] {
+    all: unset;
+    box-sizing: border-box;
+    display: block;
+    padding: 5px 20px;
+    position: relative;
+    width: 100%;
+}
+ul[role="menu"] > [role="menu-item"] > a, ul[role="menu"] > [role="menu-item"] > label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+[role="menu-item"] .shortcut {
+    opacity: 0.4;
+}
 .btn.icon-button {
-    height: 42px;
-    width: 42px;
+    height: 43.25px;
+    width: 43.25px;
     padding: 2px;
     min-width: unset;
     min-height: unset;
     display: flex;
     touch-action: manipulation;
+    border: 0.1rem solid black;
+    border-right-width: 0;
+    border-bottom-width: 0;
 }
 .btn.icon-button img, .pixel-icon {
     image-rendering: pixelated;
@@ -119,14 +164,18 @@ ul[role="menu"] > [role="menu-item"] > a.disabled {
     touch-action: manipulation;
 }
 fieldset.tools {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+    margin: 0;
+    flex: 1;
     border: 0;
     padding: 0;
 }
 .radio-button {
-    width: 25px;
-    height: 25px;
+    width: 38px;
+    height: 38px;
     margin: 2px;
     display: flex;
     justify-content: center;
@@ -136,10 +185,8 @@ fieldset.tools {
     overflow: hidden;
     border: 0.1rem solid black;
     border-right-width: 0;
+    border-bottom-width: 0;
     display: flex;
-}
-.radio-button:last-child {
-    border-right-width: 0.1rem;
 }
 .btn.radio-button:active {
     border-radius: 0;
@@ -150,7 +197,7 @@ fieldset.tools {
 }
 input[type="radio"] + label.btn, input[type="radio"] + label.btn:not(:last-child) {
     margin: 0;
-    padding: 0.5rem;
+    padding: 2px;
     touch-action: manipulation;
 }
 input[type="radio"]:checked + label.btn {
@@ -172,12 +219,18 @@ input[type="color"] {
     padding: 2px;
     touch-action: manipulation;
 }
-.bottom-bar {
-    flex-wrap: nowrap;
+.active-color {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem;
 }
 #color-history {
-    overflow: hidden;
-    border: 0.1rem solid black;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-wrap: wrap;
 }
 .color-chip.btn.icon-button {
     overflow: hidden;
@@ -194,4 +247,36 @@ fieldset.resize-mode-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column: 1 / 3;
+}
+
+
+
+@media (max-width: 800px) {
+    body {
+        grid-template-columns: 1fr calc(44px * 3 + 0.5rem * 2);
+        grid-template-rows: calc(44px + 0.4rem) calc(44px * 2 + 0.5rem * 2) 1fr calc(44px * 2 + 0.5rem * 2);
+    }
+    .palette.tools {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: unset;
+    }
+    fieldset.tools {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .palette.actions {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    #win {
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
+    }
+    .palette.colors {
+        grid-row: 4 / 5;
+    }
 }

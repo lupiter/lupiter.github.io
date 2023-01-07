@@ -1,5 +1,6 @@
 // TODO:
 // * select and move
+// * hot keys & keyboard shortcuts
 
 let canvas = document.getElementById("canvas");
 let canvasWrapper = document.getElementById("canvas-wrapper");
@@ -7,9 +8,9 @@ let ctx = canvas.getContext('2d');
 let output = document.getElementById("download");
 let input = document.getElementById("file");
 
-let newDocument = document.getElementById("new");
+let newMenu = document.getElementById("new");
 let modalNew = document.getElementById("modal-wrapper-new");
-let about = document.getElementById("about");
+let aboutMenu = document.getElementById("about");
 let modalAbout = document.getElementById("modal-wrapper-about");
 let undoMenu = document.getElementById("undo-menu");
 let redoMenu = document.getElementById("redo-menu");
@@ -28,6 +29,7 @@ let pen = document.getElementById("pen");
 let pencil = document.getElementById("pencil");
 let eraser = document.getElementById("eraser");
 let dropper = document.getElementById("dropper");
+let bucket = document.getElementById("bucket");
 
 let undoButton = document.getElementById("undo-btn");
 let redoButton = document.getElementById("redo-btn");
@@ -387,6 +389,64 @@ const updateSize = function(newH, newW) {
 }
 updateSize(width, height);
 
+// Keyboard Shortcuts
+
+document.onkeyup = (e) => {
+    console.log(e);
+    if (e.metaKey || e.ctrlKey) {
+        switch(e.key) {
+            case 'S':
+            case 's':
+                download();
+                e.preventDefault();
+                break;
+            case 'O':
+            case 'o':
+                open();
+                e.preventDefault();
+                break;
+            case 'N':
+            case 'n':
+                newDocument();
+                e.preventDefault();
+                break;
+            case '?':
+                about();
+                e.preventDefault();
+                break;
+            case 'z':
+                if (!e.shiftKey) {
+                    historyGoBack();
+                    e.preventDefault();
+                    break;
+                }
+            case 'Z':
+                historyGoForward();
+                e.preventDefault();
+                break;
+        }
+    } else {
+        switch(e.key) {
+            case 'b':
+                pencil.click();
+                break;
+            case 'e':
+                eraser.click();
+                break;
+            case 'g':
+                bucket.click();
+                break;
+            case 'i':
+                dropper.click();
+                break;
+            case 'p':
+                pen.click();
+                break;
+        }
+    }
+
+}
+
 // Canvas
 
 const resizeCanvas = function() {
@@ -473,18 +533,22 @@ newCreate.onclick = function () {
     resizeCanvas();
 }
 
-newDocument.onclick = function () {
+const newDocument = function () {
     modalNew.style.display = "flex";
     mainTitle.className = "inactive-title-bar";
 }
 
+newMenu.onclick = newDocument;
+
 // About Dialog
 
-about.onclick = function () {
+const about = function () {
     console.log("show about");
     modalAbout.style.display = "flex";
     mainTitle.className = "inactive-title-bar";
-}
+};
+
+aboutMenu.onclick = about;
 
 modalAbout.onclick = function () {
     modalAbout.style.display = "none";
@@ -493,7 +557,7 @@ modalAbout.onclick = function () {
 
 // Download Document
 
-output.onclick = function () {
+const download = function () {
     const uri = canvas.toDataURL();
     var link = document.createElement('a');
     link.download = filename;
@@ -503,6 +567,8 @@ output.onclick = function () {
     document.body.removeChild(link);
     delete link;
 }
+
+output.onclick = download;
 
 // Load Document
 
