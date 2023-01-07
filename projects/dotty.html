@@ -62,6 +62,7 @@
             <li role="menu-item">
                 <a id="zoom-in-menu" class="" url="#">Zoom In <span class="shortcut">⌘ =</span></a>
             </li>
+            <li role="menu-item">
                 <a id="zoom-out-menu" class="" url="#">Zoom Out <span class="shortcut">⌘ -</span></a>
             </li>
             <li role="menu-item">
@@ -72,7 +73,7 @@
 </ul>
 
 <div class="window palette tools">
-    <fieldset class="field-row tools">
+    <fieldset class="tools">
         <legend>Tool</legend>
         <input id="pen" type="radio" name="tool" value="pen" checked>
         <label for="pen" class="btn radio-button"><img src="/images/dotty/pen.png" class="pixel-icon" alt="Pen, hotkey P" /></label>
@@ -84,9 +85,17 @@
         <label for="eraser" class="btn radio-button"><img src="/images/dotty/eraser.png" class="pixel-icon" alt="Eraser, hotkey E" /></label>
         <input id="dropper" type="radio" name="tool" value="dropper">
         <label for="dropper" class="btn radio-button"><img src="/images/dotty/dropper.png" class="pixel-icon" alt="Dropper, hotkey I" /></label>
-        <input id="move" type="radio" name="tool" value="move">
-        <label for="move" class="btn radio-button"><img src="/images/dotty/move.png" class="pixel-icon" alt="Move, hotkey M" /></label>
+        <!-- <input id="move" type="radio" name="tool" value="move">
+        <label for="move" class="btn radio-button"><img src="/images/dotty/move.png" class="pixel-icon" alt="Move, hotkey M" /></label> -->
     </fieldset>
+
+    <div class="actions">
+        <button class="btn icon-button" id="undo-btn" disabled><img src="/images/dotty/undo.png" alt="Undo" /></button>
+        <button class="btn icon-button" id="redo-btn" disabled><img src="/images/dotty/redo.png" alt="Redo" /></button>
+        <button class="btn icon-button" id="zoom-out" aria-label="zoom out"><img src="/images/dotty/zoom-out.png" alt="-" /></button>
+        <button class="btn icon-button" id="zoom-in" aria-label="zoom in"><img src="/images/dotty/zoom-in.png" alt="+" /></button>
+        <button class="btn icon-button" id="zoom-reset" aria-label="zoom to fit"><img src="/images/dotty/zoom-fit.png" alt="=" /></button>
+    </div>
 </div>
 
 <div class="window" id="win">
@@ -97,15 +106,6 @@
     </div>
 </div>
 
-
-<div class="window palette actions">
-    <button class="btn icon-button" id="undo-btn" disabled><img src="/images/dotty/undo.png" alt="Undo" /></button>
-    <button class="btn icon-button" id="redo-btn" disabled><img src="/images/dotty/redo.png" alt="Redo" /></button>
-    <span></span>
-    <button class="btn icon-button" id="zoom-out" aria-label="zoom out"><img src="/images/dotty/zoom-out.png" alt="-" /></button>
-    <button class="btn icon-button" id="zoom-in" aria-label="zoom in"><img src="/images/dotty/zoom-in.png" alt="+" /></button>
-    <button class="btn icon-button" id="zoom-reset" aria-label="zoom to fit"><img src="/images/dotty/zoom-fit.png" alt="=" /></button>
-</div>
 
 <div class="window palette colors">
     <div class="active-color">

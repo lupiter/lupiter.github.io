@@ -46,6 +46,7 @@ let width = 16;
 const adjustZoom = function () {
     canvas.style.height = Math.floor(height * zoom) + "px";
     canvas.style.width = Math.floor(width * zoom) + "px";
+    canvas.style.backgroundSize = (zoom * 2) + "px";
 }
 let zoomIn = document.getElementById("zoom-in");
 zoomIn.onclick = function () {
