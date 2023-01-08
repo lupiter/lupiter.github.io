@@ -311,6 +311,18 @@ fieldset.export-size-grid {
     display: none;
 }
 
+#modal-wrapper-about .modal-contents {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#modal-wrapper-about img {
+    width: 64px;
+    height: 64px;
+}
 
 
 @media (max-width: 900px) {
