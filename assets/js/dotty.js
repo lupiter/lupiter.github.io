@@ -1,6 +1,5 @@
 // TODO:
 // * select and move
-// * social media export
 // * better pan when zoomed in on mobilve
 // * fix the menus
 
@@ -21,6 +20,8 @@ let redoMenu = document.getElementById("redo-menu");
 let clearMenu = document.getElementById("clear-menu");
 let resizeMenu = document.getElementById("resize-menu");
 let resizeModal = document.getElementById("modal-wrapper-resize");
+let exportMenu = document.getElementById("export-menu");
+let exportModal = document.getElementById("modal-wrapper-export");
 
 let mainTitle = document.getElementById("main-title");
 let win = document.getElementById("win");
@@ -436,6 +437,11 @@ updateSize(width, height);
 document.onkeydown = (e) => {
     if (e.metaKey || e.ctrlKey) {
         switch(e.key) {
+            case 'E':
+            case 'e':
+                exportArt();
+                e.preventDefault();
+                break;
             case 'S':
             case 's':
                 download();
@@ -600,10 +606,58 @@ const newDocument = function () {
 
 newMenu.onclick = newDocument;
 
+// Export Dialog
+
+const exportArt = function () {
+    exportModal.style.display = "flex";
+    mainTitle.className = "inactive-title-bar";
+}
+exportMenu.onclick = exportArt;
+let exportSize = document.getElementById("export-size");
+let exportCancel = document.getElementById("export-cancel");
+exportCancel.onclick = function () {
+    exportModal.style.display = "none";
+    mainTitle.className = "title-bar";
+}
+let exportConfirm = document.getElementById("export-confirm");
+exportConfirm.onclick = function () {
+    exportCancel.click();
+    const requestedSize = Number.parseInt(document.querySelector(".export-size-grid input:checked").value);
+    const exportCanvas = document.createElement('canvas');
+    const exportZoom = Math.ceil(requestedSize / width);
+    exportCanvas.width = exportZoom * width;
+    exportCanvas.height = exportZoom * height;
+    const blobURL = canvas.toDataURL();
+
+    const img = new Image();
+    img.src = blobURL;
+
+    img.onload = function () {
+        URL.revokeObjectURL(this.src);
+        document.body.appendChild(exportCanvas);
+        exportCtx = exportCanvas.getContext('2d');
+        exportCtx.imageSmoothingEnabled = false;
+        exportCtx.beginPath();
+        exportCtx.drawImage(img, 0, 0, exportZoom * width, exportZoom * height);
+        exportCtx.closePath();
+
+        const uri = exportCanvas.toDataURL();
+        document.body.removeChild(exportCanvas);
+        delete exportCanvas;
+
+        var link = document.createElement('a');
+        link.download = 'export-' + filename + '.png';
+        link.href = uri;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        delete link;
+    };
+}
+
 // About Dialog
 
 const about = function () {
-    console.log("show about");
     modalAbout.style.display = "flex";
     mainTitle.className = "inactive-title-bar";
 };

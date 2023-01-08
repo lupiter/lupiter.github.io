@@ -39,6 +39,9 @@
             <li role="menu-item">
                 <a id="download" url="#">Download <span class="shortcut">⌘ S</span></a>
             </li>
+            <li role="menu-item">
+                <a id="export-menu" url="#">Export... <span class="shortcut">⌘ E</span></a>
+            </li>
         </ul>
     </li>
     <li role="menu-item" tabindex="0" aria-haspopup="true">
@@ -154,6 +157,33 @@
     </div>
 </div>
 
+<div class="modal-wrapper" id="modal-wrapper-export">
+    <div class="modal-dialog outer-border">
+        <div class="inner-border center">
+            <div class="modal-contents">
+                <h1 class="modal-text" style="text-align:center">Export</h1>
+  
+                <div class="modal-grid">
+                    <fieldset class="field-label export-size-grid">
+                        <legend>Size, at least:</legend>
+                        <input id="export-size-small" type="radio" name="export-size" value="256">
+                        <label for="export-size-small">256px wide - Small, for forums</label>
+                        <input id="export-size-medium" type="radio" name="export-size" value="1080" checked>
+                        <label for="export-size-medium">1080px wide - Medium, for social media</label>
+                        <input id="export-size-large" type="radio" name="export-size" value="2480">
+                        <label for="export-size-large">2480px wide - Large, for printing</label>
+                    </fieldset>
+                </div>
+
+                <section class="field-row" style="justify-content: flex-end">
+                    <button class="btn" id="export-cancel">Cancel</button>
+                    <button class="btn" id="export-confirm">Export</button>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal-wrapper" id="modal-wrapper-resize">
     <div class="modal-dialog outer-border">
         <div class="inner-border center">
@@ -200,10 +230,10 @@
         <div class="inner-border center">
             <div class="modal-contents">
                 <h1 class="modal-text" style="text-align:center">About Dotty</h1>
-  
-                    <p class="modeless-text">Download your work to save it!
-                    <p class="modeless-text">Made using just plain JavaScript baked into the page and <a href="https://sakofchit.github.io/system.css">System.css</a> ©️2022
-
+                <img src="/images/dotty/logo.png" class="pixel-icon" alt="Dotty" />
+                <p class="modeless-text">Download your work to save it!
+                <p class="modeless-text">Inspired by <a href="https://en.wikipedia.org/wiki/MacPaint">MacPaint</a>. Thank you Bill Atkinson.
+                <p class="modeless-text">©️2022. Made using just plain JavaScript and <a href="https://sakofchit.github.io/system.css">System.css</a>
             </div>
         </div>
     </div>
