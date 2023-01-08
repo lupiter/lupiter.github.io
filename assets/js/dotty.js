@@ -1,5 +1,10 @@
 // TODO:
 // * select and move
+// * social media export
+// * better pan when zoomed in on mobilve
+// * fix the menus
+
+// Hey, if your reading this, I can write better code I just chose to be lazy. Don't do what I do.
 
 let canvas = document.getElementById("canvas");
 let canvasWrapper = document.getElementById("canvas-wrapper");
