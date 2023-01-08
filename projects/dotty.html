@@ -15,63 +15,64 @@
     <link rel="apple-touch-icon" href="/images/dotty/logo.png" type="image/png" />
 </head>
 <body>
-<ul role="menu-bar">
-    <li role="menu-item" tabindex="0" aria-haspopup="true">
+<ul role="menubar">
+    <li role="menuitem" aria-haspopup="menu">
         <img src="/images/dotty/logo.png" class="pixel-icon" alt="Dotty" />
         <ul role="menu">
-            <li role="menu-item">
+            <li role="menuitem">
                 <a id="about" url="#">About Dotty... <span class="shortcut">⌘ ?</span></a>
             </li>
         </ul>
     </li>
-    <li role="menu-item" tabindex="0" aria-haspopup="true">
+    <li role="menuitem" aria-haspopup="menu">
         File
         <ul role="menu">
-            <li role="menu-item">
-                <label>Open...
-                    <input type="file" id="file" class="btn" style="display: none;">
+            <li role="menuitem">
+                <label role="menuitem">Open...
+                    <input type="file" id="file" class="btn" style="display: none;" accept=".png, .jpeg, image/png, image/jpeg">
                     <span class="shortcut">⌘ O</span>
                 </label>
             </li>
-            <li role="menu-item">
+            <li role="menuitem">
                 <a id="new" url="#">New... <span class="shortcut">⌘ N</span></a>
             </li>
-            <li role="menu-item">
+            <li role="menuitem">
                 <a id="download" url="#">Download <span class="shortcut">⌘ S</span></a>
             </li>
-            <li role="menu-item">
+            <li role="menuitem">
                 <a id="export-menu" url="#">Export... <span class="shortcut">⌘ E</span></a>
             </li>
         </ul>
     </li>
-    <li role="menu-item" tabindex="0" aria-haspopup="true">
+    <li role="menuitem" aria-haspopup="menu">
         Edit
         <ul role="menu">
-            <li role="menu-item">
+            <li role="menuitem">
                 <a id="undo-menu" class="disabled" url="#" aria-disabled="true">Undo <span class="shortcut">⌘ Z</span></a>
             </li>
-            <li role="menu-item" class="divider">
+            <li role="menuitem">
                 <a id="redo-menu" class="disabled" url="#" aria-disabled="true">Redo <span class="shortcut">⇧ ⌘ Z</span></a>
             </li>
-            <li role="menu-item">
+            <hr role="separator" />
+            <li role="menuitem">
                 <a id="clear-menu" class="" url="#">Clear All</a>
             </li>
-            <li role="menu-item">
+            <li role="menuitem">
                 <a id="resize-menu" class="" url="#">Resize...</a>
             </li>
             
         </ul>
     </li>
-    <li role="menu-item" tabindex="0" aria-haspopup="true">
+    <li role="menuitem" aria-haspopup="menu">
         View
         <ul role="menu">
-            <li role="menu-item">
+            <li role="menuitem">
                 <a id="zoom-in-menu" class="" url="#">Zoom In <span class="shortcut">⌘ =</span></a>
             </li>
-            <li role="menu-item">
+            <li role="menuitem">
                 <a id="zoom-out-menu" class="" url="#">Zoom Out <span class="shortcut">⌘ -</span></a>
             </li>
-            <li role="menu-item">
+            <li role="menuitem">
                 <a id="zoom-fit-menu" class="" url="#">Zoom to Fit <span class="shortcut">⇧ ⌘ =</span></a>
             </li>
         </ul>

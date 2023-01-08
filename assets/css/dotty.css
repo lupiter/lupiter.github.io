@@ -14,9 +14,14 @@ body {
     /* grid-template-rows: repeat(83, 1fr); */
 }
 
-ul[role="menu-bar"] {
+ul[role="menubar"] {
     grid-column: 1 / 3;
     padding-left: 0.5rem;
+    border-bottom: 1px solid black;
+    height: 34px;
+    background: white;
+    display: flex;
+    flex-direction: row;
 }
 .palette.tools {
     border: 0;
@@ -52,10 +57,6 @@ canvas {
     font-family: Chicago_12;
     display: flex;
     align-items: center;
-}
-ul[role="menu-bar"] {
-    border-bottom: 1px solid black;
-    height: 34px;
 }
 label.field-label {
     justify-content: right;
@@ -107,19 +108,70 @@ input[type="radio"] + label.btn:not(:last-child) {
 .palette [class^="field-row"] + [class^="field-row"] {
     margin-top: 0;
 }
-[role="menu-item"] {
+/* [role="menuitem"] {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+} */
+ul[role="menubar"] > li[role="menuitem"] {
+    display: flex;
+    flex-direction: row;
+    padding: 0.4rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
-[role="menu-item"]:hover img {
+hr[role="separator"] {
+    border: 0;
+    border-top: 1px dashed black;
+    width: 100%;
+    margin: 0;
+}
+ul[role="menubar"] > li[role="menuitem"] > ul[role="menu"] {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+    display: none;
+    flex-direction: column;
+    background: white;
+    justify-content: stretch;
+}
+li[role="menuitem"][aria-expanded="true"] {
+    background: black;
+    color: white;
+}
+
+li[role="menuitem"][aria-expanded="true"] img {
     filter: invert(100%);
 }
-ul[role="menu"] > [role="menu-item"] > a.disabled {
+ul[role="menu"] li[role="menuitem"] {
+    display: flex;
+    flex-direction: row;
+}
+ul[role="menu"] li[role="menuitem"]:hover, ul[role="menu"] li[role="menuitem"]:hover a  {
+    background: black;
+    color: white;
+}
+ul[role="menu"] li[role="menuitem"] label, ul[role="menu"] li[role="menuitem"] a {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-between;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+li[role="menuitem"] img {
+    width: 16px;
+    height: 16px;
+    margin: auto;
+}
+ul[role="menu"] > [role="menuitem"] > a.disabled {
     color: #b6b7b8;
 }
-ul[role="menu"] > [role="menu-item"] > label, ul[role="menu"] > [role="menu-item"] > button, ul[role="menu"] > [role="menu-item"][aria-haspopup="true"] {
+/* ul[role="menu"] > [role="menuitem"] > label, ul[role="menu"] > [role="menuitem"] > button, ul[role="menu"] > [role="menuitem"][aria-haspopup="true"] {
     all: unset;
     box-sizing: border-box;
     display: block;
@@ -127,13 +179,13 @@ ul[role="menu"] > [role="menu-item"] > label, ul[role="menu"] > [role="menu-item
     position: relative;
     width: 100%;
 }
-ul[role="menu"] > [role="menu-item"] > a, ul[role="menu"] > [role="menu-item"] > label {
+ul[role="menu"] > [role="menuitem"] > a, ul[role="menu"] > [role="menuitem"] > label {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-[role="menu-item"] .shortcut {
+} */
+[role="menuitem"] .shortcut {
     opacity: 0.4;
     font-size: 9pt;
 }

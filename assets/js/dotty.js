@@ -1,6 +1,6 @@
 // TODO:
 // * select and move
-// * better pan when zoomed in on mobilve
+// * better pan when zoomed in on mobile
 // * fix the menus
 
 // Hey, if your reading this, I can write better code I just chose to be lazy. Don't do what I do.
@@ -432,6 +432,46 @@ const updateSize = function(newH, newW) {
 }
 updateSize(width, height);
 
+// Menus
+
+const menus = document.querySelectorAll('ul[role="menubar"] > li[role="menuitem"]');
+const closeOpenMenus = () => {
+    const currentlyOpen = document.querySelector("[role='menuitem'][aria-expanded='true']");
+    if (!!currentlyOpen) {
+        currentlyOpen.querySelector("[role='menu']").style.display = 'none';
+        currentlyOpen.setAttribute('aria-expanded', false);
+        currentlyOpen.onclick = openMenu;
+    }
+}
+const openMenu = (e) => {
+    closeOpenMenus();
+    var target = e.target;
+    var menu = e.target.querySelector("[role='menu']");
+    while (menu === null) {
+        target = target.parentElement;
+        menu = target.querySelector("[role='menu']");
+    }
+    menu.style.display = 'flex';
+    target.setAttribute('aria-expanded', true);
+    e.preventDefault();
+    e.stopPropagation();
+    target.onclick = closeMenu;
+    document.onclick = closeMenu;
+};
+const closeMenu = (e) => {
+    closeOpenMenus();
+    document.onclick = undefined;
+    e.preventDefault();
+}
+menus.forEach(e => {
+    e.onclick = openMenu;
+    e.onkeydown = (k) => {
+        if (k.key === 'enter' || key === 'space') {
+            openMenu(k);
+        }
+    }
+})
+
 // Keyboard Shortcuts
 
 document.onkeydown = (e) => {
@@ -700,6 +740,11 @@ input.onchange = function (ev) {
     };
 
     img.onload = function () {
+        if (img.width > 256 || img.height > 256) {
+            alert("Sorry, this image is too large. Files should be no larger than 256x256 pixels");
+            return;
+        } 
+
         URL.revokeObjectURL(this.src);
         updateSize(img.height, img.width);
         clearHistory();
