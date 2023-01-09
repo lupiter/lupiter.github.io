@@ -2,6 +2,8 @@
 // * select and move
 // * better pan when zoomed in on mobile
 // * ios dynamic type support & ui zoom
+// * make title editable by double-clicking it, or long-press
+// * easter egg?
 
 
 // Hey, if your reading this, I can write better code I just chose to be lazy. Don't do what I do.

@@ -189,8 +189,8 @@ ul[role="menu"] > [role="menuitem"] > a, ul[role="menu"] > [role="menuitem"] > l
     font-size: 9pt;
 }
 .btn.icon-button {
-    height: 44px;
-    width: 44px;
+    height: 40px;
+    width: 40px;
     padding: 2px;
     min-width: unset;
     min-height: unset;
@@ -221,8 +221,8 @@ fieldset.tools, .tools.actions {
     flex-direction: column;
 }
 .radio-button {
-    width: 37px;
-    height: 37px;
+    width: 33px;
+    height: 33px;
     margin: 2px;
     display: flex;
     justify-content: center;
@@ -293,6 +293,8 @@ input[type="color"] {
     margin: 0;
     touch-action: manipulation;
     align-items: center;
+    height: 34px;
+    width: 34px;
 }
 fieldset.resize-mode-grid {
     display: grid;
@@ -327,7 +329,7 @@ fieldset.export-size-grid {
 @media (max-width: 900px) {
     body {
         grid-template-columns: 1fr;
-        grid-template-rows: calc(34px + 0.5rem) calc(44px + 0.5rem) 1fr calc(44px * 2 + 0.5rem + env(safe-area-inset-bottom));
+        grid-template-rows: calc(34px + 0.5rem) calc(40px + 0.5rem) auto calc(34px * 2 + 0.5rem + env(safe-area-inset-bottom));
     }
     .palette.tools {
         grid-column: 1 / 3;
