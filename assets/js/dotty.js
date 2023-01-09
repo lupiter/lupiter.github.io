@@ -1,7 +1,8 @@
 // TODO:
 // * select and move
 // * better pan when zoomed in on mobile
-// * fix the menus
+// * ios dynamic type support & ui zoom
+
 
 // Hey, if your reading this, I can write better code I just chose to be lazy. Don't do what I do.
 
