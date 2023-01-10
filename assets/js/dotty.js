@@ -807,9 +807,11 @@ const download = function () {
     link.download = filename;
     link.href = uri;
     document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    delete link;
+    window.setTimeout(() => {
+        link.click();
+        document.body.removeChild(link);
+        delete link;
+    }, 1);
 }
 
 output.onclick = download;
