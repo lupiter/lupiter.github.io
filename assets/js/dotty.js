@@ -1,7 +1,7 @@
-// TODO:
+// TODO
 // * select and move
-// * better pan when zoomed in on mobile
-// * ios dynamic type support & ui zoom
+// SOMEDAY
+// * ios ui zoom
 // * make title editable by double-clicking it, or long-press
 // * easter egg?
 
@@ -232,6 +232,8 @@ move.onchange = updateDrawMode;
 
 let mouseDown = false;
 let moveOrigin = undefined;
+let initialTouch = undefined;
+let lastTouch = undefined;
 
 const floodFill = function (startX, startY) {
     // Credit: Tom Cantwell https://cantwell-tom.medium.com/flood-fill-and-line-tool-for-html-canvas-65e08e31aec6
@@ -312,11 +314,78 @@ const floodFill = function (startX, startY) {
     ctx.putImageData(imageData, 0, 0);
 }
 
-const getCanvaMovement = function () {
-    return canvas.style.translate.split(" ").map(x => Number.parseInt(x.slice(undefined, -2)));
+const getCanvasMovement = function () {
+    if (canvas.style.translate === "" || canvas.style.translate === "0px") {
+        return { x: 0, y: 0 };
+    }
+    console.log(canvas.style.translate);
+    const [x, y] = canvas.style.translate.split(" ").map(x => Number.parseInt(x.slice(undefined, -2)));
+    return { x, y };
+}
+
+const getCanvasZoom = function () {
+    return Number.parseInt(canvas.style.scale);
+}
+
+const midpoint = function (touches) {
+    var totalX = 0, totalY = 0;
+    for (let i = 0; i < touches.length; i++) {
+        const touch = touches[i];
+        totalX += touch.screenX;
+        totalY += touch.screenY;
+    }
+    return {
+        x: totalX / touches.length,
+        y: totalY / touches.length,
+    };
+}
+
+const distance = function (touches) {
+    // we'll assume 2 touches
+    let [t1, t2] = touches;
+    let x = Math.abs(t1.screenX - t2.screenX);
+    let y = Math.abs(t1.screenY - t2.screenY);
+    return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+}
+
+const calcPanAndSpread = function() {
+    // pan
+    const startMove = midpoint(initialTouch);
+    const endMove = midpoint(lastTouch);
+    const pan = {
+        x: endMove.x - startMove.x,
+        y: endMove.y - startMove.y
+    };
+
+    // spread
+    const startSpread = distance(initialTouch);
+    const endSpread = distance(lastTouch);
+    const goalSpread = endSpread - startSpread;
+    const spread = (goalSpread / 100 + 1);
+
+    return {pan, spread};
 }
 
 const paint = function (e) {
+    // check if we're panning or zooming with two fingers
+    if (e.touches && e.touches.length > 1) {
+        // it's multitouch! oh no!
+        if (e.touches.length > 2) {
+            // sorry, don't know what to do with that many touches
+            return;
+        }
+        if (!initialTouch) {
+            initialTouch = e.touches;
+            return;
+        }
+        lastTouch = e.touches;
+        const { pan, spread } = calcPanAndSpread();
+        canvas.style.translate = pan.x + "px " + pan.y + "px";
+        canvas.style.scale = "" + spread;
+        return;
+    }
+
+    // okay, continue painting
     const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / zoom);
     const y = Math.floor((e.offsetY ? e.offsetY : e.layerY) / zoom);
     const fillStyle = currentColor;
@@ -337,9 +406,9 @@ const paint = function (e) {
     } else if (drawMode == bucket.value) {
         floodFill(x,y);
     } else if (drawMode == move.value) {
-        const current = getCanvaMovement();
-        if (current.length > 1) {
-            const expected = Math.floor((x - moveOrigin.x) * zoom + current[0]) + "px " + Math.floor((y - moveOrigin.y) * zoom + current[1]) + "px";
+        const current = getCanvasMovement();
+        if (current.x != 0 || current.y != 0) {
+            const expected = Math.floor((x - moveOrigin.x) * zoom + current.x) + "px " + Math.floor((y - moveOrigin.y) * zoom + current.y) + "px";
             if (expected != current) {
                 canvas.style.translate = expected;
             }
@@ -352,6 +421,9 @@ const paint = function (e) {
 
 const onStart = function (e) {
     addHistory();
+    if (e.touches && e.touches.length === 2) {
+        initialTouch = e.touches;
+    }
     if (drawMode === move.value) {
         const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / zoom);
         const y = Math.floor((e.offsetY ? e.offsetY : e.layerY) / zoom);
@@ -382,12 +454,27 @@ const colorToPixel = function (color) {
 
 const onStop = function (e) {
     mouseDown = false;
+    if (!!initialTouch && !!lastTouch) {
+        const { pan, spread } = calcPanAndSpread();
+        console.log(pan, spread, canvas.style.translate, canvas.style.scale);
+        zoom = zoom * spread;
+        adjustZoom();
+        canvas.style.scale = "";
+
+        canvas.style.translate = "";
+        canvasWrapper.scrollTop = canvasWrapper.scrollTop - pan.y;
+        canvasWrapper.scrollLeft = canvasWrapper.scrollLeft - pan.x;
+        
+        lastTouch = undefined;
+        initialTouch = undefined;
+        return;
+    }
     if (drawMode === dropper.value) {
         const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / zoom);
         const y = Math.floor((e.offsetY ? e.offsetY : e.layerY) / zoom);
         setColor(pixelToColor(ctx.getImageData(x, y, 1, 1).data));
     } else if (drawMode === move.value) {
-        const current = getCanvaMovement().map(x => Math.floor(x / zoom));
+        const current = getCanvasMovement().map(x => Math.floor(x / zoom));
         const data = canvas.toDataURL();
         paintHistory(data, current[0], current[1]);
         canvas.style.translate = "";

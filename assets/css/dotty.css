@@ -51,6 +51,7 @@ canvas {
     image-rendering: pixelated;
     background: repeating-linear-gradient(45deg, silver 0, silver 5px, white 5px, white 10px);
     background-image: url("/images/dotty/bg-20.png");
+    margin: auto;
 }
 .field-label {
     font-family: Chicago_12;
@@ -86,7 +87,6 @@ input[type="number"] {
 #canvas-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: start;
     overflow: auto;
     flex: 1;
