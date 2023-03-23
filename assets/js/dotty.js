@@ -551,7 +551,10 @@ const openMenu = (e) => {
 const closeMenu = (e) => {
     closeOpenMenus();
     document.onclick = undefined;
-    e.preventDefault();
+    console.log(e.target);
+    if (!e.target instanceof HTMLInputElement) {
+        e.preventDefault();
+    }
 }
 menus.forEach(e => {
     e.onclick = openMenu;
