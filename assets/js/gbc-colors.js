@@ -136,28 +136,30 @@ const generate = () => {
   const hue_increments = 360 / hues;
 
   const shade_increments = [];
-  const shade_count = Math.round(shades / 2);
+  const shade_count = Math.round(shades / 2.0);
   for (let i = 1; i <= shades; i++) {
     if (i <= shades / 2) {
       shade_increments.push([
         shift / shade_count * i,
         cool,
-        clamped.saturation / (shade_count) * i,
+        clamped.saturation,
         clamped.luminance / (shade_count) * i
       ])
-    } else if ((i - 1) / (shades - 1) === 0.5) {
+    } else if (i === Math.round(shades / 2.0) && shades % 2 === 1) {
       shade_increments.push([
         0,
         cool,
         clamped.saturation, 
         clamped.luminance
       ])
-    } else {
+    } else { // shades = 5, i = 2
+      const j = shades - i + 1; // j = 1
+      console.log(`shades ${shades} i ${i} j ${j} luminance ${clamped.luminance} shade_count ${shade_count}`)
       shade_increments.push([
         shift / shade_count * (i - shade_count),
         warm,
-        ((1 - clamped.saturation) / (shade_count * (i - shade_count))) + clamped.saturation,
-        ((1 - clamped.luminance) / (shade_count * (i - shade_count))) + clamped.luminance,
+        clamped.saturation,
+        Math.min(((1 - clamped.luminance) / (shade_count + 1) * j) + clamped.luminance, 1.0),
       ])
     }
   }
@@ -171,13 +173,7 @@ const generate = () => {
     const set = shade_increments.map(x => {
       return [bendHue(hue, x[0], x[1]), x[2], x[3]]
     })
-    //  [
-    //   [bendHue(hue, shift, cool), sat_low, shade_low],
-    //   [hue, clamped.saturation, clamped.luminance],
-    //   [bendHue(hue, shift, warm), sat_high, shade_high]
-    // ]
     .map(x => hslToRgb(x).safer);
-    console.log(set.map(x => x.hue));
   	palette.push(set);
     const row = document.createElement("tr");
     set.forEach(x => {
@@ -223,7 +219,6 @@ function generateAll() {
   });
 
   var lastHue = colours[0].hue;
-  console.log(lastHue);
   var row = document.createElement("tr");
   for (colour of colours) {
     const cell = document.createElement("td");
