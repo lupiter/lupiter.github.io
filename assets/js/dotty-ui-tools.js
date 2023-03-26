@@ -9,15 +9,20 @@ export class Palette {
 
 		this.colorInput.onchange = this.readColor.bind(this);
 		this.alphaInput.onchange = this.readColor.bind(this);
-
-		this.readColor();
+		this.load();
+		if (this.history.length) {
+			const color = this.history[this.history.length - 1];
+			this.current = color;
+			this.colorInput.value = this.current.slice(0, 7);
+			this.alphaInput.value = Math.round((Number.parseInt(this.current.slice(7), 16) / 255) * 100);
+		} else {
+			this.readColor();
+		}
 	}
 
 	readColor() {
 		this.current = this.colorInput.value + Math.floor(((this.alphaInput.value / 100) * 255)).toString(16);
 		this.addToHistory();
-		this.save();
-		this.updateChips();
 	}
 
 	addToHistory() {
@@ -25,6 +30,8 @@ export class Palette {
 			this.history = this.history.filter(x => x !== this.current);
 		}
 		this.history.push(this.current);
+		this.updateChips();
+		this.save();
 	}
 
 	updateChips() {
@@ -45,10 +52,6 @@ export class Palette {
 		this.colorInput.value = this.current.slice(0, 7);
 		this.alphaInput.value = Math.round((Number.parseInt(this.current.slice(7), 16) / 255) * 100);
 		this.addToHistory();
-	}
-
-	fileLoad() {
-
 	}
 
 	save() {

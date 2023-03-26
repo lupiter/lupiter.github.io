@@ -244,6 +244,7 @@ export class Canvas {
 			const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / this.zoom);
 			const y = Math.floor((e.offsetY ? e.offsetY : e.layerY) / this.zoom);
 			this.palette.setColor(ArtMaths.pixelToColor(this.ctx.getImageData(x, y, 1, 1).data));
+			this.palette.addToHistory();
 		} else if (this.tools.isMove()) {
 			const current = this.movement.map(x => Math.floor(x / this.zoom));
 			const data = this.canvas.toDataURL();
@@ -319,7 +320,7 @@ export class Canvas {
 				this.canvas.style.translate = Math.floor((x - this.moveOrigin.x) * zoom) + "px " + Math.floor((y - this.moveOrigin.y) * zoom) + "px";
 			}
 		} else {
-			console.warn("Unexpected tool", this.tools.current);
+			// console.warn("Unexpected tool", this.tools.current);
 		}
 		this.ctx.closePath();
 	}
