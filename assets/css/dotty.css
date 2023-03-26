@@ -331,6 +331,25 @@ fieldset.export-size-grid {
     height: 64px;
 }
 
+#palette-import-chip-list {
+    display: grid;
+    margin-bottom: 1rem;
+    grid-template-columns: repeat(10, 2rem);
+    grid-auto-rows: 2rem;
+    max-height: 80vh;
+    overflow-y: auto;
+    font-size: 0.1rem;
+    justify-content: center;
+}
+
+#import-preview {
+    width: 10rem;
+    height: 10rem;
+    object-fit: contain;
+    image-rendering: pixelated;
+    background-color: #b6b7b8;
+}
+
 
 @media (max-width: 900px) {
     body {

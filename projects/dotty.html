@@ -37,10 +37,7 @@
         File
         <ul role="menu">
             <li role="menuitem">
-                <label>
-                    <input type="file" id="file" accept=".png, .jpeg, image/png, image/jpeg">
-                    <span class="shortcut">⌘ O</span>
-                </label>
+                <a id="open-menu" url="#">Open... <span class="shortcut">⌘ O</span></a>
             </li>
             <li role="menuitem">
                 <a id="new" url="#">New... <span class="shortcut">⌘ N</span></a>
@@ -50,6 +47,9 @@
             </li>
             <li role="menuitem">
                 <a id="export-menu" url="#">Export... <span class="shortcut">⌘ E</span></a>
+            </li>
+            <li role="menuitem">
+                <a id="import-palette-menu" url="#">Import Palette...</a>
             </li>
         </ul>
     </li>
@@ -167,6 +167,65 @@
     </div>
 </div>
 
+
+<div class="modal-wrapper" id="modal-wrapper-palette">
+    <div class="modal-dialog outer-border">
+        <div class="inner-border center">
+            <div class="modal-contents">
+                <h1 class="modal-text" style="text-align:center">Load Palette</h1>
+  
+                <div class="modal-grid">
+                    <label class="modeless-text field-label" for="new-name">File:</label>
+                    <input type="file" id="import-palette-file" accept=".png, image/png">
+                </div>
+
+                <div class="modal-text">
+                    <span id="palette-error" class="modal-text"></span>
+                </div>
+
+                <div class="modal-grid" id="palette-import-chip-list">
+
+                </div>
+
+                <section class="field-row" style="justify-content: flex-end">
+                    <button class="btn" id="import-palette-cancel">Cancel</button>
+                    <button class="btn" id="import-palette-confirm">Apply</button>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal-wrapper" id="modal-wrapper-open">
+    <div class="modal-dialog outer-border">
+        <div class="inner-border center">
+            <div class="modal-contents">
+                <h1 class="modal-text" style="text-align:center">Open File</h1>
+  
+                <div class="modal-grid">
+                    <label class="modeless-text field-label" for="new-name">File:</label>
+                    <input type="file" id="import-file" accept=".png, .jpeg, image/png, image/jpeg">
+                </div>
+
+                <div class="modal-grid">
+                    <label class="modeless-text field-label">Preview:</label>
+                    <img src="" id="import-preview" />
+                </div>
+
+                <div class="modal-text">
+                    <span id="import-error" class="modal-text"></span>
+                </div>
+
+                <section class="field-row" style="justify-content: flex-end">
+                    <button class="btn" id="import-cancel">Cancel</button>
+                    <button class="btn" id="import-confirm">Open</button>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal-wrapper" id="modal-wrapper-export">
     <div class="modal-dialog outer-border">
         <div class="inner-border center">
@@ -255,5 +314,9 @@
     <button class="btn icon-button color-chip"></button>
 </template>
 
-<script src="/assets/js/dotty.js"></script>
+<template id="color-palette-chip">
+    <div class="color-chip"></div>
+</template>
+
+<script src="/assets/js/classy-dotty.js" type="module"></script>
 </body>
