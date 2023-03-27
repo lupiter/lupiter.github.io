@@ -77,6 +77,7 @@ export class Canvas {
 	zoomResetButton = document.getElementById("zoom-reset");
 	zoomResetMenu = document.getElementById("zoom-fit-menu");
 	zoom = 1;
+	translate = { 'x': 0, 'y': 0 };
 
 	constructor(document, tools, palette, history) {
 		this.ctx = this.canvas.getContext('2d');
@@ -211,14 +212,6 @@ export class Canvas {
 		this.save();
 	}
 
-	get movement() {
-		if (this.canvas.style.translate === "" || this.canvas.style.translate === "0px") {
-			return { x: 0, y: 0 };
-		}
-		const [x, y] = this.canvas.style.translate.split(" ").map(x => Number.parseInt(x.slice(undefined, -2)));
-		return { x, y };
-	}
-
 	get scale() {
 		return Number.parseInt(this.canvas.style.scale);
 	}
@@ -246,9 +239,8 @@ export class Canvas {
 			this.palette.setColor(ArtMaths.pixelToColor(this.ctx.getImageData(x, y, 1, 1).data));
 			this.palette.addToHistory();
 		} else if (this.tools.isMove()) {
-			const current = this.movement.map(x => Math.floor(x / this.zoom));
 			const data = this.canvas.toDataURL();
-			this.paint(data, current[0], current[1]);
+			this.paint(data, this.translate.x / this.zoom, this.translate.y / this.zoom);
 			this.canvas.style.translate = "";
 			this.moveOrigin = undefined;
 		}
@@ -310,14 +302,15 @@ export class Canvas {
 		} else if (this.tools.isBucket()) {
 			this.floodFill(x, y);
 		} else if (this.tools.isMove()) {
-			const current = this.movement();
-			if (current.x != 0 || current.y != 0) {
-				const expected = Math.floor((x - this.moveOrigin.x) * zoom + current.x) + "px " + Math.floor((y - this.moveOrigin.y) * zoom + current.y) + "px";
-				if (expected != current) {
-					this.canvas.style.translate = expected;
+			if (this.translate.x != 0 || this.translate.y != 0) {
+				const expected = {'x': Math.floor((x - this.moveOrigin.x) * zoom + this.translate.x), 'y': Math.floor((y - this.moveOrigin.y) * zoom + this.translate.y)};
+				if (expected.x != this.translate.x || expected.y != this.translate.y) {
+					this.canvas.style.translate = `${expected.x}px ${expected.y}px`;
+					this.translate = expected;
 				}
 			} else {
-				this.canvas.style.translate = Math.floor((x - this.moveOrigin.x) * zoom) + "px " + Math.floor((y - this.moveOrigin.y) * zoom) + "px";
+				this.translate = { 'x' : Math.floor((x - this.moveOrigin.x) * zoom), 'y' : Math.floor((y - this.moveOrigin.y) * zoom)};
+				this.canvas.style.translate =  `${this.translate.x}px ${this.translate.y}px`;
 			}
 		} else {
 			// console.warn("Unexpected tool", this.tools.current);
