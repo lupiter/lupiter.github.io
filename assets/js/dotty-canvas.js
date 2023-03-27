@@ -175,6 +175,8 @@ export class Canvas {
 		} else {
 			this.zoom = Math.floor(this.wrapper.offsetHeight / this.document.height);
 		}
+		this.canvas.style.translate = '';
+		this.translate = { 'x': 0, 'y': 0};
 		this.matchZoom();
 	}
 
@@ -445,7 +447,7 @@ export class History {
 	undo() {
 		var data = this.back.pop();
 		this.canvas.paint(data);
-		this.back.push(canvas.toDataURL());
+		this.forward.push(canvas.toDataURL());
 		this.updateButtons();
 	}
 
