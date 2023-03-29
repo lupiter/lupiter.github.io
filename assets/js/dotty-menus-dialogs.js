@@ -6,45 +6,106 @@ export class Menus {
 
 	constructor() {
 		this.menus.forEach(e => {
-			e.onclick = this.open.bind(this);
+			e.onclick = this.toggle.bind(this);
 			e.onkeydown = (k) => {
 				if (k.key === 'enter' || key === 'space') {
-					this.open(k);
+					this.toggle(k);
 				}
 			}
 		});
 	}
 
-	closeOpen() {
-		const currentlyOpen = document.querySelector("[role='menuitem'][aria-expanded='true']");
-		if (!!currentlyOpen) {
-			currentlyOpen.querySelector("[role='menu']").style.display = 'none';
-			currentlyOpen.setAttribute('aria-expanded', false);
-			currentlyOpen.onclick = this.open.bind(this);
+	toggle(e) {
+		const item = this.findMenuItemUp(e.target);
+		if (item.getAttribute('aria-expanded') === 'true') {
+			// clicked on an open menuitem
+			this.close(e);
+		} else if (item.getAttribute('aria-haspopup') === 'menu') {
+			// clicked on a closed menuitem
+			this.open(e);
+		} else {
+			// clicked on a regular menuitem
+			this.close(e);
 		}
 	}
 
-	open(e) {
-		this.closeOpen();
-		var target = e.target;
-		var menu = e.target.querySelector("[role='menu']");
+	closeOpen() {
+		const currentlyOpen = Array.from(document.querySelectorAll("[role='menuitem'][aria-expanded='true']"));
+		currentlyOpen.forEach((menu) => {
+			menu.querySelector("[role='menu']").style.display = 'none';
+			menu.setAttribute('aria-expanded', false);
+		});
+	}
+
+	findMenuUp(target) {
+		var menu = target.querySelector("[role='menu']");
 		while (menu === null) {
 			target = target.parentElement;
 			menu = target.querySelector("[role='menu']");
 		}
+		return menu;
+	}
+
+	findMenuItemUp(target) {
+		if (target.getAttribute('role') === 'menuitem') {
+			return target;
+		}
+		var item = target.querySelector("[role='menuitem']");
+		while (item === null) {
+			target = target.parentElement;
+			if (target.getAttribute('role') === 'menuitem') {
+				return target;
+			}
+			item = target.querySelector("[role='menuitem']");
+		}
+		return item;
+	}
+
+	submenu(target, menu) {
+		const isOpen = target.getAttribute('aria-expanded') === 'true';
+		if (isOpen) {
+			menu.style.display = 'none';
+			target.setAttribute('aria-expanded', false);
+		} else {
+			menu.style.display = 'flex';
+			target.setAttribute('aria-expanded', true);
+		}
+	}
+
+	open(e) {
+		var item = this.findMenuItemUp(e.target);
+		var menu = this.findMenuUp(e.target);
+		if (item.parentElement.getAttribute('role') === 'menubar') {
+			this.closeOpen();
+		}
 		menu.style.display = 'flex';
-		target.setAttribute('aria-expanded', true);
+		item.setAttribute('aria-expanded', true);
 		e.preventDefault();
 		e.stopPropagation();
-		target.onclick = this.close.bind(this);
-		document.onclick = this.close.bind(this);
+		document.onclick = this.closeDocument.bind(this);
+	}
+
+	closeDocument() {
+		this.closeOpen();
+		document.onclick = undefined;
 	}
 
 	close(e) {
-		this.closeOpen();
-		document.onclick = undefined;
-		if (!e.target instanceof HTMLInputElement) {
+		const menuItem = this.findMenuItemUp(e.target);
+		const menu = menuItem.querySelector("[role='menu']");
+		if (menu) {
+			this.submenu(menuItem, menu);
 			e.preventDefault();
+			e.stopPropagation();
+			return;
+		}
+
+		document.onclick = undefined;
+		if (!e.target instanceof HTMLInputElement && !e.target instanceof HTMLLabelElement) {
+			e.preventDefault();
+			this.closeOpen();
+		} else {
+			window.setTimeout(() => this.closeOpen(), 200);
 		}
 	}
 }

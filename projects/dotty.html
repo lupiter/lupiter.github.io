@@ -48,9 +48,6 @@
             <li role="menuitem">
                 <a id="export-menu" url="#">Export... <span class="shortcut">⌘ E</span></a>
             </li>
-            <li role="menuitem">
-                <a id="import-palette-menu" url="#">Import Palette...</a>
-            </li>
         </ul>
     </li>
     <li role="menuitem" aria-haspopup="menu">
@@ -70,6 +67,42 @@
                 <a id="resize-menu" class="" url="#">Resize...</a>
             </li>
             
+        </ul>
+    </li>
+    <li role="menuitem" aria-haspopup="menu">
+        Palette
+        <ul role="menu">
+            <li role="menuitem" aria-haspopup="menu">
+                <label>Limit Colours <span class="disclosure">&gt;</span></label>
+                <ul role="menu">
+                    <li role="menuitem">
+                        <input name="palette-bit-mode" id="mode-cga" type="radio" value="cga" />
+                        <label for="mode-cga">16 Colours (CGA)</label>
+                    </li>
+                    <li role="menuitem">
+                        <input name="palette-bit-mode" id="mode-web" type="radio" value="web" />
+                        <label for="mode-web">256 Colours (Websafe)</label>
+                    </li>
+                    <li role="menuitem">
+                        <input name="palette-bit-mode" id="mode-gbc" type="radio" value="gbc" />
+                        <label for="mode-gbc">Thousands (GBC)</label>
+                    </li>
+                    <li role="menuitem">
+                        <input name="palette-bit-mode" id="mode-full" type="radio" value="full" checked />
+                        <label for="mode-full">No Limit</label>
+                    </li>
+                </ul>
+            </li>
+            <li role="menuitem">
+                <input id="palette-lock" type="checkbox" name="palette-lock" />
+                <label for="palette-lock">Lock</label>
+            </li>
+            <li role="menuitem">
+                <a id="clear-palette" class="" url="#">Clear</a>
+            </li>
+            <li role="menuitem">
+                <a id="import-palette-menu" url="#">Import...</a>
+            </li>
         </ul>
     </li>
     <li role="menuitem" aria-haspopup="menu">

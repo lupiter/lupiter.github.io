@@ -126,13 +126,34 @@ ul[role="menubar"] > li[role="menuitem"] {
     align-items: center;
     position: relative;
 }
+li[role="menuitem"] label {
+    cursor: pointer;
+    margin-left: 0;
+}
+li[role="menuitem"] input[type="radio"] + label::before, 
+li[role="menuitem"] input[type="checkbox"] + label::before, 
+li[role="menuitem"] input[type="radio"]:checked + label::after,
+li[role="menuitem"] input[type="checkbox"]:checked + label::after {
+    background: none;
+    content: none;
+    cursor: pointer;
+    border: 0;
+}
+li[role="menuitem"] input[type="radio"]:checked + label::before,
+li[role="menuitem"] input[type="checkbox"]:checked + label::before {
+    background: "";
+    content: "✔︎";
+    top: unset;
+    left: -9px;
+    border: 0;
+} 
 hr[role="separator"] {
     border: 0;
     border-top: 1px dashed black;
     width: 100%;
     margin: 0;
 }
-ul[role="menubar"] > li[role="menuitem"] > ul[role="menu"] {
+ul[role="menubar"] li[role="menuitem"] ul[role="menu"] {
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -142,6 +163,12 @@ ul[role="menubar"] > li[role="menuitem"] > ul[role="menu"] {
     flex-direction: column;
     background: white;
     justify-content: stretch;
+}
+ul[role="menubar"] li[role="menuitem"] ul[role="menu"] ul[role="menu"] {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 999;
 }
 li[role="menuitem"][aria-expanded="true"] {
     background: black;
@@ -154,6 +181,7 @@ li[role="menuitem"][aria-expanded="true"] img {
 ul[role="menu"] li[role="menuitem"] {
     display: flex;
     flex-direction: row;
+    padding-left: 0.8rem;
 }
 ul[role="menu"] li[role="menuitem"]:hover, ul[role="menu"] li[role="menuitem"]:hover a  {
     background: black;
@@ -172,23 +200,9 @@ li[role="menuitem"] img {
     height: 16px;
     margin: auto;
 }
-ul[role="menu"] > [role="menuitem"] > a.disabled {
+ul[role="menu"] [role="menuitem"] a.disabled {
     color: #b6b7b8;
 }
-/* ul[role="menu"] > [role="menuitem"] > label, ul[role="menu"] > [role="menuitem"] > button, ul[role="menu"] > [role="menuitem"][aria-haspopup="true"] {
-    all: unset;
-    box-sizing: border-box;
-    display: block;
-    padding: 5px 20px;
-    position: relative;
-    width: 100%;
-}
-ul[role="menu"] > [role="menuitem"] > a, ul[role="menu"] > [role="menuitem"] > label {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-} */
 [role="menuitem"] .shortcut {
     opacity: 0.4;
     font-size: 9pt;
