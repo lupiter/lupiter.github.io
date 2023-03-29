@@ -67,6 +67,7 @@ export class Canvas {
 	lastTouch = undefined;
 	canvas = document.getElementById("canvas");
 	wrapper = document.getElementById("canvas-wrapper");
+	inner = document.getElementById("inner-canvas");
 	win = document.getElementById("win");
 	clearMenu = document.getElementById("clear-menu");
 
@@ -78,6 +79,7 @@ export class Canvas {
 	zoomResetMenu = document.getElementById("zoom-fit-menu");
 	zoom = 1;
 	translate = { 'x': 0, 'y': 0 };
+	moving = false;
 
 	constructor(document, tools, palette, history) {
 		this.ctx = this.canvas.getContext('2d');
@@ -167,6 +169,8 @@ export class Canvas {
 		this.canvas.style.height = Math.floor(this.document.height * this.zoom) + "px";
 		this.canvas.style.width = Math.floor(this.document.width * this.zoom) + "px";
 		this.canvas.style.backgroundSize = (this.zoom * 2) + "px";
+		this.inner.style.width = Math.floor(this.document.width * this.zoom) + "px";
+		this.inner.style.height = Math.floor(this.document.height * this.zoom) + "px";
 	}
 
 	zoomReset() {
@@ -258,9 +262,59 @@ export class Canvas {
 			const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / this.zoom);
 			const y = Math.floor((e.offsetY ? e.offsetY : e.layerY) / this.zoom);
 			this.moveOrigin = { x, y };
+			this.startMoving();
+		}
+		this.mouseDown = true;
+		this._paint(e);
+	}
+
+	startMoving() {
+		this.moving = this.canvas.cloneNode();
+		const ctx = this.moving.getContext('2d');
+		ctx.beginPath();
+		ctx.drawImage(this.canvas, 0, 0);
+		ctx.closePath();
+		this.moving.id = "canvas-clone-moving";
+		this.canvas.parentNode.append(this.moving);
+
+		this.moving.onmousedown = this.resumeMoving.bind(this);
+		this.moving.ontouchstart = this.resumeMoving.bind(this);
+		this.moving.onmouseup = this.pauseMoving.bind(this);
+		this.moving.ontouchend = this.pauseMoving.bind(this);
+
+		this.moving.addEventListener('touchmove', this.continueMoving.bind(this), { passive: false });
+		this.moving.onmousemove = this.continueMoving.bind(this);
+	}
+
+	stopMoving(e) {
+		const data = this.canvas.toDataURL();
+		this.paint(data, this.translate.x / this.zoom, this.translate.y / this.zoom);
+		this.canvas.style.translate = "";
+		this.moveOrigin = undefined;
+		this.moving.remove();
+		this.moving = undefined;
+		this.onStart(e);
+	}
+
+	resumeMoving(e) {
+		this.mouseDown = true;
+		if (!this.tools.isMove()) {
+			this.stopMoving(e);
+		}
+	}
+
+	pauseMoving(e) {
+		this.mouseDown = false;
+	}
+
+	continueMoving(e) {
+		if (!this.mouseDown) {
+			return;
+		}
+		if (!this.tools.isMove()) {
+			this.stopMoving(e);
 		}
 		this._paint(e);
-		this.mouseDown = true;
 	}
 
 	_paint(e) {
@@ -307,12 +361,12 @@ export class Canvas {
 			if (this.translate.x != 0 || this.translate.y != 0) {
 				const expected = {'x': Math.floor((x - this.moveOrigin.x) * zoom + this.translate.x), 'y': Math.floor((y - this.moveOrigin.y) * zoom + this.translate.y)};
 				if (expected.x != this.translate.x || expected.y != this.translate.y) {
-					this.canvas.style.translate = `${expected.x}px ${expected.y}px`;
+					this.moving.style.translate = `${expected.x}px ${expected.y}px`;
 					this.translate = expected;
 				}
 			} else {
 				this.translate = { 'x' : Math.floor((x - this.moveOrigin.x) * zoom), 'y' : Math.floor((y - this.moveOrigin.y) * zoom)};
-				this.canvas.style.translate =  `${this.translate.x}px ${this.translate.y}px`;
+				this.moving.style.translate =  `${this.translate.x}px ${this.translate.y}px`;
 			}
 		} else {
 			// console.warn("Unexpected tool", this.tools.current);

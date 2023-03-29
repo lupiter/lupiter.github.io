@@ -156,7 +156,19 @@
     <div class="separator"></div>
     
     <div id="canvas-wrapper">
-        <canvas id="canvas" width="16" height="16"></canvas>
+        <div id="inner-canvas">
+            <canvas id="canvas" width="16" height="16"></canvas>
+            <div id="move-controls">
+                <div id="move-d-pad" class="dpad">
+                    <button id="up-moving-button" class="btn dpad-button">▲</button>
+                    <button id="left-moving-button" class="btn dpad-button">◀︎</button>
+                    <button id="right-moving-button" class="btn dpad-button">▶︎</button>
+                    <button id="down-moving-button" class="btn dpad-button">▼</button>
+                </div>
+                <button id="done-moving-button" class="btn">Done</button>
+                <button id="cancel-moving-button" class="btn">Cancel</button>
+            </div>
+        </div>
     </div>
 </div>
 
