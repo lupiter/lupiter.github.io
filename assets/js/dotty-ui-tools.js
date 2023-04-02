@@ -234,6 +234,7 @@ export class Tools {
 	dropper = document.getElementById("dropper");
 	bucket = document.getElementById("bucket");
 	move = document.getElementById("move");
+	notifiers = [];
 
 	constructor() {
 		this.current = this.pen.value;
@@ -247,8 +248,32 @@ export class Tools {
 		this.move.onchange = this.read.bind(this);
 	}
 
+	onchange(handler) {
+		this.notifiers.push(handler);
+	}
+
 	read() {
+		const previous = this.current;
 		this.current = [this.pen, this.eraser, this.pencil, this.dropper, this.bucket, this.move].find((tool) => tool.checked).value;
+		const current = this.current;
+		this.notify(current, previous);
+	}
+
+	notify(current, previous) {
+		if (current != previous) {
+			this.notifiers.forEach(handler => {
+				handler(current, previous);
+			});
+		}
+	}
+
+	set(tool) {
+		const previous = this.current;
+		this.current = tool;
+		const checkbox = [this.pen, this.eraser, this.pencil, this.dropper, this.bucket, this.move].find((t) => t.value === tool);
+
+		checkbox.checked = true;
+		this.notify(tool, previous);
 	}
 
 	isPen() {

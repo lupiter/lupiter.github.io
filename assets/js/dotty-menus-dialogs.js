@@ -425,6 +425,65 @@ export class ImportPaletteDialog extends Dialog {
 
 }
 
+export class MoveControls extends Dialog {
+	menu = document.getElementById("move");
+	modal = document.getElementById("move-box");
+	cancelBtn = document.getElementById("cancel-moving-button");
+	confirmBtn = document.getElementById("done-moving-button");
+
+	upBtn = document.getElementById("up-moving-button");
+	downBtn = document.getElementById("down-moving-button");
+	leftBtn = document.getElementById("left-moving-button");
+	rightBtn = document.getElementById("right-moving-button");
+
+	constructor(title, canvas, history, document, tools) {
+		super(title, canvas, history, document);
+		this.tools = tools;
+		this.setup();
+		tools.onchange(this.toolchanged.bind(this));
+		this.leftBtn.onclick = this.left.bind(this);
+		this.rightBtn.onclick = this.right.bind(this);
+		this.upBtn.onclick = this.up.bind(this);
+		this.downBtn.onclick = this.down.bind(this);
+	}
+
+	toolchanged(current, previous) {
+		if (this.tools.isMove()) {
+			this.open();
+		} else if (previous === this.tools.move.value) {
+			this.cancel();
+		}
+	}
+
+	left() {
+		this.canvas.move(-1, 0);
+	}
+
+	right() {
+		this.canvas.move(1, 0);
+	}
+
+	up() {
+		this.canvas.move(0, -1);
+	}
+
+	down() {
+		this.canvas.move(0, 1);
+	}
+
+	cancel() {
+		super.cancel();
+		this.canvas.cancelMove();
+		this.tools.set(this.tools.pen.value);
+	}
+
+	confirm() {
+		this.canvas.finishAndApplyMove();
+		this.cancel();
+	}
+
+}
+
 export class AboutDialog {
 	menu = document.getElementById("about");
 	modal = document.getElementById("modal-wrapper-about");

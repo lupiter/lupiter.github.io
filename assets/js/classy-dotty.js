@@ -1,6 +1,6 @@
 import { Document, Title, Tools, Palette } from "./dotty-ui-tools.js";
 import { Canvas, History } from "./dotty-canvas.js";
-import { Menus, ResizeDialog, NewDialog, AboutDialog, ExportDialog, DownloadMenu, OpenDialog, ImportPaletteDialog } from "./dotty-menus-dialogs.js";
+import { Menus, ResizeDialog, NewDialog, AboutDialog, ExportDialog, DownloadMenu, OpenDialog, ImportPaletteDialog, MoveControls } from "./dotty-menus-dialogs.js";
 
 const menus = new Menus();
 
@@ -18,6 +18,7 @@ const resizeDialog = new ResizeDialog(title, canvas, history, document);
 const newDialog = new NewDialog(title, canvas, history, document);
 const exportDialog = new ExportDialog(title, canvas, history, document);
 const importPaletteDialog = new ImportPaletteDialog(title, canvas, history, document, palette);
+const moveControls = new MoveControls(title, canvas, history, document, tools);
 const openDialog = new OpenDialog(title, canvas, history, document);
 
 canvas.load();

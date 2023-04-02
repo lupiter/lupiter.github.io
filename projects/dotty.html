@@ -158,27 +158,31 @@
     <div id="canvas-wrapper">
         <div id="inner-canvas">
             <canvas id="canvas" width="16" height="16"></canvas>
-            <div id="move-controls">
-                <div id="move-d-pad" class="dpad">
-                    <button id="up-moving-button" class="btn dpad-button">▲</button>
-                    <button id="left-moving-button" class="btn dpad-button">◀︎</button>
-                    <button id="right-moving-button" class="btn dpad-button">▶︎</button>
-                    <button id="down-moving-button" class="btn dpad-button">▼</button>
-                </div>
-                <button id="done-moving-button" class="btn">Done</button>
-                <button id="cancel-moving-button" class="btn">Cancel</button>
-            </div>
         </div>
     </div>
 </div>
 
 
-<div class="window palette colors">
+<div class="window palette colors" id="palette-box">
     <div class="active-color">
         <input type="color" id="color" aria-label="Color" />
         <label class="alpha"><input type="number" id="alpha" min="0" max="100" step="1" placeholder="opacity" value="100" aria-label="Opacity" />%</label>
     </div>
     <div class="color-history" id="color-history"></div>
+</div>
+
+<div class="window palette move" id="move-box">
+    <div class="dpad">
+        <button id="left-moving-button" class="btn dpad-button">◀︎</button>
+        <div class="dpad-up-down">
+            <button id="up-moving-button" class="btn dpad-button">▲</button>
+            <button id="down-moving-button" class="btn dpad-button">▼</button>
+        </div>
+        <button id="right-moving-button" class="btn dpad-button">▶︎</button>
+    </div>
+    
+    <button id="done-moving-button" class="btn">Done</button>
+    <button id="cancel-moving-button" class="btn">Cancel</button>
 </div>
 
 <div class="modal-wrapper" id="modal-wrapper-new">
