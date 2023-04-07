@@ -273,6 +273,7 @@ export class Canvas {
 	}
 
 	startMoving() {
+		console.log('canvas: start moving');
 		this.moveOrigin = { x: 0, y: 0 };
 		this.translate = {x: 0, y: 0};
 
@@ -293,21 +294,24 @@ export class Canvas {
 		this.moving.onmousemove = this.continueMoving.bind(this);
 	}
 
-	move(x, y) {
+	move(x, y, originX = 0, originY = 0) {
+		console.log('canvas: move', x, y);
 		let zoom = this.zoom;
 		if (this.translate.x != 0 || this.translate.y != 0) {
-			const expected = {'x': Math.floor((x - this.moveOrigin.x) * zoom + this.translate.x), 'y': Math.floor((y - this.moveOrigin.y) * zoom + this.translate.y)};
+			const expected = {x: Math.floor((x - originX) * zoom + this.translate.x), y: Math.floor((y - originY) * zoom + this.translate.y)};
+			console.log(`expected: ${expected.x},${expected.y} current: ${this.translate.x},${this.translate.y} origin: ${this.moveOrigin.x},${this.moveOrigin.y}`)
 			if (expected.x != this.translate.x || expected.y != this.translate.y) {
 				this.moving.style.translate = `${expected.x}px ${expected.y}px`;
 				this.translate = expected;
 			}
 		} else {
-			this.translate = { 'x' : Math.floor((x - this.moveOrigin.x) * zoom), 'y' : Math.floor((y - this.moveOrigin.y) * zoom)};
+			this.translate = { x: Math.floor((x - originX) * zoom), y: Math.floor((y - originY) * zoom)};
 			this.moving.style.translate =  `${this.translate.x}px ${this.translate.y}px`;
 		}
 	}
 
 	finishAndApplyMove() {
+		console.log('canvas: finish and apply move');
 		const data = this.canvas.toDataURL();
 		this.paint(data, this.translate.x / this.zoom, this.translate.y / this.zoom);
 		this.cancelMove();
@@ -315,6 +319,7 @@ export class Canvas {
 	}
 
 	cancelMove() {
+		console.log('canvas: cancel move');
 		this.canvas.style.translate = "";
 		this.translate = undefined;
 		this.moveOrigin = undefined;
@@ -325,12 +330,18 @@ export class Canvas {
 	}
 
 	stopMoving(e) {
+		console.log('canvas: stop moving');
 		this.cancelMove();
 		this.onStart(e);
 	}
 
 	resumeMoving(e) {
+		console.log('canvas: resume moving');
 		this.mouseDown = true;
+		const zoom = this.zoom;
+		const x = Math.floor((e.offsetX ? e.offsetX : e.layerX) / zoom);
+		const y = Math.floor((e.offsetY ? e.offsetY : e.layerY) / zoom);
+		this.moveOrigin = {x, y}
 		if (!this.tools.isMove()) {
 			this.stopMoving(e);
 		}
@@ -391,7 +402,7 @@ export class Canvas {
 		} else if (this.tools.isBucket()) {
 			this.floodFill(x, y);
 		} else if (this.tools.isMove()) {
-			this.move(x, y)
+			this.move(x, y, this.moveOrigin.x, this.moveOrigin.y)
 		} else {
 			// console.warn("Unexpected tool", this.tools.current);
 		}
