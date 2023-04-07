@@ -51,8 +51,8 @@ class Geometry {
 		};
 
 		// spread
-		const startSpread = Geometry.distance(initialTouch);
-		const endSpread = Geometry.distance(lastTouch);
+		const startSpread = Geometry.distance(initial);
+		const endSpread = Geometry.distance(last);
 		const goalSpread = endSpread - startSpread;
 		const spread = (goalSpread / 100 + 1);
 
@@ -175,6 +175,7 @@ export class Canvas {
 		this.canvas.style.backgroundSize = (this.zoom * 2) + "px";
 		this.inner.style.width = Math.floor(this.document.width * this.zoom) + "px";
 		this.inner.style.height = Math.floor(this.document.height * this.zoom) + "px";
+		console.log(`canvas: match zoom ${this.zoom} h: ${this.document.height} w: ${this.document.width}`)
 	}
 
 	zoomReset() {
@@ -229,7 +230,7 @@ export class Canvas {
 	onStop(e) {
 		this.mouseDown = false;
 		if (!!this.initialTouch && !!this.lastTouch) {
-			const { pan, spread } = calcPanAndSpread();
+			const { pan, spread } = Geometry.panAndSpread(this.initialTouch, this.lastTouch);
 			console.log(pan, spread, this.canvas.style.translate, this.canvas.style.scale);
 			this.zoom = this.zoom * spread;
 			this.matchZoom();
@@ -375,6 +376,7 @@ export class Canvas {
 			}
 			this.lastTouch = e.touches;
 			const { pan, spread } = Geometry.panAndSpread(this.initialTouch, this.lastTouch);
+			console.log(`pan: ${pan.x},${pan.y} spread: ${spread}`)
 			this.canvas.style.translate = pan.x + "px " + pan.y + "px";
 			this.canvas.style.scale = "" + spread;
 			return;
