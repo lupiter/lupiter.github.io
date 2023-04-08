@@ -14,41 +14,21 @@
                 font: -apple-system-body;
             }
         }
-        table {
-            border-collapse: collapse;
-        }
 
         main {
-            display: table;
+            display: flex;
             flex-direction: row;
             flex-wrap: wrap;
         }
 
-        td {
-            width: 2rem;
-            height: 2rem;
+        .chip {
+            width: 100px;
+            height: 100px;
+            color: black;
+            font-weight: bold;
+            text-shadow: 0 0 3px white;
         }
 
-        fieldset {
-            display: flex;
-            flex-direction: row;
-            gap: 1rem;
-            align-items: flex-start;
-            justify-content: center;
-        }
-
-        button {
-            align-self: center;
-        }
-
-        label {
-            display: flex;
-            flex-direction: column;
-        }
-
-        input[type="number"] {
-            width: 3rem;
-        }
     </style>
 
     <!-- <link rel="stylesheet" href="/assets/css/dotty.css" /> -->
@@ -57,7 +37,7 @@
     <!-- <link rel="apple-touch-icon" href="/images/dotty/logo-ios.png" type="image/png" /> -->
 </head>
 <body>
-    <fieldset>
+    <!-- <fieldset>
         <label>Base <input type="color" value="#aabbff" id="base" /></label>
         <label>Hues <input type="number" min="1" max="6" value="3" step="1" id="hues" /></label>
         <label>Shades <input type="number" min="1" max="7" value="1" step="1" id="shades" /></label>
@@ -65,11 +45,11 @@
         <button id="generate">
         Generate
         </button>
-    </fieldset>
+    </fieldset> -->
     <main id="main">
   
     </main>
 
-    <script src="/assets/js/gbc-colors.js"></script>
+    <script src="/assets/js/gbc-colors-random.js"></script>
 </body>
 </html>

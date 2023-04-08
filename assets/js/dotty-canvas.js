@@ -146,6 +146,7 @@ export class Canvas {
 	}
 
 	load() {
+		console.log('canvas: load save')
 		this.palette.load();
 		this.history.load();
 		let saveDocument = localStorage.getItem('document');
@@ -154,7 +155,7 @@ export class Canvas {
 			this.document.resize(data.height, data.width);
 			this.document.rename(data.filename);
 			this.resize(data.width, data.height);
-			this.zoomReset();
+			window.requestAnimationFrame(() => this.zoomReset());
 		}
 		let saveData = localStorage.getItem('canvas');
 		if (!!saveData && saveData.length > 0) {
@@ -167,6 +168,7 @@ export class Canvas {
 		this.canvas.height = height;
 		this.win.height = height;
 		this.win.width = width;
+		console.log(`canvas: resize w ${width} h ${height}`)
 	}
 
 	matchZoom() {
@@ -179,14 +181,18 @@ export class Canvas {
 	}
 
 	zoomReset() {
+		console.log(`canvas: zoom reset; wrapper offset w: ${this.wrapper.offsetWidth} h ${this.wrapper.offsetHeight}; document w: ${this.document.width} h: ${this.document.height}`)
 		if (this.wrapper.offsetWidth < this.wrapper.offsetHeight) {
-			this.zoom = Math.floor(this.wrapper.offsetWidth / this.document.width);
+			this.zoom = Math.round((this.wrapper.offsetWidth / this.document.width) * 10) / 10;
 		} else {
-			this.zoom = Math.floor(this.wrapper.offsetHeight / this.document.height);
+			this.zoom = Math.round((this.wrapper.offsetHeight / this.document.height) * 10) / 10;
+		}
+		if (this.zoom < 0.1) {
+			this.zoom = 0.1;
 		}
 		this.canvas.style.translate = '';
 		this.translate = { 'x': 0, 'y': 0};
-		this.matchZoom();
+		window.requestAnimationFrame(() => this.matchZoom());
 	}
 
 	zoomIn() {
@@ -231,7 +237,7 @@ export class Canvas {
 		this.mouseDown = false;
 		if (!!this.initialTouch && !!this.lastTouch) {
 			const { pan, spread } = Geometry.panAndSpread(this.initialTouch, this.lastTouch);
-			console.log(pan, spread, this.canvas.style.translate, this.canvas.style.scale);
+			console.log('canvas: onstop', pan, spread, this.canvas.style.translate, this.canvas.style.scale);
 			this.zoom = this.zoom * spread;
 			this.matchZoom();
 			this.canvas.style.scale = "";
