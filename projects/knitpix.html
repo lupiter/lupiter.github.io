@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+  <title>KnitPix</title>
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+
+  <link rel="stylesheet" href="/assets/css/knitpix.css" />
+
+  <!-- <link rel="icon" href="/images/dotty/logo.png" type="image/png" /> -->
+  <!-- <link rel="apple-touch-icon" href="/images/dotty/logo-ios.png" type="image/png" /> -->
+</head>
+
+<body>
+  <header>
+  <h1 id="logo">
+    Knit Pix
+  </h1>
+
+  <section id="controls">
+    <button id="open-file-btn">Open...</button>
+    <button id="new-btn">New...</button>
+    <!-- <label>Stitch 
+      <select id="stitch-select">
+        <option>None</option>
+        <option>Knit</option>
+        <option>Purl</option>
+        <option>US Single/UK Double Crochet</option>
+        <option>US Double/UK Treble Crochet</option>
+      </select>
+    </label> -->
+    <label>Colour <input type="color" id="colour-input"/></label>
+    <fieldset><legend>Gauge Square</legend>
+      <label>Stitches <input type="number" min="0" step="0.1" value="3" id="gauge-width-input" /></label>
+      <label>Rows <input type="number" min="0" step="0.1" value="7" id="gauge-height-input" /></label>
+    </fieldset>
+  </section>
+  </header>
+
+  <main>
+    <svg id="swatch" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    </svg>
+  </main>
+
+  <dialog id="open-file-dlg">
+    <form>
+      <label>File <input type="file" id="open-file-dlg-input" accept="image/png"/></label>
+      <img src="" alt="preview" id="open-file-dlg-reference" class="preview" />
+      <canvas id="open-file-dlg-preview" class="preview"></canvas>
+      <fieldset>
+        <legend>Size</legend>
+        <label>Stitches <input type="number" min="0" step="1" value="10" id="open-file-dlg-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="5" id="open-file-dlg-height-input" /></label>
+      </fieldset>
+      <div>
+        <button value="default" id="open-file-dlg-confirm">Open</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="new-dlg">
+    <form>
+      <fieldset>
+        <legend>Size</legend>
+        <label>Stitches <input type="number" min="0" step="1" value="10" id="new-dlg-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="5" id="new-dlg-height-input" /></label>
+      </fieldset>
+      <div>
+        <button value="default" id="new-dlg-confirm">Create</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/assets/js/knitpix.js" type="module"></script>
+</body>
