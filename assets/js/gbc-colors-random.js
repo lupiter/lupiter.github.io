@@ -75,6 +75,9 @@ class Colour {
     }
     return this._hex;
   }
+  get rgb() {
+    return this.red.toString().padStart(3) + " " + this.green.toString().padStart(3) + " " + this.blue.toString().padStart(3)
+  }
   get safer() {
     if (this.red % 5 === 0 && this.green % 5 === 0 && this.blue % 5 === 0) {
       return this;
@@ -118,7 +121,7 @@ function readHash() {
   if (!hash) {
     return [];
   }
-  return hash.split(',').map(x => Colour.fromHex(x));
+  return hash.split(',').map(x => Colour.fromHex(x).safer);
 }
 
 function writeHash(colours) {
@@ -126,13 +129,28 @@ function writeHash(colours) {
   window.location.hash = hash;
 }
 
-const MAX_COLOURS = 32;
+function writeText(colours) {
+  let text = colours.map(c => c.hex).join("\n");
+  document.getElementById("text").value = text;
+  let rgb = colours.map(c => c.rgb).join("\n");
+  document.getElementById("rgb").value = rgb;
+}
+
+const MAX_COLOURS = 128;
 const MIN_COLOURS = 8;
+
+document.getElementById("import").onclick = () => {
+  let imported = document.getElementById("text").value;
+  let colours = imported.split("\n").map(c => Colour.fromHex(c));
+  writeHash(colours);
+  window.location.reload();
+};
 
 function generateRandom() {
   let main = document.getElementById("main");
   let locked = readHash();
   let colours = locked.slice();
+  writeText(locked);
   
   let generate = Math.min(MIN_COLOURS, MAX_COLOURS - locked.length);
   for (let i = locked.length - 1; i < generate; i++) {
@@ -159,6 +177,7 @@ function generateRandom() {
         }
       }
       writeHash(locked);
+      writeText(locked);
     };
     label.appendChild(check);
     main.appendChild(label);
