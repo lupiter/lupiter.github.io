@@ -38,6 +38,30 @@ class NewModal extends Modal {
   }
 }
 
+class DocumentModal extends Modal {
+  constructor(width, height, onDone) {
+    super("document-btn", "document-dlg-confirm", "document-dlg");
+    this.width = document.getElementById("document-size-width-input");
+    this.width.value = width;
+    this.height = document.getElementById("document-size-height-input");
+    this.height.value = height;
+    this.gaugeWidth = document.getElementById("document-gauge-width-input");
+    this.gaugeHeight = document.getElementById("document-gauge-height-input");
+
+    this.onDone = onDone;
+    this.dialog.onclose = this.dialogClosed.bind(this);
+  }
+
+  dialogClosed(e) {
+    if (this.dialog.returnValue === "cancel") {
+      // canceled, ignore
+      return;
+    }
+    const aspectRatio = this.gaugeHeight.value / this.gaugeWidth.value;
+    this.onDone(this.width.value, this.height.value, aspectRatio);
+  }
+}
+
 class FileModal extends Modal {
   constructor(onFileChosen) {
     super("open-file-btn", "open-file-dlg-confirm", "open-file-dlg");
@@ -91,17 +115,11 @@ class FileModal extends Modal {
   }
 }
 
-class Settings {
-  constructor(onGaugeChanged, onColourChanged) {
-    this.width = document.getElementById("gauge-width-input");
-    this.height = document.getElementById("gauge-height-input");
+class Tools {
+  constructor(onColourChanged) {
     this.colour = document.getElementById("colour-input");
-    this.onGaugeChanged = onGaugeChanged;
     this.onColourChanged = onColourChanged;
 
-    this.width.onchange = this.gaugeChanged.bind(this);
-    this.height.onchange = this.gaugeChanged.bind(this);
-    this.gaugeChanged();
     this.colour.onchange = this.colourChanged.bind(this);
     this.colourChanged();
   }
@@ -109,10 +127,49 @@ class Settings {
   colourChanged() {
     this.onColourChanged(this.colour.value);
   }
+}
 
-  gaugeChanged() {
-    this.aspectRatio = this.height.value / this.width.value;
-    this.onGaugeChanged(this.aspectRatio);
+class Palette {
+  constructor(onColourChanged) {
+    this.onColourChanged = onColourChanged;
+    this.palette = document.getElementById("colour-palette");
+    this.template = document.getElementById("colour-palette-colour");
+    this.colours = new Set();
+    this.colour = "";
+  }
+
+  colourChanged(e) {
+    const input = e.target;
+    if (input.checked) {
+      this.colour = input.value;
+      this.onColourChanged(this.colour);
+    }
+  }
+
+  changeColour(newColour) {
+    this.colours.add(newColour);
+    this.colour = newColour;
+    this.renderColours();
+  }
+
+  renderColours() {
+    const chips = Array.from(this.palette.getElementsByClassName("colour-palette-chip"));
+    this.colours.forEach(colour => {
+      let chip = chips.find(e => e.textContent === colour);
+      if (!chip) {
+        const template = this.template.content.cloneNode(true);
+        chip = template.querySelector("label");
+        chip.style.background = colour;
+        chip.querySelector("span").textContent = colour;
+        const input = chip.querySelector("input");
+        input.onchange = this.colourChanged.bind(this);
+        input.value = colour;
+        this.palette.appendChild(template);
+      }
+      if (colour === this.colour) {
+        chip.querySelectorAll("input").forEach(i => i.checked = true);
+      }
+    });
   }
 }
 
@@ -137,7 +194,8 @@ class Swatch {
     symbol.setAttribute("preserveAspectRatio", "none");
     symbol.setAttribute("viewBox", "0 0 20 15");
     const knit = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    knit.setAttribute("d", "M 0 0 L 0 10 L 10 15 L 20 10 L 20 0 L 10 5 L 0 0");
+    // knit.setAttribute("d", "M 0 0 L 0 10 L 10 15 L 20 10 L 20 0 L 10 5 L 0 0");
+    knit.setAttribute("d", "m 1.4199032,10.709952 7.1601936,3.580096 a 3.175,3.175 0 0 0 2.8398062,0 l 7.160194,-3.580096 A 2.568629,2.568629 121.71747 0 0 20,8.4125 l 0,-6.825 A 0.98112896,0.98112896 31.717474 0 0 18.580097,0.70995158 L 11.419903,4.2900484 a 3.175,3.175 0 0 1 -2.8398062,0 L 1.4199032,0.70995158 A 0.98112896,0.98112896 148.28253 0 0 0,1.5875 v 6.825 a 2.568629,2.568629 58.282526 0 0 1.4199032,2.297452 z")
     symbol.appendChild(knit);
     this.root.appendChild(symbol);
   }
@@ -182,20 +240,33 @@ class Swatch {
 
 }
 
-const swatch = new Swatch();
-
-new Settings((gauge) => {
-  swatch.aspectRatio = gauge;
-  swatch.draw();
-}, (hex) => {
+function fromHex(hex) {
   const bigint = parseInt(hex.slice(1), 16);
   const r = (bigint >> 16) & 255;
   const g = (bigint >> 8) & 255;
   const b = bigint & 255;
-  swatch.currentColor = {
+  return {
     r, g, b,
     a: 255,
   };
+}
+
+const swatch = new Swatch();
+
+const palette = new Palette((hex) => {
+  swatch.currentColor = fromHex(hex);
+});
+
+new Tools((hex) => {
+  swatch.currentColor = fromHex(hex);
+  palette.changeColour(hex);
+});
+
+new DocumentModal(swatch.stitchCount, swatch.rowCount, (width, height, aspectRatio) => {
+  swatch.aspectRatio = aspectRatio;
+  swatch.stitchCount = width;
+  swatch.rowCount = height;
+  swatch.draw();
 });
 
 new FileModal((data, width, height) => {

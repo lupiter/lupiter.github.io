@@ -8,6 +8,12 @@ html {
     }
 }
 
+header {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
 h1 {
     text-align: center;
 }
@@ -15,8 +21,18 @@ h1 {
 #controls {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
+    flex: 1;
+    gap: 1rem;
+}
+
+#controls ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
 fieldset {
@@ -25,6 +41,10 @@ fieldset {
     justify-content: space-evenly;
     align-items: center;
     gap: 1rem;
+}
+
+#colour-palette {
+    flex-wrap: wrap;
 }
 
 fieldset input[type="number"] {
@@ -39,6 +59,7 @@ main {
 
 #swatch {
     flex: 1;
+    border: 1px solid darkviolet;
 }
 
 #swatch tr {

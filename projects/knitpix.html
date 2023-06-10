@@ -24,8 +24,11 @@
   </h1>
 
   <section id="controls">
-    <button id="open-file-btn">Open...</button>
-    <button id="new-btn">New...</button>
+    <ul>
+      <li><button id="open-file-btn">Open...</button></li>
+      <li><button id="new-btn">New...</button></li>
+      <li><button id="document-btn">Document...</button></li>
+    </ul>
     <!-- <label>Stitch 
       <select id="stitch-select">
         <option>None</option>
@@ -35,10 +38,9 @@
         <option>US Double/UK Treble Crochet</option>
       </select>
     </label> -->
-    <label>Colour <input type="color" id="colour-input"/></label>
-    <fieldset><legend>Gauge Square</legend>
-      <label>Stitches <input type="number" min="0" step="0.1" value="3" id="gauge-width-input" /></label>
-      <label>Rows <input type="number" min="0" step="0.1" value="7" id="gauge-height-input" /></label>
+    <fieldset id="colour-palette"><legend>Palette </legend>
+
+      <label aria-label="add colour"><input type="color" id="colour-input"/></label>
     </fieldset>
   </section>
   </header>
@@ -55,8 +57,8 @@
       <canvas id="open-file-dlg-preview" class="preview"></canvas>
       <fieldset>
         <legend>Size</legend>
-        <label>Stitches <input type="number" min="0" step="1" value="10" id="open-file-dlg-width-input" /></label>
-        <label>Rows <input type="number" min="0" step="1" value="5" id="open-file-dlg-height-input" /></label>
+        <label>Stitches <input type="number" min="0" step="1" value="5" id="open-file-dlg-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="4" id="open-file-dlg-height-input" /></label>
       </fieldset>
       <div>
         <button value="default" id="open-file-dlg-confirm">Open</button>
@@ -78,6 +80,27 @@
       </div>
     </form>
   </dialog>
+
+  <dialog id="document-dlg">
+    <form>
+      <fieldset>
+        <legend>Gauge Square</legend>
+        <label>Stitches <input type="number" min="0" step="0.1" value="4" id="document-gauge-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="0.1" value="5" id="document-gauge-height-input" /></label>
+      </fieldset>
+      <fieldset>
+        <legend>Size</legend>
+        <label>Stitches <input type="number" min="0" step="1" value="4" id="document-size-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="5" id="document-size-height-input" /></label>
+      </fieldset>
+      <div>
+        <button value="default" id="document-dlg-confirm">Set</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <template id="colour-palette-colour"><label class="colour-palette-chip"><span></span><input type="radio" class="palette-radio" name="palette-radio" /></label></template>
 
   <script src="/assets/js/knitpix.js" type="module"></script>
 </body>
