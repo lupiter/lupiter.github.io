@@ -1,3 +1,4 @@
+import { Colour } from "./knit-colour.js";
 
 class Modal {
   constructor(openButtonId, confirmButtonId, dialogId) {
@@ -71,12 +72,15 @@ class FileModal extends Modal {
     this.preview = document.getElementById("open-file-dlg-preview");
     this.reference = document.getElementById("open-file-dlg-reference");
     this.colourCount = document.getElementById("open-file-dlg-colour-count-input");
+    this.spinner = document.getElementById("open-file-dlg-spinner");
+    this.palette = [new Colour(0, 0, 0, 0)];
 
     this.input.onchange = this.fileChanged.bind(this);
     this.dialog.onclose = this.dialogClosed.bind(this);
     this.reference.onload = this.referenceLoaded.bind(this);
     this.width.onchange = this.sizeChanged.bind(this);
     this.height.onchange = this.sizeChanged.bind(this);
+    this.colourCount.onchange = this.coloursChanged.bind(this);
     this.onFileChosen = onFileChosen;
     this.sizeChanged();
   }
@@ -91,14 +95,53 @@ class FileModal extends Modal {
   sizeChanged() {
     this.preview.width = this.width.value;
     this.preview.height = this.height.value;
-    this.referenceLoaded();
+    this.pixelizePreview();
+  }
+
+  coloursChanged() {
+    this.calculatePalette();
+    this.pixelizePreview();
+  }
+
+  calculatePalette() {
+    this.spinner.style.display = 'block';
+
+    const sourceWidth = this.reference.naturalWidth > 0 ? this.reference.naturalWidth : 1;
+    const sourceHeight = this.reference.naturalHeight > 0 ? this.reference.naturalHeight : 1;
+    const colourCanvas = new OffscreenCanvas(sourceWidth, sourceHeight);
+    const colour = colourCanvas.getContext('2d');
+    colour.drawImage(this.reference, 0, 0);
+    colour.closePath();
+    const colourData = colour.getImageData(0, 0, sourceWidth, sourceHeight);
+    const colourRgba = Colour.toRgba(colourData.data);
+    this.palette = Colour.colourQuantization(colourRgba, this.colourCount.value);
+    
+    this.spinner.style.display = 'none';
+  }
+
+  pixelizePreview() {
+    const width = this.width.value;
+    const height = this.height.value;
+
+    const pixelCanvas = new OffscreenCanvas(width, height);
+    const pix = pixelCanvas.getContext('2d');
+    pix.imageSmoothingEnabled = false;
+    pix.drawImage(this.reference, 0, 0, this.reference.naturalWidth, this.reference.naturalHeight, 0, 0, width, height);
+    pix.closePath();
+    const pixelData = pix.getImageData(0, 0, width, height);
+    const pixels = Colour.toRgba(pixelData.data);
+    const mapped = Colour.mapToNearest(pixels, this.palette);
+    const palettizedImage = new ImageData(Colour.toData(mapped), pixelData.width);
+    
+    const ctx = this.preview.getContext('2d');
+    ctx.imageSmoothingEnabled = false;
+    ctx.putImageData(palettizedImage, 0, 0);
+    ctx.closePath();
   }
 
   referenceLoaded() {
-    const ctx = this.preview.getContext('2d');
-    ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(this.reference, 0, 0, this.reference.naturalWidth, this.reference.naturalHeight, 0, 0, this.width.value, this.height.value);
-    ctx.closePath();
+    this.calculatePalette();
+    this.pixelizePreview();
   }
 
   getData() {
@@ -111,7 +154,7 @@ class FileModal extends Modal {
       // canceled, ignore
       return;
     }
-    this.onFileChosen(this.getData(), this.width.value, this.height.value);
+    this.onFileChosen(this.getData(), this.width.value, this.height.value, this.palette);
   }
 }
 
@@ -192,10 +235,10 @@ class Swatch {
     const symbol = document.createElementNS("http://www.w3.org/2000/svg", "symbol");
     symbol.id = "knit";
     symbol.setAttribute("preserveAspectRatio", "none");
-    symbol.setAttribute("viewBox", "0 0 20 15");
-    const knit = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    // knit.setAttribute("d", "M 0 0 L 0 10 L 10 15 L 20 10 L 20 0 L 10 5 L 0 0");
-    knit.setAttribute("d", "m 1.4199032,10.709952 7.1601936,3.580096 a 3.175,3.175 0 0 0 2.8398062,0 l 7.160194,-3.580096 A 2.568629,2.568629 121.71747 0 0 20,8.4125 l 0,-6.825 A 0.98112896,0.98112896 31.717474 0 0 18.580097,0.70995158 L 11.419903,4.2900484 a 3.175,3.175 0 0 1 -2.8398062,0 L 1.4199032,0.70995158 A 0.98112896,0.98112896 148.28253 0 0 0,1.5875 v 6.825 a 2.568629,2.568629 58.282526 0 0 1.4199032,2.297452 z")
+    symbol.setAttribute("viewBox", "0 0 20 20");
+    const knit = document.createElementNS("http://www.w3.org/2000/svg", "path"); 
+    // knit.setAttribute("d", "m 0,15 10,5 10,-5 V 0 L 10,5 0,0 Z"); // use inkscape, filet corners by 8px
+    knit.setAttribute("d", "m 1.8932043,15.946602 6.2135914,3.106796 a 4.2333334,4.2333334 180 0 0 3.7864083,0 l 6.213592,-3.106796 A 3.4248387,3.4248387 121.71747 0 0 20,12.883333 V 2.1166667 A 1.308172,1.308172 31.717474 0 0 18.106796,0.94660213 L 11.893204,4.0533979 a 4.2333334,4.2333334 0 0 1 -3.7864083,0 L 1.8932043,0.94660213 A 1.308172,1.308172 148.28253 0 0 0,2.1166667 V 12.883333 a 3.4248387,3.4248387 58.282526 0 0 1.8932043,3.063269 z")
     symbol.appendChild(knit);
     this.root.appendChild(symbol);
   }
@@ -212,7 +255,7 @@ class Swatch {
         const stitch = document.createElementNS(svg, "use");
         stitch.setAttribute("href", "#knit");
         stitch.setAttribute("x", stitchNo * 20 * this.aspectRatio);
-        stitch.setAttribute("y", row * 14);
+        stitch.setAttribute("y", row * 20);
         stitch.setAttribute("width", this.aspectRatio * 20);
         stitch.setAttribute("height", 20);
         const offset = row * this.stitchCount + stitchNo;
@@ -240,25 +283,14 @@ class Swatch {
 
 }
 
-function fromHex(hex) {
-  const bigint = parseInt(hex.slice(1), 16);
-  const r = (bigint >> 16) & 255;
-  const g = (bigint >> 8) & 255;
-  const b = bigint & 255;
-  return {
-    r, g, b,
-    a: 255,
-  };
-}
-
 const swatch = new Swatch();
 
 const palette = new Palette((hex) => {
-  swatch.currentColor = fromHex(hex);
+  swatch.currentColor = Colour.fromHex(hex);
 });
 
 new Tools((hex) => {
-  swatch.currentColor = fromHex(hex);
+  swatch.currentColor = Colour.fromHex(hex);
   palette.changeColour(hex);
 });
 
@@ -269,10 +301,12 @@ new DocumentModal(swatch.stitchCount, swatch.rowCount, (width, height, aspectRat
   swatch.draw();
 });
 
-new FileModal((data, width, height) => {
+new FileModal((data, width, height, colours) => {
   swatch.stitchCount = width;
   swatch.rowCount = height;
   swatch.data = data;
+  palette.colours = colours.map(c => c.toHex());
+  palette.renderColours();
   swatch.draw();
 });
 

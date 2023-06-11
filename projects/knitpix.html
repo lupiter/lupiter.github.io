@@ -25,7 +25,7 @@
 
   <section id="controls">
     <ul>
-      <li><button id="open-file-btn">Open...</button></li>
+      <li><button id="open-file-btn">Import...</button></li>
       <li><button id="new-btn">New...</button></li>
       <li><button id="document-btn">Document...</button></li>
     </ul>
@@ -52,14 +52,20 @@
 
   <dialog id="open-file-dlg">
     <form>
-      <label>File <input type="file" id="open-file-dlg-input" accept="image/png"/></label>
-      <img src="" alt="preview" id="open-file-dlg-reference" class="preview" />
-      <canvas id="open-file-dlg-preview" class="preview"></canvas>
+      <label>File <input type="file" id="open-file-dlg-input" accept="image/png, image/jpeg, image/gif"/></label>
+      <div class="previews">
+        <img src="" alt="preview" id="open-file-dlg-reference" class="preview" />
+        <canvas id="open-file-dlg-preview" class="preview"></canvas>
+        <div class="spinner" id="open-file-dlg-spinner">
+          ◓
+        </div>  
+      </div>
       <fieldset>
         <legend>Size</legend>
-        <label>Stitches <input type="number" min="0" step="1" value="5" id="open-file-dlg-width-input" /></label>
-        <label>Rows <input type="number" min="0" step="1" value="4" id="open-file-dlg-height-input" /></label>
+        <label>Stitches <input type="number" min="0" step="1" value="40" id="open-file-dlg-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="80" id="open-file-dlg-height-input" /></label>
       </fieldset>
+      <label>Colours <input type="number" min="2" step="1" value="4" max="16" id="open-file-dlg-colour-count-input" /></label>
       <div>
         <button value="default" id="open-file-dlg-confirm">Open</button>
         <button value="cancel" formmethod="dialog">Cancel</button>
