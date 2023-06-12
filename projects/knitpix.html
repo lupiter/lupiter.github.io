@@ -19,30 +19,22 @@
 
 <body>
   <header>
-  <h1 id="logo">
-    Knit Pix
-  </h1>
-
-  <section id="controls">
-    <ul>
-      <li><button id="open-file-btn">Import...</button></li>
-      <li><button id="new-btn">New...</button></li>
-      <li><button id="document-btn">Document...</button></li>
-    </ul>
-    <!-- <label>Stitch 
-      <select id="stitch-select">
-        <option>None</option>
-        <option>Knit</option>
-        <option>Purl</option>
-        <option>US Single/UK Double Crochet</option>
-        <option>US Double/UK Treble Crochet</option>
-      </select>
-    </label> -->
-    <fieldset id="colour-palette"><legend>Palette </legend>
-
-      <label aria-label="add colour"><input type="color" id="colour-input"/></label>
-    </fieldset>
-  </section>
+    <section id="menu">
+      <h1 id="logo">
+        Knit Pix
+      </h1>
+      <ul role="menu">
+        <li role="menuitem"><button id="open-file-btn">Import...</button></li>
+        <li role="menuitem"><button id="new-btn">New...</button></li>
+        <li role="menuitem"><button id="document-btn">Document...</button></li>
+        <li role="menuitem"><button id="clear-all-btn">Clear All</button></li>
+      </ul>
+    </section>
+    <section id="controls">
+      <fieldset id="colour-palette"><legend>Palette </legend>
+        <label aria-label="add colour"><input type="color" id="colour-input" value="#fff"/></label>
+      </fieldset>
+    </section>
   </header>
 
   <main>
@@ -87,6 +79,16 @@
     </form>
   </dialog>
 
+  <dialog id="clear-dlg">
+    <form>
+      <h3>Are you sure?</h3>
+      <div>
+        <button value="default" id="clear-dlg-confirm">Clear All</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
   <dialog id="document-dlg">
     <form>
       <fieldset>
@@ -99,6 +101,15 @@
         <label>Stitches <input type="number" min="0" step="1" value="4" id="document-size-width-input" /></label>
         <label>Rows <input type="number" min="0" step="1" value="5" id="document-size-height-input" /></label>
       </fieldset>
+    <!-- <label>Stitch 
+      <select id="stitch-select">
+        <option>None</option>
+        <option>Knit</option>
+        <option>Purl</option>
+        <option>US Single/UK Double Crochet</option>
+        <option>US Double/UK Treble Crochet</option>
+      </select>
+    </label> -->
       <div>
         <button value="default" id="document-dlg-confirm">Set</button>
         <button value="cancel" formmethod="dialog">Cancel</button>

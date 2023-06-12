@@ -12,6 +12,7 @@ header {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    align-items: center;
 }
 
 h1 {
@@ -26,12 +27,19 @@ h1 {
     gap: 1rem;
 }
 
-#controls ul {
+#menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 1rem;
+}
+
+#menu ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.25rem;
 }
 
@@ -58,8 +66,10 @@ main {
 }
 
 #swatch {
-    flex: 1;
     border: 1px solid darkviolet;
+    border-radius: 2px;
+    max-width: 100vw;
+    max-height: 80vh;
 }
 
 #swatch tr {
@@ -77,8 +87,9 @@ main {
 }
 
 #logo {
-    font-variant: small-caps;
     color: DarkViolet;
+    margin: 0;
+    font-size: 45px;
 }
 
 .previews {
@@ -111,7 +122,9 @@ main {
     width: 135px;
     height: 257px;
     text-align: center;
-    opacity: 0.3;
+    left: calc(50vw - 135px/2);
+    top: calc(50vh - 257px/2);
+    color: darkviolet;
     display: none;
 }
 

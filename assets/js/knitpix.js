@@ -20,6 +20,22 @@ class Modal {
   }
 }
 
+class ClearModal extends Modal {
+  constructor(onClear) {
+    super("clear-all-btn", "clear-dlg-confirm", "clear-dlg");
+    this.onClear = onClear;
+    this.dialog.onclose = this.dialogClosed.bind(this);
+  }
+
+  dialogClosed(e) {
+    if (this.dialog.returnValue === "cancel") {
+      // canceled, ignore
+      return;
+    }
+    this.onClear();
+  }
+}
+
 class NewModal extends Modal {
   constructor(onNew) {
     super("new-btn", "new-dlg-confirm", "new-dlg");
@@ -99,24 +115,28 @@ class FileModal extends Modal {
   }
 
   coloursChanged() {
-    this.calculatePalette();
-    this.pixelizePreview();
+    this.calculatePalette().then(this.pixelizePreview.bind(this));
   }
 
   calculatePalette() {
     this.spinner.style.display = 'block';
 
-    const sourceWidth = this.reference.naturalWidth > 0 ? this.reference.naturalWidth : 1;
-    const sourceHeight = this.reference.naturalHeight > 0 ? this.reference.naturalHeight : 1;
-    const colourCanvas = new OffscreenCanvas(sourceWidth, sourceHeight);
-    const colour = colourCanvas.getContext('2d');
-    colour.drawImage(this.reference, 0, 0);
-    colour.closePath();
-    const colourData = colour.getImageData(0, 0, sourceWidth, sourceHeight);
-    const colourRgba = Colour.toRgba(colourData.data);
-    this.palette = Colour.colourQuantization(colourRgba, this.colourCount.value);
-    
-    this.spinner.style.display = 'none';
+    return new Promise((resolve) => {
+      window.setTimeout(() => {
+        const sourceWidth = this.reference.naturalWidth > 0 ? this.reference.naturalWidth : 1;
+        const sourceHeight = this.reference.naturalHeight > 0 ? this.reference.naturalHeight : 1;
+        const colourCanvas = new OffscreenCanvas(sourceWidth, sourceHeight);
+        const colour = colourCanvas.getContext('2d');
+        colour.drawImage(this.reference, 0, 0);
+        colour.closePath();
+        const colourData = colour.getImageData(0, 0, sourceWidth, sourceHeight);
+        const colourRgba = Colour.toRgba(colourData.data);
+        this.palette = Colour.colourQuantization(colourRgba, this.colourCount.value);
+  
+        this.spinner.style.display = 'none';
+        resolve();
+      }, 500);
+    });
   }
 
   pixelizePreview() {
@@ -140,8 +160,7 @@ class FileModal extends Modal {
   }
 
   referenceLoaded() {
-    this.calculatePalette();
-    this.pixelizePreview();
+    this.calculatePalette().then(this.pixelizePreview.bind(this));
   }
 
   getData() {
@@ -264,6 +283,11 @@ class Swatch {
         stitch.setAttribute("fill", rgba);
 
         stitch.onclick = () => this.stitchChange(offset, stitch);
+        stitch.onmouseenter = (e) => {
+          if (e.buttons > 0) {
+            this.stitchChange(offset, stitch)
+          }
+        }
 
         group.appendChild(stitch);
       }
@@ -294,7 +318,7 @@ new Tools((hex) => {
   palette.changeColour(hex);
 });
 
-new DocumentModal(swatch.stitchCount, swatch.rowCount, (width, height, aspectRatio) => {
+const documentModal = new DocumentModal(swatch.stitchCount, swatch.rowCount, (width, height, aspectRatio) => {
   swatch.aspectRatio = aspectRatio;
   swatch.stitchCount = width;
   swatch.rowCount = height;
@@ -308,12 +332,19 @@ new FileModal((data, width, height, colours) => {
   palette.colours = colours.map(c => c.toHex());
   palette.renderColours();
   swatch.draw();
+  documentModal.height.value = height;
+  documentModal.width.value = width;
 });
 
 new NewModal((width, height) => {
   swatch.stitchCount = width;
   swatch.rowCount = height;
   swatch.data = new Array(4 * width * height);
+  swatch.draw();
+});
+
+new ClearModal(() => {
+  swatch.data = new Array(4 * swatch.rowCount * swatch.stitchCount);
   swatch.draw();
 });
 
