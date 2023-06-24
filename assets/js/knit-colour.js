@@ -46,7 +46,7 @@ export class Colour {
   
     while (i < n) {
       buckets.sort((first, second) => {
-        return Colour._paletteRange(first)._maxColour() - Colour._paletteRange(second)._maxColour();
+        return Colour._paletteRange(second)._maxColour() - Colour._paletteRange(first)._maxColour();
       });
       const split = Colour._splitBucket(buckets[0]);
       buckets.reverse()
@@ -55,7 +55,7 @@ export class Colour {
       i += 1;
     }
     
-    return buckets.map(bucket => Colour._averageColour(bucket));
+    return buckets.map(bucket => Colour._modeColour(bucket));
   }
 
   static mapToNearest(rgba, palette) {
@@ -72,7 +72,7 @@ export class Colour {
       255,
     );
   }
-  
+
 
   toHex() {
     return '#' + Colour._hex(this.r) + Colour._hex(this.g) + Colour._hex(this.b);
@@ -110,8 +110,27 @@ export class Colour {
     return [palette.slice(0, middle), palette.slice(middle, palette.length)];
   }
 
-  static _averageColour(palette) {
-    // mean is a bit ugly, let's try median instead
+  static _meanColour(palette) {
+    const sum = (p, c) => p + c;
+    const r = palette.map(c => c.r).reduce(sum) / palette.length,
+    g = palette.map(c => c.g).reduce(sum) / palette.length,
+    b = palette.map(c => c.b).reduce(sum) / palette.length,
+    a = palette.map(c => c.a).reduce(sum) / palette.length;
+
+    return new Colour(r, g, b, a);
+  }
+
+  static _modeColour(palette) {
+    const freq = new Map();
+    palette.forEach(c => {
+      const curr = freq.get(c.toHex()) ?? 0;
+      freq.set(c.toHex(), curr + 1);
+    });
+    const popular = Array.from(freq.entries()).reduce((p, c) => p[1] > c[1] ? p : c);
+    return Colour.fromHex(popular[0]);
+  }
+
+  static _medianColour(palette) {
     const r = palette.map(c => c.r).sort(),
       g = palette.map(c => c.g).sort(),
       b = palette.map(c => c.b).sort(),
