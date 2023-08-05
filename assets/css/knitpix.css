@@ -25,6 +25,8 @@ header {
     flex-direction: row;
     gap: 1rem;
     align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem;
 }
 
 h1 {
@@ -50,15 +52,14 @@ button:active {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    flex: 1;
     gap: 1rem;
 }
 
 #menu {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0.25rem;
-    margin: 1rem;
+    flex-wrap: wrap;
 }
 
 #menu ul {
@@ -157,12 +158,12 @@ main {
     margin: 0;
     font-size: 45px;
     display: flex;
+    align-items: center;
+    margin-right: 1rem;
 }
 
 #logo img {
-    max-width: 6rem;
-    max-height: 6rem;
-    margin-bottom: 0.5rem;
+    width: 6rem;
 }
 
 .previews {
