@@ -73,6 +73,20 @@ export class Colour {
     );
   }
 
+  static fromRgba(rgba) {
+    return new Colour(...rgba);
+  }
+
+  static rgbaToPalette(data) {
+    const palette = new Set();
+    data.forEach(row => {
+      row.forEach(stitch => {
+        palette.add(JSON.stringify(stitch));
+      })
+    });
+    return Array.from(palette.values()).map(JSON.parse).map(Colour.fromRgba).map(c => c.toHex());
+  }
+
 
   toHex() {
     return '#' + Colour._hex(this.r) + Colour._hex(this.g) + Colour._hex(this.b);

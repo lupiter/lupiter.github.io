@@ -21,7 +21,7 @@
   <header>
     <section id="menu">
       <h1 id="logo">
-        Knit Pix
+        <img src="/images/knitpix-logo.svg" alt="Knit Pix">
       </h1>
       <ul role="menu">
         <li role="menuitem"><button id="open-file-btn">Import...</button></li>
@@ -32,8 +32,12 @@
       </ul>
     </section>
     <section id="controls">
-      <fieldset id="colour-palette"><legend>Palette </legend>
+      <fieldset id="colour-palette"><legend>Palette</legend>
         <label aria-label="add colour"><input type="color" id="colour-input" value="#fff"/></label>
+      </fieldset>
+      <fieldset id="tools-palette"><legend>Tools</legend>
+        <input type="radio" id="tool-pencil" checked name="tool" value="pencil" /><label for="tool-pencil">✏️</label>
+        <input type="radio" id="tool-bucket" name="tool" value="bucket" /><label for="tool-bucket">🪣</label>
       </fieldset>
     </section>
   </header>
@@ -55,10 +59,12 @@
       </div>
       <fieldset>
         <legend>Size</legend>
-        <label>Stitches <input type="number" min="0" step="1" value="40" id="open-file-dlg-width-input" /></label>
-        <label>Rows <input type="number" min="0" step="1" value="80" id="open-file-dlg-height-input" /></label>
+        <label>Stitches <input type="number" min="0" step="1" value="24" id="open-file-dlg-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="24" id="open-file-dlg-height-input" /></label>
       </fieldset>
-      <label>Colours <input type="number" min="2" step="1" value="4" max="16" id="open-file-dlg-colour-count-input" /></label>
+      <fieldset>
+        <label>Colours <input type="number" min="2" step="1" value="4" max="16" id="open-file-dlg-colour-count-input" /></label>
+      </fieldset>
       <div>
         <button value="default" id="open-file-dlg-confirm">Open</button>
         <button value="cancel" formmethod="dialog">Cancel</button>
@@ -70,8 +76,8 @@
     <form>
       <fieldset>
         <legend>Size</legend>
-        <label>Stitches <input type="number" min="0" step="1" value="10" id="new-dlg-width-input" /></label>
-        <label>Rows <input type="number" min="0" step="1" value="5" id="new-dlg-height-input" /></label>
+        <label>Stitches <input type="number" min="0" step="1" value="24" id="new-dlg-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="24" id="new-dlg-height-input" /></label>
       </fieldset>
       <div>
         <button value="default" id="new-dlg-confirm">Create</button>
@@ -94,8 +100,8 @@
     <form>
       <fieldset>
         <legend>Size</legend>
-        <label>Stitches <input type="number" min="0" step="1" value="4" id="document-size-width-input" /></label>
-        <label>Rows <input type="number" min="0" step="1" value="5" id="document-size-height-input" /></label>
+        <label>Stitches <input type="number" min="0" step="1" value="24" id="document-size-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="24" id="document-size-height-input" /></label>
       </fieldset>
     <!-- <label>Stitch 
       <select id="stitch-select">
@@ -113,7 +119,7 @@
     </form>
   </dialog>
 
-  <template id="colour-palette-colour"><label class="colour-palette-chip"><span></span><input type="radio" class="palette-radio" name="palette-radio" /></label></template>
+  <template id="colour-palette-colour"><input type="radio" class="palette-radio" name="palette-radio" /><label class="colour-palette-chip"><span></span></label></template>
 
   <script src="/assets/js/knitpix.js" type="module"></script>
 </body>

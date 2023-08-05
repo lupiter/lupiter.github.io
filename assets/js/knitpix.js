@@ -72,7 +72,7 @@ class DocumentModal extends Modal {
       // canceled, ignore
       return;
     }
-    this.onDone(this.width.value, this.height.value);
+    this.onDone(Number.parseInt(this.width.value), Number.parseInt(this.height.value));
   }
 }
 
@@ -129,7 +129,7 @@ class FileModal extends Modal {
         const colourData = colour.getImageData(0, 0, sourceWidth, sourceHeight);
         const colourRgba = Colour.toRgba(colourData.data);
         this.palette = Colour.colourQuantization(colourRgba, this.colourCount.value);
-        console.log(this.palette);
+        // console.log(this.palette);
   
         this.spinner.style.display = 'none';
         resolve();
@@ -171,30 +171,42 @@ class FileModal extends Modal {
       // canceled, ignore
       return;
     }
-    this.onFileChosen(this.getData(), this.width.value, this.height.value, this.palette);
+    this.onFileChosen(this.getData(), Number.parseInt(this.width.value), Number.parseInt(this.height.value), this.palette);
   }
 }
 
 class Tools {
-  constructor(onColourChanged) {
+  static PENCIL = "pencil";
+  static BUCKET = "bucket";
+
+  constructor(onColourChanged, onToolChanged) {
     this.colour = document.getElementById("colour-input");
+    this.pencil = document.getElementById("tool-pencil");
+    this.bucket = document.getElementById("tool-bucket");
     this.onColourChanged = onColourChanged;
+    this.onToolChanged = onToolChanged;
 
     this.colour.onchange = this.colourChanged.bind(this);
     this.colourChanged();
+    this.pencil.onchange = this.toolChanged.bind(this);
+    this.bucket.onchange = this.toolChanged.bind(this);
   }
 
   colourChanged() {
     this.onColourChanged(this.colour.value);
   }
+
+  toolChanged() {
+    this.onToolChanged(this.pencil.checked ? Tools.PENCIL : Tools.BUCKET);
+  }
 }
 
 class Palette {
-  constructor(onColourChanged) {
+  constructor(palette, onColourChanged) {
     this.onColourChanged = onColourChanged;
     this.palette = document.getElementById("colour-palette");
     this.template = document.getElementById("colour-palette-colour");
-    this.colours = new Set();
+    this.colours = new Set(palette);
     this.colour = "";
   }
 
@@ -218,37 +230,43 @@ class Palette {
       let chip = chips.find(e => e.textContent === colour);
       if (!chip) {
         const template = this.template.content.cloneNode(true);
-        chip = template.querySelector("label");
-        chip.style.background = colour;
-        chip.querySelector("span").textContent = colour;
-        const input = chip.querySelector("input");
+        const label = template.querySelector("label");
+        label.setAttribute('for', colour);
+        const inner = template.querySelector("span")
+        inner.textContent = colour;
+        inner.style.background = colour;
+        const input = template.querySelector("input");
         input.onchange = this.colourChanged.bind(this);
         input.value = colour;
+        input.id = colour;
         this.palette.appendChild(template);
       }
-      if (colour === this.colour) {
-        chip.querySelectorAll("input").forEach(i => i.checked = true);
-      }
+      // if (colour === this.colour) {
+      //   chip.getAttribute("for").querySelectorAll("input").forEach(i => i.checked = true);
+      // }
     });
+    document.getElementById(this.colour).checked = true;
   }
 }
 
-class Swatch {
+export class Swatch {
+  static EMPTY_PIXEL = new Array(4).fill(0);
+
   constructor(save, data) {
     this.root = document.getElementById("swatch");
-    this.rowCount = 10;
-    this.stitchCount = 10;
+    this.rowCount = 24;
+    this.stitchCount = 24;
     this.save = save;
+    this.currentTool = Tools.PENCIL;
 
     if (data) {
       this.data = data;
     } else {
-      const canvas = new OffscreenCanvas(this.stitchCount, this.rowCount);
-      const ctx = canvas.getContext('2d');
-      ctx.imageSmoothingEnabled = false;
-      this.data = ctx.getImageData(0, 0, this.stitchCount, this.rowCount).data;
+      this.data = [];
+      for (let row = 0; row < this.rowCount; row++) {
+        this.data.push(new Array(this.stitchCount).fill([...Swatch.EMPTY_PIXEL])); 
+      }
     }
-
     this.draw();
   }
 
@@ -279,15 +297,19 @@ class Swatch {
         stitch.setAttribute("y", row * 16);
         stitch.setAttribute("width", 20);
         stitch.setAttribute("height", 20);
-        const offset = row * this.stitchCount + stitchNo;
-        const pixel = this.data.slice(offset * 4, offset * 4 + 4);
+        const pixel = this.data[row][stitchNo];
         const rgba = `rgba(${pixel[0]}, ${pixel[1]}, ${pixel[2]}, ${pixel[3]})`;
         stitch.setAttribute("fill", rgba);
 
-        stitch.onclick = () => this.stitchChange(offset, stitch);
+        stitch.onclick = () => this.stitchChange(row, stitchNo, stitch);
+        stitch.onmousedown = (e) => {
+          if (e.buttons > 0) {
+            this.stitchChange(row, stitchNo, stitch);
+          }
+        }
         stitch.onmouseenter = (e) => {
           if (e.buttons > 0) {
-            this.stitchChange(offset, stitch)
+            this.stitchChange(row, stitchNo, stitch)
           }
         }
 
@@ -297,15 +319,111 @@ class Swatch {
     }
   }
 
-  stitchChange(offset, stitch) {
-    const { r, g, b, a } = this.currentColor;
-    this.data[offset] = r;
-    this.data[offset + 1] = g;
-    this.data[offset + 2] = b;
-    this.data[offset + 3] = a;
-    const rgba = `rgba(${r}, ${g}, ${b}, ${a})`;
-    stitch.setAttribute("fill", rgba);
+  stitchChange(row, stitchNo, stitch) {
+    if (this.currentTool === Tools.BUCKET) {
+      this.floodFill(row, stitchNo);
+    } else {
+      const { r, g, b, a } = this.currentColor;
+      this.data[row][stitchNo] = [r, g, b, a];
+      const rgba = `rgba(${r}, ${g}, ${b}, ${a})`;
+      stitch.setAttribute("fill", rgba);
+    }
     this.save(this.data);
+  }
+
+  floodFill(startRow, startStitch) {
+		// Credit: Tom Cantwell https://cantwell-tom.medium.com/flood-fill-and-line-tool-for-html-canvas-65e08e31aec6
+		
+		let pixel = this.data[startRow][startStitch];
+		// exit if color is the same
+    const { r, g, b, a } = this.currentColor;
+    const newColor = [r, g, b, a];
+		if ([r, g, b, a] === pixel) {
+			return;
+		}
+
+		const matchStartColor = (row, stitch) => {
+			let col = this.data[row][stitch];
+      return JSON.stringify(col) === JSON.stringify(pixel);
+		}
+
+		let pixelStack = [[startStitch, startRow]];
+		let width = this.stitchCount;
+		let height = this.rowCount;
+		let newPos, stitch, row, reachLeft, reachRight;
+    while(pixelStack.length > 0) {
+      newPos = pixelStack.pop();
+      stitch = newPos[0];
+      row = newPos[1]; // get current pixel position
+      // Go up as long as the color matches and are inside the canvas
+      while (row >= 0 && matchStartColor(row, stitch)) {
+        row--;
+      }
+      // Don't overextend
+      row++;
+      reachLeft = false;
+      reachRight = false;
+      // Go down as long as the color matches and in inside the canvas
+
+      while (row < height && matchStartColor(row, stitch)) {
+        this.data[row][stitch] = newColor;
+        if (stitch > 0) {
+          if (matchStartColor(row, stitch - 1)) {
+            if (!reachLeft) {
+              //Add pixel to stack
+              pixelStack.push([stitch - 1, row]);
+              reachLeft = true;
+            }
+          } else if (reachLeft) {
+            reachLeft = false;
+          }
+        } if (stitch < width - 1) {
+          if (matchStartColor(row, stitch + 1)) {
+            if (!reachRight) {
+              // Add pixel to stack
+              pixelStack.push([stitch + 1, row]);
+              reachRight = true;
+            }
+          } else if (reachRight) {
+            reachRight = false;
+          }
+        }
+        row++;
+      }
+      if (pixelStack.length > this.stitchCount * this.rowCount) {
+        throw new Error("that's fucked");
+      }
+    }
+    this.draw();
+	}
+
+  resize(width, height) {
+    if (this.stitchCount != width) { 
+      const change = (width - this.stitchCount);
+      for (let row = 0; row < this.rowCount; row++) {
+        if (change > 0) {
+          this.data[row] = [...this.data[row], ...new Array(change).fill([ ...Swatch.EMPTY_PIXEL])];
+        } else {
+          this.data[row] = this.data[row].slice(0, this.stitchCount + change);
+        }
+      }
+      this.stitchCount = width;
+    }
+    if (this.rowCount != height) {
+      const change = (height - this.rowCount);
+      if (change > 0) {
+        const emptyRow = new Array(this.stitchCount).fill([...Swatch.EMPTY_PIXEL]);
+        this.data = [ ...this.data, ...new Array(change).fill([...emptyRow])];
+      } else {
+        this.data = this.data.slice(0, this.rowCount + change);
+      }
+      this.rowCount = height;
+    }
+  }
+
+  clear() {
+    const row = new Array(this.stitchCount).fill([...Swatch.EMPTY_PIXEL]);
+    this.data = new Array(this.rowCount).fill([...row]);
   }
 
 }
@@ -315,11 +433,11 @@ class Storage {
   constructor() { }
 
   save(data) {
-    window.localStorage.setItem(Storage.saveDataKey, data);
+    window.localStorage.setItem(Storage.saveDataKey, JSON.stringify(data));
   }
 
   load() {
-    window.localStorage.getItem(Storage.saveDataKey);
+    return JSON.parse(window.localStorage.getItem(Storage.saveDataKey));
   }
 }
 
@@ -329,25 +447,39 @@ const swatch = new Swatch((data) => {
   storage.save(data);
 }, storage.load());
 
-const palette = new Palette((hex) => {
+const palette = new Palette(Colour.rgbaToPalette(swatch.data), (hex) => {
   swatch.currentColor = Colour.fromHex(hex);
 });
 
 new Tools((hex) => {
   swatch.currentColor = Colour.fromHex(hex);
   palette.changeColour(hex);
+}, (tool) => {
+  swatch.currentTool = tool;
 });
 
 const documentModal = new DocumentModal(swatch.stitchCount, swatch.rowCount, (width, height) => {
-  swatch.stitchCount = width;
-  swatch.rowCount = height;
+  swatch.resize(width, height);
   swatch.draw();
 });
 
 new FileModal((data, width, height, colours) => {
   swatch.stitchCount = width;
   swatch.rowCount = height;
-  swatch.data = data;
+  swatch.clear();
+  const newData = [];
+  for (let i = 0; i < height; i++) {
+    const offset = i * width * 4;
+    const row = Array.from(data.slice(offset, offset + (width * 4)));
+    const newRow = [];
+    for (let j = 0; j < width; j++) {
+      const pixelOffset = j * 4;
+      const pixel = Array.from(row.slice(pixelOffset, pixelOffset + 4));
+      newRow.push(pixel);
+    }
+    newData.push(newRow);
+  }
+  swatch.data = newData;
   palette.colours = colours.map(c => c.toHex());
   palette.renderColours();
   swatch.draw();
@@ -358,12 +490,12 @@ new FileModal((data, width, height, colours) => {
 new NewModal((width, height) => {
   swatch.stitchCount = width;
   swatch.rowCount = height;
-  swatch.data = new Array(4 * width * height);
+  swatch.clear();
   swatch.draw();
 });
 
 new ClearModal(() => {
-  swatch.data = new Array(4 * swatch.rowCount * swatch.stitchCount);
+  swatch.clear();
   swatch.draw();
 });
 
