@@ -441,7 +441,24 @@ class Storage {
   }
 }
 
+class Export {
+  constructor() {
+    document.getElementById("download-btn").onclick = Export.export;
+  }
+
+  static export() {
+    var fileContent = document.getElementById("swatch").outerHTML;
+    var bb = new Blob([fileContent ], { type: 'image/svg+xml' });
+    var a = document.createElement('a');
+    a.download = 'export.svg';
+    a.href = window.URL.createObjectURL(bb);
+    a.click();
+    a.remove();
+  }
+}
+
 const storage = new Storage();
+const exp = new Export();
 
 const swatch = new Swatch((data) => {
   storage.save(data);
