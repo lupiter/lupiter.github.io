@@ -25,8 +25,8 @@ header {
     flex-direction: row;
     gap: 1rem;
     align-items: center;
-    flex-wrap: wrap;
     margin: 1rem;
+    justify-content: center;
 }
 
 h1 {
@@ -58,17 +58,17 @@ button:active {
 #menu {
     display: flex;
     flex-direction: row;
-    gap: 0.25rem;
-    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 #menu ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.25rem;
+    align-items: center;
 }
 
 fieldset {
@@ -79,10 +79,17 @@ fieldset {
     gap: 1rem;
     border: 1px solid var(--tan);
     border-radius: 4px;
+    padding: 6px;
+}
+
+#tools-palette {
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #colour-palette {
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 fieldset input[type="number"] {
@@ -159,11 +166,10 @@ main {
     font-size: 45px;
     display: flex;
     align-items: center;
-    margin-right: 1rem;
 }
 
 #logo img {
-    width: 6rem;
+    width: 7rem;
 }
 
 .previews {

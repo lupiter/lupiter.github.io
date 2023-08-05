@@ -24,17 +24,14 @@
         <img src="/images/knitpix-logo.svg" alt="Knit Pix">
       </h1>
       <ul role="menu">
-        <li role="menuitem"><button id="open-file-btn">Import...</button></li>
-        <li role="menuitem"><button id="new-btn">New...</button></li>
-        <li role="menuitem"><button id="document-btn">Document...</button></li>
+        <li role="menuitem"><button id="open-file-btn">Import</button></li>
+        <li role="menuitem"><button id="new-btn">New</button></li>
+        <li role="menuitem"><button id="document-btn">Document</button></li>
         <li role="menuitem"><button id="clear-all-btn">Clear All</button></li>
-        <li role="menuitem"><button id="download-btn">Export...</button></li>
+        <li role="menuitem"><button id="download-btn">Export</button></li>
       </ul>
     </section>
     <section id="controls">
-      <fieldset id="colour-palette"><legend>Palette</legend>
-        <label aria-label="add colour"><input type="color" id="colour-input" value="#fff"/></label>
-      </fieldset>
       <fieldset id="tools-palette"><legend>Tools</legend>
         <input type="radio" id="tool-pencil" checked name="tool" value="pencil" /><label for="tool-pencil">✏️</label>
         <input type="radio" id="tool-bucket" name="tool" value="bucket" /><label for="tool-bucket">🪣</label>
@@ -46,6 +43,10 @@
     <svg id="swatch" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     </svg>
   </main>
+
+  <fieldset id="colour-palette"><legend>Palette</legend>
+    <label aria-label="add colour"><input type="color" id="colour-input" value="#fff"/></label>
+  </fieldset>
 
   <dialog id="open-file-dlg">
     <form>
