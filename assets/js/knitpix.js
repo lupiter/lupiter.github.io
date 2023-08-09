@@ -239,6 +239,16 @@ class Palette {
         input.onchange = this.colourChanged.bind(this);
         input.value = colour;
         input.id = colour;
+        label.oncontextmenu = () => this.swap(colour);
+        let timer;
+        label.ontouchstart = () => {
+          timer = window.setTimeout(() => {
+            timer = null;
+            this.swap(colour);
+          }, 500);
+        };
+        label.ontouchmove = () => window.clearTimeout(timer);
+        label.ontouchend = () => window.clearTimeout(timer);
         this.palette.appendChild(template);
       }
       // if (colour === this.colour) {
@@ -246,6 +256,10 @@ class Palette {
       // }
     });
     document.getElementById(this.colour).checked = true;
+  }
+
+  swap(colour) {
+    console.log('swap', colour);
   }
 }
 
