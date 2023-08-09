@@ -539,9 +539,6 @@ new Tools((hex) => {
 });
 
 const history = new History((data) => {
-  console.log('undoing or redoing')
-  console.log(JSON.stringify(data))
-  console.log(JSON.stringify(swatch.data));
   swatch.data = data;
   swatch.draw();
   storage.save(data);
