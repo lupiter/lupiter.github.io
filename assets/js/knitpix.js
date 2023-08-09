@@ -299,12 +299,10 @@ export class Swatch {
         const rgba = `rgba(${pixel[0]}, ${pixel[1]}, ${pixel[2]}, ${pixel[3]})`;
         stitch.setAttribute("fill", rgba);
 
-        stitch.onclick = () => this.stitchChange(row, stitchNo, stitch);
-        stitch.onmousedown = (e) => {
-          if (e.buttons > 0) {
-            this.stitchChange(row, stitchNo, stitch);
-          }
-        }
+        stitch.touchstart = () => this.stitchChange(row, stitchNo, stitch);
+        stitch.touchmove = () => this.stitchChange(row, stitchNo, stitch);
+        stitch.touchend = () => this.stitchChange(row, stitchNo, stitch);
+        stitch.onmousedown = () => this.stitchChange(row, stitchNo, stitch);
         stitch.onmouseenter = (e) => {
           if (e.buttons > 0) {
             this.stitchChange(row, stitchNo, stitch)
@@ -468,6 +466,7 @@ class History {
 
   save(data) {
     this.previous.push(JSON.stringify(data));
+    console.log('save history', this.previous);
     this.next = [];
     this.updateButtons();
   }
@@ -539,6 +538,7 @@ new Tools((hex) => {
 });
 
 const history = new History((data) => {
+  console.log('undoing or redoing', JSON.stringify(data), JSON.stringify(swatch.data));
   swatch.data = data;
   swatch.draw();
   storage.save(data);
