@@ -26,7 +26,7 @@
       <ul role="menu">
         <li role="menuitem"><button id="open-file-btn">Import</button></li>
         <li role="menuitem"><button id="new-btn">New</button></li>
-        <li role="menuitem"><button id="document-btn">Document</button></li>
+        <li role="menuitem"><button id="document-btn">Resize</button></li>
         <li role="menuitem"><button id="clear-all-btn">Clear All</button></li>
         <li role="menuitem"><button id="download-btn">Export</button></li>
       </ul>
@@ -35,6 +35,8 @@
       <fieldset id="tools-palette"><legend>Tools</legend>
         <input type="radio" id="tool-pencil" checked name="tool" value="pencil" /><label for="tool-pencil">✏️</label>
         <input type="radio" id="tool-bucket" name="tool" value="bucket" /><label for="tool-bucket">🪣</label>
+        <button id="undo-btn">↩️</button>
+        <button id="redo-btn">↪️</button>
       </fieldset>
     </section>
   </header>
@@ -99,8 +101,9 @@
 
   <dialog id="document-dlg">
     <form>
+      <p>This cannot be undone</p>
       <fieldset>
-        <legend>Size</legend>
+        <legend>Resize</legend>
         <label>Stitches <input type="number" min="0" step="1" value="24" id="document-size-width-input" /></label>
         <label>Rows <input type="number" min="0" step="1" value="24" id="document-size-height-input" /></label>
       </fieldset>

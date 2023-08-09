@@ -250,7 +250,6 @@ class Palette {
 }
 
 export class Swatch {
-  static EMPTY_PIXEL = new Array(4).fill(0);
 
   constructor(save, data) {
     this.root = document.getElementById("swatch");
@@ -261,11 +260,10 @@ export class Swatch {
 
     if (data) {
       this.data = data;
+      this.rowCount = this.data.length;
+      this.stitchCount = this.data.length > 0 ? this.data[0].length : 0;
     } else {
-      this.data = [];
-      for (let row = 0; row < this.rowCount; row++) {
-        this.data.push(new Array(this.stitchCount).fill([...Swatch.EMPTY_PIXEL])); 
-      }
+      this.clear();
     }
     this.draw();
   }
@@ -402,7 +400,9 @@ export class Swatch {
       const change = (width - this.stitchCount);
       for (let row = 0; row < this.rowCount; row++) {
         if (change > 0) {
-          this.data[row] = [...this.data[row], ...new Array(change).fill([ ...Swatch.EMPTY_PIXEL])];
+          for (let stitch = 0; stitch < change; stitch++) {
+            this.data[row].push([0,0,0,0]);
+          }
         } else {
           this.data[row] = this.data[row].slice(0, this.stitchCount + change);
         }
@@ -412,8 +412,13 @@ export class Swatch {
     if (this.rowCount != height) {
       const change = (height - this.rowCount);
       if (change > 0) {
-        const emptyRow = new Array(this.stitchCount).fill([...Swatch.EMPTY_PIXEL]);
-        this.data = [ ...this.data, ...new Array(change).fill([...emptyRow])];
+        for (let row = 0; row < change; row++) {
+          const row = [];
+          for (let stitch = 0; stitch < this.stitchCount; stitch++) {
+            row.push([0,0,0,0]);
+          }
+          this.data.push(row);
+        }
       } else {
         this.data = this.data.slice(0, this.rowCount + change);
       }
@@ -422,8 +427,14 @@ export class Swatch {
   }
 
   clear() {
-    const row = new Array(this.stitchCount).fill([...Swatch.EMPTY_PIXEL]);
-    this.data = new Array(this.rowCount).fill([...row]);
+    this.data = [];
+    for (let row = 0; row < this.rowCount; row++) {
+      const row = [];
+      for (let stitch = 0; stitch < this.stitchCount; stitch++) {
+        row.push([0,0,0,0]);
+      }
+      this.data.push(row);
+    }
   }
 
 }
@@ -438,6 +449,55 @@ class Storage {
 
   load() {
     return JSON.parse(window.localStorage.getItem(Storage.saveDataKey));
+  }
+}
+
+class History {
+  constructor(setData, getData) { 
+    this.clear();
+
+    this.undoButton = document.getElementById("undo-btn");
+    this.redoButton = document.getElementById("redo-btn");
+    this.undoButton.onclick = this.undo.bind(this);
+    this.redoButton.onclick = this.redo.bind(this);
+
+    this.setData = setData;
+    this.getData = getData;
+    this.updateButtons();
+  }
+
+  save(data) {
+    this.previous.push(JSON.stringify(data));
+    this.next = [];
+    this.updateButtons();
+  }
+
+  clear() {
+    this.previous = [];
+    this.next = [];
+  }
+
+  updateButtons() {
+    this.undoButton.disabled = this.previous.length === 0;
+    this.redoButton.disabled = this.next.length === 0;
+  }
+
+  undo() {
+    const data = this.previous.pop();
+    if (data) {
+      this.next.push(JSON.stringify(this.getData()));
+      this.setData(JSON.parse(data));
+    }
+    this.updateButtons();
+  }
+
+  redo() {
+    const data = this.next.pop();
+    if (data) {
+      this.previous.push(JSON.stringify(this.getData()));
+      this.setData(JSON.parse(data));
+    }
+    this.updateButtons();
   }
 }
 
@@ -459,9 +519,12 @@ class Export {
 
 const storage = new Storage();
 const exp = new Export();
+let onSave = (data) => {
+  storage.save(data);
+};
 
 const swatch = new Swatch((data) => {
-  storage.save(data);
+  onSave(data);
 }, storage.load());
 
 const palette = new Palette(Colour.rgbaToPalette(swatch.data), (hex) => {
@@ -475,10 +538,22 @@ new Tools((hex) => {
   swatch.currentTool = tool;
 });
 
+const history = new History((data) => {
+  swatch.data = data;
+  swatch.draw();
+  storage.save(data);
+}, () => swatch.data);
+onSave = (data) => {
+  history.save(data);
+  storage.save(data);
+}
+
 const documentModal = new DocumentModal(swatch.stitchCount, swatch.rowCount, (width, height) => {
   swatch.resize(width, height);
   swatch.draw();
 });
+documentModal.width.value = swatch.stitchCount;
+documentModal.height.value = swatch.rowCount;
 
 new FileModal((data, width, height, colours) => {
   swatch.stitchCount = width;
@@ -513,6 +588,8 @@ new NewModal((width, height) => {
 
 new ClearModal(() => {
   swatch.clear();
+  history.clear();
+  storage.save(swatch.data);
   swatch.draw();
 });
 
