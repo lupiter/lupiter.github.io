@@ -462,11 +462,12 @@ class History {
     this.setData = setData;
     this.getData = getData;
     this.updateButtons();
+    this.current = JSON.stringify(getData());
   }
 
   save(data) {
-    this.previous.push(JSON.stringify(data));
-    console.log('save history', this.previous);
+    this.previous.push(this.current);
+    this.current = JSON.stringify(data);
     this.next = [];
     this.updateButtons();
   }
@@ -538,7 +539,9 @@ new Tools((hex) => {
 });
 
 const history = new History((data) => {
-  console.log('undoing or redoing', JSON.stringify(data), JSON.stringify(swatch.data));
+  console.log('undoing or redoing')
+  console.log(JSON.stringify(data))
+  console.log(JSON.stringify(swatch.data));
   swatch.data = data;
   swatch.draw();
   storage.save(data);
