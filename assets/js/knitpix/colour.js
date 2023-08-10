@@ -100,6 +100,10 @@ export class Colour {
     return this.r === other.r && this.g === other.g && this.b === other.b && this.a === other.a;
   }
 
+  toArray() {
+    return [this.r, this.g, this.b, this.a];
+  }
+
 
   static _paletteRange(palette) {
     const min = (x, y) => x < y ? x : y;
