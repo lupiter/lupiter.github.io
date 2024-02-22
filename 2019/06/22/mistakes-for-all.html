@@ -1,0 +1,150 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>Seven Mistakes Every Programmer Should Make &#8211; Cathy Wise</title>
+<meta name="description" content="">
+<meta name="keywords" content="programming,, listicle,, humour">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cathywise.net/images/">
+<meta name="twitter:title" content="Seven Mistakes Every Programmer Should Make">
+<meta name="twitter:description" content="Cathy Wise">
+<meta name="twitter:creator" content="@sircathywise">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Seven Mistakes Every Programmer Should Make">
+<meta property="og:description" content="Cathy Wise">
+<meta property="og:url" content="https://cathywise.net/2019/06/22/mistakes-for-all.html">
+<meta property="og:site_name" content="Cathy Wise">
+
+
+
+
+
+<link rel="canonical" href="https://cathywise.net/2019/06/22/mistakes-for-all.html">
+<link href="https://cathywise.net/feed.xml" type="application/atom+xml" rel="alternate" title="Cathy Wise Feed">
+<link rel="author" href="https://plus.google.com/113703753421537375035?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/brands.css">
+<link rel="stylesheet" href="/assets/css/fontawesome.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<link rel="shortcut icon" href="https://cathywise.net/images/favicon.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<nav id="nav" role="navigation">
+	<ul>
+    
+		<li><a href="https://cathywise.net/" >Home</a></li>
+	
+		<li><a href="https://cathywise.net/apps" >Apps</a></li>
+	
+		<li><a href="https://cathywise.net/blog" >Blog</a></li>
+	
+		<li><a href="https://cathywise.net/projects" >Projects</a></li>
+	
+    </ul>
+</nav>
+
+<section id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Seven Mistakes Every Programmer Should Make</h1>
+      <subtitle>
+        <time datetime="2019-06-22T00:00:00+10:00" itemprop="datePublished">June 22, 2019</time>
+       </subtitle>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>Lots of people are willing to tell you things you “have to learn” before you start seriously programming, but I find that I learn best by just making mistakes. So here’s seven mistakes you should make once you start programming.</p>
+
+<h2 id="1-gently-abuse-a-scripting-language">1. (Gently) Abuse a Scripting Language</h2>
+
+<p>Ever wondered what people mean by the <a href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL in Python</a>? Why not find out first-hand! You could also try running a data-processing heavy Rails server, or why not try out <a href="http://www.wxperl.it">wxPerl</a> for your next desktop app. Any use of PHP also checks this item off.</p>
+
+<h2 id="2-run-out-of-memory-in-the-jvm">2. Run Out of Memory in the JVM</h2>
+
+<p>There must be some programmers out there (bless them) that don’t ever need to use the JVM, but for most of us at some point we’ll be writing Java, or maybe Kotlin or Clojure. Since the JVM can be a bit of a memory monster it’s not hard to make a mistake and run through the default amount of memory on your system. Then you get to watch the computer grind like crazy trying to do garbage collection. Bonus points if you’re running test/CI on a really small cloud instance so it works fine in dev and just falls over in the cloud.</p>
+
+<h2 id="3-drop-the-database-unexpectedly">3. Drop the Database Unexpectedly</h2>
+
+<p>Sometimes you really mean to drop the database, but it’s always fun to drop it when you were trying to do something else. A classic way to do this is to copy-paste the wrong SQL block against a live database, but hey it’s up to you.</p>
+
+<h2 id="4-abuse-the-main-thread">4. Abuse the Main Thread</h2>
+
+<p>Can’t quite get your head around threading? Just use the main thread! Bonus points if the “main” thread is the UI thread in a native application.</p>
+
+<h2 id="5-do-something-nasty-in-javascript">5. Do Something Nasty in JavaScript</h2>
+
+<p>There’s so <em>many</em> ways to do terrible things in JavaScript that this almost feels like a cheat, but the trick with this one is to do something that works but will be baffling to any future developers (including yourself). The classic would be using a <code class="language-plaintext highlighter-rouge">|</code>, <code class="language-plaintext highlighter-rouge">&amp;</code>, or <code class="language-plaintext highlighter-rouge">==</code> (not <code class="language-plaintext highlighter-rouge">||</code>, <code class="language-plaintext highlighter-rouge">&amp;&amp;</code>, or <code class="language-plaintext highlighter-rouge">===</code>) and really meaning it; you could also try deleting variables or anything else a good linter might take exception to. Bonus points here if you managed to redefine <code class="language-plaintext highlighter-rouge">undefined</code> <a href="http://kangax.github.io/compat-table/es5/#test-Immutable_undefined">back in IE8</a>.</p>
+
+<h2 id="6-think-youve-found-a-compiler-or-interpreter-bug">6. Think You’ve Found a Compiler or Interpreter Bug</h2>
+
+<p>Eventually you’ll find an actual bug in a compiler or interpreter you use a lot (there’s only a small chance it will be unknown). But long before that you’ll <em>think</em> you’ve found a bug, probably when you’ve just done something really silly. If you’re unlucky you’ll post this in a bug tracker or mailing list and get a massive eyeroll from the maintainers.</p>
+
+<h2 id="7-write-something-that-takes-forever-to-run">7. Write Something That Takes Forever to Run</h2>
+
+<p>This usually happens when you’re in a hurry and you realise the computer doesn’t get weekends. This is hopefully a simple thing like some log analysis script and not a scary mistake like running a script that in-place updates the production DB while other people are using it and you’re in bed.</p>
+
+<h2 id="its-probably-okay">It’s (Probably) Okay</h2>
+
+<p>You’re never going to stop making mistakes. I get annoyed with my old work at least every other day, but really beating yourself up over it isn’t going to help. Try and be as constructive as you can when you make mistakes. For small mistakes, it’s often enough to make a mental note and move on. For larger mistakes, look out for structural problems that are behind your mistake. Would it be helpful to get things like this reviewed by more people in future? Did I just grab the complete wrong end of the stick because I didn’t ask enough questions? Can I write some automated tests to prevent this? Can I turn on a linter or compiler feature that will warn me? Can I spin up a duplicate environment to check this on instead of the main test environment? Even something simple like “don’t merge into the master branch just before leaving for the day”.</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <div class="bio">
+<img src="https://cathywise.net/images/me-pixeld.png" alt="Cathy Wise bio photo" class="bio-photo">
+<p>Hi, I'm (Sir) Cathy Wise 😉 and I have way too many hobbies! On this site you'll find my <a href="/projects">projects</a> and <a href="/apps">apps</a> as well as the <a href="/blog">blog</a> that gets very occasional updates.</p>
+
+<p>In my professional life I'm a software developer so of course you can find me on <a href="http://github.com/lupiter">Github</a> and <a href="http://stackexchange.com/users/912607/cathy">Stack Overflow</a>. You can also find me on various social networking sites. Listed below in the order I am likely to have updated them:</p>
+<ul>
+<li><a rel="me" href="https://mastodon.au/@cathy"><i class="fab fa-mastodon"></i> Mastodon</a></li>
+<li><a href="http://everbloom.tumblr.com"><i class="fab fa-tumblr"></i> Tumblr</a></li>
+<li><a href="http://instagram.com/sircathywise"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="http://www.flickr.com/photos/44632322@N00"><i class="fab fa-flickr"></i> Flickr</a></li>
+<li><a href="http://linkedin.com/in/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+<li><a href="https://plus.google.com/113703753421537375035"><i class="fab fa-google-plus"></i> Google+</a></li>
+</ul>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+</section><!-- /#main -->
+
+<footer>
+  <p class="author-bio-para">Software developer, hobby collector 👩‍💻🕊🪡🧶🎮🎸🖋🖌🎨✝️🏳️‍🌈<br>All opinions on this site are my own and not my employer's etc.</p>
+<span>&copy; 2024 Cathy Wise. Powered by <a href="http://jekyllrb.com">Jekyll</a>.</span>
+<script>
+    document.querySelectorAll('a[href="'+document.URL+'"]').forEach(e => {
+        e.className = 'current';
+    });
+    document.querySelectorAll('nav a').forEach(e => {
+        if(document.URL.startsWith(e.href) && e.href !== window.location.protocol + "//" + window.location.host + "/" ) {
+            e.className = 'current';
+        }
+    });
+</script>
+</footer>
+
+
+
+
+
+</body>
+</html>
