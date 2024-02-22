@@ -1,4 +1,8 @@
-
+---
+layout: page
+title: Planner Pal
+tags: [apps, canva, legal]
+---
 
 # Welcome to Planner Pal, an app for Canva
 
