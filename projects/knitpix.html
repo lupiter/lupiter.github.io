@@ -24,11 +24,13 @@
         <img src="/images/knitpix-logo.svg" alt="Knit Pix">
       </h1>
       <ul role="menu">
-        <li role="menuitem"><button id="open-file-btn">Import</button></li>
+        <li role="menuitem"><button id="import-file-btn">Import</button></li>
         <li role="menuitem"><button id="new-btn">New</button></li>
         <li role="menuitem"><button id="document-btn">Resize</button></li>
         <li role="menuitem"><button id="clear-all-btn">Clear All</button></li>
         <li role="menuitem"><button id="download-btn">Export</button></li>
+        <li role="menuitem"><button id="save-btn">Save As</button></li>
+        <li role="menuitem"><button id="open-btn">Open</button></li>
       </ul>
     </section>
     <section id="controls">
@@ -50,26 +52,26 @@
     <label aria-label="add colour"><input type="color" id="colour-input" value="#fff"/></label>
   </fieldset>
 
-  <dialog id="open-file-dlg">
+  <dialog id="import-file-dlg">
     <form>
-      <label>File <input type="file" id="open-file-dlg-input" accept="image/png, image/jpeg, image/gif"/></label>
+      <label>File <input type="file" id="import-file-dlg-input" accept="image/png, image/jpeg, image/gif"/></label>
       <div class="previews">
-        <img src="" alt="preview" id="open-file-dlg-reference" class="preview" />
-        <canvas id="open-file-dlg-preview" class="preview"></canvas>
-        <div class="spinner" id="open-file-dlg-spinner">
+        <img src="" alt="preview" id="import-file-dlg-reference" class="preview" />
+        <canvas id="import-file-dlg-preview" class="preview"></canvas>
+        <div class="spinner" id="import-file-dlg-spinner">
           ◓
         </div>  
       </div>
       <fieldset>
         <legend>Size</legend>
-        <label>Stitches <input type="number" min="0" step="1" value="24" id="open-file-dlg-width-input" /></label>
-        <label>Rows <input type="number" min="0" step="1" value="24" id="open-file-dlg-height-input" /></label>
+        <label>Stitches <input type="number" min="0" step="1" value="24" id="import-file-dlg-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="24" id="import-file-dlg-height-input" /></label>
       </fieldset>
       <fieldset>
-        <label>Colours <input type="number" min="2" step="1" value="4" max="16" id="open-file-dlg-colour-count-input" /></label>
+        <label>Colours <input type="number" min="2" step="1" value="4" max="16" id="import-file-dlg-colour-count-input" /></label>
       </fieldset>
       <div>
-        <button value="default" id="open-file-dlg-confirm">Open</button>
+        <button value="default" id="import-file-dlg-confirm">Open</button>
         <button value="cancel" formmethod="dialog">Cancel</button>
       </div>
     </form>
@@ -84,6 +86,16 @@
       </fieldset>
       <div>
         <button value="default" id="new-dlg-confirm">Create</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="open-dlg">
+    <form>
+      <label>File <input type="file" id="open-dlg-input" accept=".knitpix" /></label>
+      <div>
+        <button value="default" id="open-dlg-confirm">Open</button>
         <button value="cancel" formmethod="dialog">Cancel</button>
       </div>
     </form>

@@ -3,14 +3,14 @@ import { Colour } from "./colour.js";
 
 export class FileModal extends Modal {
   constructor(onFileChosen) {
-    super("open-file-btn", "open-file-dlg-confirm", "open-file-dlg");
-    this.input = document.getElementById("open-file-dlg-input");
-    this.width = document.getElementById("open-file-dlg-width-input");
-    this.height = document.getElementById("open-file-dlg-height-input");
-    this.preview = document.getElementById("open-file-dlg-preview");
-    this.reference = document.getElementById("open-file-dlg-reference");
-    this.colourCount = document.getElementById("open-file-dlg-colour-count-input");
-    this.spinner = document.getElementById("open-file-dlg-spinner");
+    super("import-file-btn", "import-file-dlg-confirm", "import-file-dlg");
+    this.input = document.getElementById("import-file-dlg-input");
+    this.width = document.getElementById("import-file-dlg-width-input");
+    this.height = document.getElementById("import-file-dlg-height-input");
+    this.preview = document.getElementById("import-file-dlg-preview");
+    this.reference = document.getElementById("import-file-dlg-reference");
+    this.colourCount = document.getElementById("import-file-dlg-colour-count-input");
+    this.spinner = document.getElementById("import-file-dlg-spinner");
     this.palette = [new Colour(0, 0, 0, 0)];
 
     this.input.onchange = this.fileChanged.bind(this);

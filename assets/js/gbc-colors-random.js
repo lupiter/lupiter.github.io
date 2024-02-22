@@ -1,4 +1,4 @@
-const hex = d => Number(d).toString(16).padStart(2, '0');
+const hex = (d) => Number(d).toString(16).padStart(2, "0");
 
 class Colour {
   constructor(red, green, blue) {
@@ -31,9 +31,9 @@ class Colour {
     if (this._hue === undefined) {
       let h;
       if (this.max === this.min) {
-        h = 0
+        h = 0;
       } else if (this.max === this.rdec) {
-        h = (this.gdec - this.bdec) / (this.max - this.min) % 6;
+        h = ((this.gdec - this.bdec) / (this.max - this.min)) % 6;
       } else if (this.max === this.bdec) {
         h = 2.0 + (this.rdec - this.gdec) / (this.max - this.min);
       } else {
@@ -43,13 +43,19 @@ class Colour {
       if (h < 0) {
         h = h + 360;
       }
-      
+
       this._hue = Math.round(h);
       if (Number.isNaN(this._hue)) {
-        console.error(this._hue, this._min, this._max, this._saturation, this._luminance);
+        console.error(
+          this._hue,
+          this._min,
+          this._max,
+          this._saturation,
+          this._luminance
+        );
       }
     }
-    
+
     return this._hue;
   }
   get saturation() {
@@ -58,7 +64,7 @@ class Colour {
       if (l === 0 || l === 1) {
         this._saturation = 0;
       } else {
-        this._saturation = (this.max - l) / Math.min(l, 1 - l)
+        this._saturation = (this.max - l) / Math.min(l, 1 - l);
       }
     }
     return this._saturation;
@@ -71,12 +77,18 @@ class Colour {
   }
   get hex() {
     if (this._hex === undefined) {
-      this._hex = '#' + hex(this.red) + hex(this.green) + hex(this.blue);
+      this._hex = "#" + hex(this.red) + hex(this.green) + hex(this.blue);
     }
     return this._hex;
   }
   get rgb() {
-    return this.red.toString().padStart(3) + " " + this.green.toString().padStart(3) + " " + this.blue.toString().padStart(3)
+    return (
+      this.red.toString().padStart(3) +
+      " " +
+      this.green.toString().padStart(3) +
+      " " +
+      this.blue.toString().padStart(3)
+    );
   }
   get safer() {
     if (this.red % 5 === 0 && this.green % 5 === 0 && this.blue % 5 === 0) {
@@ -93,25 +105,25 @@ class Colour {
     var r = (bigint >> 16) & 255;
     var g = (bigint >> 8) & 255;
     var b = bigint & 255;
-  
+
     return new Colour(r, g, b);
   }
   static fromHSL(hsl) {
     const h = hsl[0];
     const s = hsl[1];
     const l = hsl[2];
-    
+
     if (s === 0) {
       const r = l * 255;
       return new Colour(r, r, r);
     }
-  
+
     const a = s * Math.min(l, 1 - l);
     fn = (n) => {
-      const k = ( n + h / 30) % 12;
-      return l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1))
-    }
-  
+      const k = (n + h / 30) % 12;
+      return l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1));
+    };
+
     return new Colour(fn(0) * 255, fn(8) * 255, fn(4) * 255);
   }
 }
@@ -121,18 +133,18 @@ function readHash() {
   if (!hash) {
     return [];
   }
-  return hash.split(',').map(x => Colour.fromHex(x).safer);
+  return hash.split(",").map((x) => Colour.fromHex(x).safer);
 }
 
 function writeHash(colours) {
-  let hash = colours.map(c => c.hex).join(",");
+  let hash = colours.map((c) => c.hex).join(",");
   window.location.hash = hash;
 }
 
 function writeText(colours) {
-  let text = colours.map(c => c.hex).join("\n");
+  let text = colours.map((c) => c.hex).join("\n");
   document.getElementById("text").value = text;
-  let rgb = colours.map(c => c.rgb).join("\n");
+  let rgb = colours.map((c) => c.rgb).join("\n");
   document.getElementById("rgb").value = rgb;
 }
 
@@ -141,7 +153,7 @@ const MIN_COLOURS = 8;
 
 document.getElementById("import").onclick = () => {
   let imported = document.getElementById("text").value;
-  let colours = imported.split("\n").map(c => Colour.fromHex(c));
+  let colours = imported.split("\n").map((c) => Colour.fromHex(c));
   writeHash(colours);
   window.location.reload();
 };
@@ -151,22 +163,22 @@ function generateRandom() {
   let locked = readHash();
   let colours = locked.slice();
   writeText(locked);
-  
+
   let generate = Math.min(MIN_COLOURS, MAX_COLOURS - locked.length);
   for (let i = locked.length - 1; i < generate; i++) {
     colours.push(Colour.random().safer);
   }
 
-  colours.forEach(colour => {
-    let label = document.createElement('label');
-    let check = document.createElement('input');
-    check.type = 'checkbox';
+  colours.forEach((colour) => {
+    let label = document.createElement("label");
+    let check = document.createElement("input");
+    check.type = "checkbox";
     if (locked.includes(colour)) {
       check.checked = true;
     }
     label.textContent = colour.hex;
     label.style.background = colour.hex;
-    label.className = 'chip';
+    label.className = "chip";
     check.onchange = () => {
       if (check.checked) {
         locked.push(colour);
@@ -181,7 +193,7 @@ function generateRandom() {
     };
     label.appendChild(check);
     main.appendChild(label);
-  })
+  });
 }
 
 function generateAll() {
@@ -198,7 +210,6 @@ function generateAll() {
     }
   }
 
-
   colours.sort((a, b) => {
     return a.saturation - b.saturation;
   });
@@ -213,8 +224,8 @@ function generateAll() {
   var row = document.createElement("tr");
   for (colour of colours) {
     const cell = document.createElement("td");
-    cell.textContent = ' ';
-    cell.dataset['hue'] = colour.hue;
+    cell.textContent = " ";
+    cell.dataset["hue"] = colour.hue;
     cell.style.background = colour.hex;
     row.append(cell);
     if (lastHue != colour.hue) {

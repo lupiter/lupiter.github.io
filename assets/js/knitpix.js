@@ -5,6 +5,7 @@ import { Modal } from "./knitpix/modal.js";
 import { FileModal } from "./knitpix/file-modal.js";
 import { Palette } from "./knitpix/palette.js";
 import { Tools } from "./knitpix/tools.js";
+import { OpenModal } from "./knitpix/open-modal.js";
 
 class ClearModal extends Modal {
   constructor(onClear) {
@@ -62,7 +63,6 @@ class DocumentModal extends Modal {
   }
 }
 
-
 class Storage {
   saveDataKey = "saveData";
   constructor() { }
@@ -92,8 +92,25 @@ class Export {
   }
 }
 
+class SaveAs {
+  constructor(getData) {
+    document.getElementById("save-btn").onclick = this.save.bind(this);
+    this.getData = getData;
+  }
+
+  save() {
+    var fileContent = JSON.stringify(this.getData());
+    var bb = new Blob([fileContent ], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.download = 'design.knitpix';
+    a.href = window.URL.createObjectURL(bb);
+    a.click();
+    a.remove();
+  }
+}
+
 const storage = new Storage();
-const exp = new Export();
+new Export();
 let onSave = (data) => {
   storage.save(data);
 };
@@ -108,6 +125,9 @@ const palette = new Palette(Colour.rgbaToPalette(swatch.data), (hex) => {
   swatch.swapColor(Colour.fromHex(from), Colour.fromHex(to));
   onSave(swatch.data);
 });
+
+
+new SaveAs(() => swatch.data);
 
 new Tools((hex) => {
   swatch.currentColor = Colour.fromHex(hex);
@@ -132,6 +152,17 @@ const documentModal = new DocumentModal(swatch.stitchCount, swatch.rowCount, (wi
 });
 documentModal.width.value = swatch.stitchCount;
 documentModal.height.value = swatch.rowCount;
+
+new OpenModal((inData) => {
+  const data = JSON.parse(inData);
+  swatch.rowCount = data.length;
+  swatch.stitchCount = data.length > 0 ? data[0].length : 0;
+  swatch.data = data;
+  swatch.draw();
+  const newPalette = Colour.rgbaToPalette(swatch.data);
+  palette.colours = newPalette;
+  palette.renderColours();
+});
 
 new FileModal((data, width, height, colours) => {
   swatch.stitchCount = width;
