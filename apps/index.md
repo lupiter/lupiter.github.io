@@ -4,6 +4,10 @@ title: Apps
 tags: [apps, software development, web apps]
 ---
 
+## [st-jebr](https://cathywise.net/st-jebr/)
+
+Stitch Algebra. Calculations for knitting and crochet, and punch card generator for knitting machines.
+
 ## [Dotty](/projects/dotty)
 
 A pixel art editor, styled like it's 1984. You can add it to your homescreen! 💖
