@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Toy Story: Nintendo Knitting Machine
+title: Toy Story - Nintendo Knitting Machine
 date:   2024-06-03 20:00:00
 tags: [tech, knitting, nintendo]
 ---
