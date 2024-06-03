@@ -7,7 +7,7 @@ tags: [tech, knitting, nintendo]
 
 ![Now You're Knitting With Power - advertisment showing a knitting machine with partially-worked knitting, a CRT TV showing some kind of guide or instructions, and a Nintendo Entertainment System]({{ site.url }}/images/knitting/ad.jpeg)
 
-Image source: https://www.facebook.com/share/3RFTcuPPjZAfj1A5/?mibextid=WC7FNe
+[Source](https://www.facebook.com/share/3RFTcuPPjZAfj1A5/?mibextid=WC7FNe)
 
 I first heard of the Nintendo Knitting Machine in a Machine Knitting discord where it was described as the truly unobtainable knitting machine. This is probably true, we only know of the existence of one unit, which “Gamemaster” Howard Phillips [demonstrated in the late 1980s](https://www.facebook.com/share/SACYZJpLeBADzVzH/?mibextid=WC7FNe).
 
@@ -25,13 +25,13 @@ The Famicom Disk System actually had two pieces of knitting software. “I am a 
 And then while browsing through toy knitting machines, and products by Royal, I saw it. The Royal Knit System (ロイヤルニットシステム). 
 
 ![Royal Knit System machine]({{ site.url }}/images/knitting/knitting-machine.png)
-Source: https://page.auctions.yahoo.co.jp/jp/auction/q1087052620
+[Source](https://page.auctions.yahoo.co.jp/jp/auction/q1087052620)
 
 ![Royal Knit System machine - closeup of side of bed showing 25 needle count (per side)]({{ site.url }}/images/knitting/knitting-machine-closeup.png)
-Source: https://page.auctions.yahoo.co.jp/jp/auction/q1087052620
+[Source](https://page.auctions.yahoo.co.jp/jp/auction/q1087052620)
 
 ![Royal Knit System with pink carriage, in box with various packaging and VHS]({{ site.url }}/images/knitting/kintting-machine-boxed.png)
-SOurce: https://aucview.com/yahoo/f106900482/
+[Source](https://aucview.com/yahoo/f106900482/)
 
 The handle and stickers are a little different but otherwise it’s exactly what we're looking for. It’s a 50 stitch toy knitting machine, with plastic needles, in two different colours, in sets of four. It even has the little window in the carriage so you can see the needles knit. And with these extra pictures you can see that the plastic needles aren't like the [ones for circular machines](https://addi.de/en/product-2/addiei-replacement-needles-2/) they're actually latch-hook needles [like the metal ones other flat-bed machines use](https://thewoolendiva.weebly.com/mk-70-needle-comparison-chart.html). Facinating!
 
