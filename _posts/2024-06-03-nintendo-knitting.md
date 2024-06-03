@@ -30,7 +30,7 @@ And then while browsing through toy knitting machines, and products by Royal, I 
 ![Royal Knit System machine - closeup of side of bed showing 25 needle count (per side)]({{ site.url }}/images/knitting/knitting-machine-closeup.png)
 [Source](https://page.auctions.yahoo.co.jp/jp/auction/q1087052620)
 
-![Royal Knit System with pink carriage, in box with various packaging and VHS]({{ site.url }}/images/knitting/kintting-machine-boxed.png)
+![Royal Knit System with pink carriage, in box with various packaging and VHS]({{ site.url }}/images/knitting/kintting-machine-boxed.jpg)
 [Source](https://aucview.com/yahoo/f106900482/)
 
 The handle and stickers are a little different but otherwise it’s exactly what we're looking for. It’s a 50 stitch toy knitting machine, with plastic needles, in two different colours, in sets of four. It even has the little window in the carriage so you can see the needles knit. And with these extra pictures you can see that the plastic needles aren't like the [ones for circular machines](https://addi.de/en/product-2/addiei-replacement-needles-2/) they're actually latch-hook needles [like the metal ones other flat-bed machines use](https://thewoolendiva.weebly.com/mk-70-needle-comparison-chart.html). Facinating!
