@@ -9,16 +9,16 @@ tags: [tech, knitting, nintendo]
 
 [Source](https://www.facebook.com/share/3RFTcuPPjZAfj1A5/?mibextid=WC7FNe)
 
-I first heard of the Nintendo Knitting Machine in a Machine Knitting discord where it was described as the truly unobtainable knitting machine. This is probably true, we only know of the existence of one unit, which “Gamemaster” Howard Phillips [demonstrated in the late 1980s](https://www.facebook.com/share/SACYZJpLeBADzVzH/?mibextid=WC7FNe).
+I first heard of the Nintendo Knitting Machine in a Machine Knitting discord where it was described as the truly unobtainable knitting machine. This is probably true, we only know of the existence of one unit, which “Gamemaster” Howard Phillips [demonstrated in the late 1980s](https://www.facebook.com/share/SACYZJpLeBADzVzH/?mibextid=WC7FNe), and which was advertised in a trade magazine above.
 
 But I was intrigued. Even from this one image we can see a few notable things about this knitting machine. 
 First, it appears to be plastic. That’s not surprising, the plastic bed Silver Reed LK100 [came out in 1985](https://s917320818ade283a.jimcontent.com/download/version/1534837163/module/10654462579/name/%E7%B7%A8%E6%A9%9F%E5%B9%B4%E8%A1%A8.pdf) and the first Bond [machines came out in 1981](https://archive.org/details/cashinginonneedl0000curr/page/34/mode/2up?q=Bond+). But if you look closer at the picture, it’s not just the bed that is plastic, it’s also the needles.
 
 Plastic needles are most commonly seen today in the [Sentro](https://www.youtube.com/watch?v=WrNYn_7WJMU) and [Addi](https://www.youtube.com/watch?v=wdz5dUsPxnc) circular knitting machines. But when I realised it had plastic needles, I wondered if that meant it was made by a toy manufacturer, rather than one of Japan’s established knitting machine manufacturers (like Brother, Toyota, or Silver Reed). 
 
-You can still sometimes get toy knitting machines in Japan, both circular and flat. Bandai made [a Pingu one](https://www.bandai.co.jp/catalog/item.php?jan_cd=4902425627762000) and Takara Tomy has [one covered in bows](https://www.takaratomy.co.jp/products/amukawaamina/) and [one with "patterning"](https://www.youtube.com/watch?v=a7Pg6SXNmD4). Maybe whoever made this machine ended up just selling the machine on it's own in Japan.
+You can still sometimes get toy knitting machines in Japan, both circular and flat. Bandai made [a Pingu one](https://www.bandai.co.jp/catalog/item.php?jan_cd=4902425627762000) and Takara Tomy has [one covered in bows](https://www.takaratomy.co.jp/products/amukawaamina/) and [one with "patterning"](https://www.youtube.com/watch?v=a7Pg6SXNmD4). Maybe whoever made this machine ended up just selling the machine on its own in Japan.
 
-I also had a hunch that the maker of this machine might be a company Nintendo already had a relationship with. Maybe even one who had made some kind of Famicom software released before or after this colab. I did a check of the NES software catalogue, and found some knitting software.
+I also had a hunch that the maker of this machine might be a company Nintendo already had a relationship with. Maybe even one who had made some kind of Famicom software released before or after this collab. I did a check of the NES software catalogue, and found some knitting software.
 
 The Famicom Disk System actually had two pieces of knitting software. “I am a teacher: Knitting Fundamentals” ([アイアムアティーチャー あみのきそ](https://www.gamingalexandria.com/highquality/fds/I%20Am%20a%20Teacher%20-%20Teami%20no%20Kiso/I%20Am%20a%20Teacher%20-%20Teami%20no%20Kiso.pdf), September 1986) and “I am a teacher: Super Mario’s Sweater” ([アイアムアティーチャー　スーパーマリオのセーター](https://wikiwiki.jp/vipgt6/%E3%82%A2%E3%82%A4%E3%82%A2%E3%83%A0%E3%82%A2%E3%83%86%E3%82%A3%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%9E%E3%83%AA%E3%82%AA%E3%81%AE%E3%82%BB%E3%83%BC%E3%82%BF%E3%83%BC/%E6%89%8B%E3%81%82%E3%81%BF%E3%81%AE%E3%81%8D%E3%81%9D), August 1986). The former [(attempts)](https://www.youtube.com/watch?v=dFaZaE5qhMw) to teach you knitting (the manual is more useful than the software on this front). The latter is a knitting pattern generator for some jumpers with stranded colourwork and intarsia designs for Mario-and-Friends. Both of these titles were made by a company called “Royal”. That name struck a memory feeling, and looking them up I remembered Royal also made knitting accessories like yarn ball winders. A likely target!
 
@@ -45,7 +45,7 @@ All in all, I think you could round up the parts to make your own Nintendo Knitt
 
 * Royal Knitting System ~ ¥3,000
 * A copy of Super Mario Sweater ~ ¥3,000 (if you can find one, and more if you want it with the box)
-* Famicom + Disk System ~ $5,000 
+* Famicom + Disk System ~ ¥5,000 
 * A TV that can take NTSC input from the Famicom
 * Something to hold your controller so the carriage hits the A button when it goes past
 
