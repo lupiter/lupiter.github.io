@@ -5,7 +5,7 @@ date:   2024-06-03 20:00:00
 tags: [tech, knitting, nintendo]
 ---
 
-![Now You're Knitting With Power - advertisment showing a knitting machine with partially-worked knitting, a CRT TV showing some kind of guide or instructions, and a Nintendo Entertainment System]({{ site.url }}/images/knitting/ad.png)
+![Now You're Knitting With Power - advertisment showing a knitting machine with partially-worked knitting, a CRT TV showing some kind of guide or instructions, and a Nintendo Entertainment System]({{ site.url }}/images/knitting/ad.jpeg)
 
 Image source: https://www.facebook.com/share/3RFTcuPPjZAfj1A5/?mibextid=WC7FNe
 
