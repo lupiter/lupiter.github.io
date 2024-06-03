@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>GBC Colours</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <style type="text/css">
+        @supports (font: -apple-system-body) {
+            html {
+                font: -apple-system-body;
+            }
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            width: 100px;
+            height: 100px;
+            color: black;
+            font-weight: bold;
+            text-shadow: 0 0 3px white;
+        }
+
+    </style>
+
+    <!-- <link rel="stylesheet" href="/assets/css/dotty.css" /> -->
+
+    <!-- <link rel="icon" href="/images/dotty/logo.png" type="image/png" /> -->
+    <!-- <link rel="apple-touch-icon" href="/images/dotty/logo-ios.png" type="image/png" /> -->
+</head>
+<body>
+    <main id="main">
+  
+    </main>
+    <fieldset>
+        <!-- <label>Base <input type="color" value="#aabbff" id="base" /></label>
+        <label>Hues <input type="number" min="1" max="6" value="3" step="1" id="hues" /></label>
+        <label>Shades <input type="number" min="1" max="7" value="1" step="1" id="shades" /></label>
+        <label>Shift <input type="number" min="0" max="1" value="0.1" step="0.1" id="shift" /></label>
+        <button id="generate">
+        Generate
+        </button> -->
+        <label> Hex
+        <textarea id="text"></textarea>
+        </label>
+        <button id="import">Import</button>
+        <label> RGB
+        <textarea id="rgb"></textarea>
+        </label>
+    </fieldset>
+
+    <script src="/assets/js/gbc-colors-random.js"></script>
+</body>
+</html>
