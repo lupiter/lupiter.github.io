@@ -1,0 +1,185 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>A User's Guide to OAuth 2.0 &#8211; Cathy Wise</title>
+<meta name="description" content="">
+<meta name="keywords" content="tech, oauth2, post, programming">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cathywise.net/images/">
+<meta name="twitter:title" content="A User's Guide to OAuth 2.0">
+<meta name="twitter:description" content="Cathy Wise">
+<meta name="twitter:creator" content="@sircathywise">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_AU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A User's Guide to OAuth 2.0">
+<meta property="og:description" content="Cathy Wise">
+<meta property="og:url" content="https://cathywise.net/2015/06/28/oauth2.html">
+<meta property="og:site_name" content="Cathy Wise">
+
+
+
+
+
+<link rel="canonical" href="https://cathywise.net/2015/06/28/oauth2.html">
+<link href="https://cathywise.net/feed.xml" type="application/atom+xml" rel="alternate" title="Cathy Wise Feed">
+<link rel="author" href="https://plus.google.com/113703753421537375035?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/brands.css">
+<link rel="stylesheet" href="/assets/css/fontawesome.css">
+
+<meta http-equiv="cleartype" content="on">
+
+<link rel="shortcut icon" href="https://cathywise.net/images/favicon.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<nav id="nav" role="navigation">
+	<ul>
+    
+		<li><a href="https://cathywise.net/" >Home</a></li>
+	
+		<li><a href="https://cathywise.net/apps" >Apps</a></li>
+	
+		<li><a href="https://cathywise.net/blog" >Blog</a></li>
+	
+		<li><a href="https://cathywise.net/projects" >Projects</a></li>
+	
+    </ul>
+</nav>
+
+<section id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">A User's Guide to OAuth 2.0</h1>
+      <subtitle>
+        <time datetime="2015-06-28T01:26:10+10:00" itemprop="datePublished">June 28, 2015</time>
+       </subtitle>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>I’ve been using <a href="http://oauth.net/2/">OAuth 2</a> for a while now, and it seems every few months there’s a big kerfuffle because some provider or app has done OAuth 2 wrong, and left themselves open to exploitation. For the most part, I think these are mistakes where people just didn’t think, and there’s lots of room in the OAuth 2 spec to make bad mistakes. Really bad mistakes.</p>
+
+<blockquote>
+  <p>This is part one of a two-part guide to OAuth 2. Part one covers accessing an OAuth 2 service, part two will cover providing an OAuth 2 service.</p>
+</blockquote>
+
+<h1 id="in-the-flow">In the flow</h1>
+
+<p>There are <em>four</em> ways to authenticate to an OAuth 2 API, and your provider may support one or more of them:</p>
+
+<ul>
+  <li>Authorization Code</li>
+  <li>Implicit</li>
+  <li>Resource Owner Password</li>
+  <li>Client Credentials</li>
+</ul>
+
+<p>You can only use the first and the last. Even if your provider supports the others, don’t use them. The implicit grant is too easy to <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle</a>, and the third involves the user giving you their password, defeating the point of OAuth 2.</p>
+
+<p>The client credentials grant is used for accessing APIs where your service or app needs to be authenticated but you aren’t accessing APIs related to the user. An example would be a search endpoint, or a public user profile url. It uses <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">BASIC Auth</a> to just pass your client credentials.</p>
+
+<h2 id="authorization-code">Authorization Code</h2>
+
+<p>The first flow is the one you’ll use almost all the time. I’ll explain it with an analogy.</p>
+
+<p>You start at a new job and need to get a swipe card for the door. In order to get the swipe card, you go to security and get a form, which your manager has to sign to say which doors you can access, and when you can use it. Your manager signs to say you can have access to the front and back doors, between 8:00 and 18:00, but not on weekends. You take the form back to security, and security issue you a pass with an expiry in one year. They tell you if you come back within a month of it expiring, they can issue you with a new one without having to get the form signed again.</p>
+
+<p>In this story, your app or website is you; the user is your manager; the authorization code is the form; security is the OAuth 2 service. Your app needs access to a user’s data, so the first step is to make an authorization request using your client credentials to the OAuth 2 service. Then you can direct the user to the service’s site, and they can authorize your app to access certain resources. You’ll get a redirect from the service to your website with an authorization code. Your app or site can then exchange the authorization code for an access token, and possibly a refresh token. The access token will only last for a certain while, and when it expires you can use the refresh token to get a new access token.</p>
+
+<p>You should be aware that the authorization code and the access token are <em>single use</em>. If you have a failure of some kind, you’ll need to start the authorization process again.</p>
+
+<h2 id="in-detail">In Detail</h2>
+
+<ol>
+  <li>Register your client with your OAuth 2 provider. You will be issued some credentials.</li>
+</ol>
+
+<h1 id="obey-the-rules-for-your-protection">Obey the rules for your protection</h1>
+
+<p>The first thing you have to do is read the rules of your API provider. If you’re using a large provider like Google, Facebook, or Twitter, they will provide example code even whole toolkits and frameworks. Use them. If your provider recommends a library, use it. If you’re on desktop or mobile and there’s a <em>system API</em> to use instead, use it. Save yourself work and heartache.</p>
+
+<p>On the flip side: don’t trust your provider. If you’re using a library or framework with a mobile app, check how it works. Make sure it’s keeping to best practice, because these things are not always well-maintained. Understand what it’s doing, when, and why.</p>
+
+<h2 id="https-or-bust">HTTPS or Bust</h2>
+
+<p>All communications that you are involved in over the network must be encrypted. I can’t emphasize this enough, if you can’t do https, you can’t do oAuth 2, and really you shouldn’t be doing anything authenticated at all. Any provider worth their salt will only provide https endpoints, and will refuse to redirect to any non-https website. For the moment, this means <a href="http://help.squarespace.com/guides/does-squarespace-support-ssl-access">no Squarespace</a>, <a href="https://konklone.com/post/github-pages-now-sorta-supports-https-so-use-it">no GitHub Pages</a>. SSL certificates can be bought for as little as $10 USD a year. Your hosting will be more than that.</p>
+
+<p>Another part of this is you must use a ‘real’ https url, at your site or your providers, for all callbacks. Some providers give you the option of out-of-band (oob) callbacks, where rather than issuing a redirect to your website, the provider shows the user a code to copy. If you use that option, great. Otherwise <em>always</em> use https.</p>
+
+<h2 id="access-tokens-are-sacred">Access Tokens are Sacred</h2>
+
+<p>You need to protect your access tokens and refresh tokens, how you protect them depends on how your service works. If you have a website, do not store the access token in a cookie. Store it in a database on the server, and lock down your database. Make sure your database is safe from SQL injections which might steal the tokens. Use multiple database users with restricted permissions, so parts of the code doing, say, stats logging, don’t have access to the user tokens table.</p>
+
+<p>If you are making a desktop or mobile client, do not store the token in plain text in a config file. Store it in the <a href="https://en.wikipedia.org/wiki/Keychain_(software)">keychain</a> on Mac and iOS, in an Android app encrypt the tokens with a RSA public key and store the matching private key in the <a href="http://www.androidauthority.com/where-is-the-best-place-to-store-a-password-in-your-android-app-597197/">keystore</a>. On Windows <a href="http://weblogs.asp.net/jongalloway//encrypting-passwords-in-a-net-app-config-file">encrypt it</a>, on Linux, encrypt the password with a private key and keep the private key <a href="http://superuser.com/questions/578295/where-to-store-openssl-private-keys-on-linux-server">appropriately stored</a>.</p>
+
+<h2 id="client-credentials-are-your-password">Client Credentials are Your Password</h2>
+
+<p>Would you leave the password to your server database in plain text in a config file for your mobile app? Would you put it in the JavaScript on your page?<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. Then don’t do it with your client credentials. If someone else uses your client credentials then they can impersonate you to the service. With something like Twitter or Google which has API limits (which you could even be paying for), you really need to make sure you’re the only one using them. You probably won’t be able to encrypt your credentials, but at least put some effort in to obfuscate them, and keep an eye on their use. You might need to revoke them if someone else starts using them.</p>
+
+<hr />
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>If your answer is yes, please stop doing anything with passwords or authentication. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <div class="bio">
+<img src="https://cathywise.net/images/me-pixeld.png" alt="Cathy Wise bio photo" class="bio-photo">
+<p>Hi, I'm (Sir) Cathy Wise 😉 and I have way too many hobbies! On this site you'll find my <a href="/projects">projects</a> and <a href="/apps">apps</a> as well as the <a href="/blog">blog</a> that gets very occasional updates.</p>
+
+<p>In my professional life I'm a software developer so of course you can find me on <a href="http://github.com/lupiter">Github</a> and <a href="http://stackexchange.com/users/912607/cathy">Stack Overflow</a>. You can also find me on various social networking sites. Listed below in the order I am likely to have updated them:</p>
+<ul>
+<li><a rel="me" href="https://mastodon.au/@cathy"><i class="fab fa-mastodon"></i> Mastodon</a></li>
+<li><a href="http://everbloom.tumblr.com"><i class="fab fa-tumblr"></i> Tumblr</a></li>
+<li><a href="http://instagram.com/sircathywise"><i class="fab fa-instagram"></i> Instagram</a></li>
+<li><a href="http://www.flickr.com/photos/44632322@N00"><i class="fab fa-flickr"></i> Flickr</a></li>
+<li><a href="http://linkedin.com/in/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+<li><a href="https://plus.google.com/113703753421537375035"><i class="fab fa-google-plus"></i> Google+</a></li>
+</ul>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+</section><!-- /#main -->
+
+<footer>
+  <p class="author-bio-para">Software developer, hobby collector 👩‍💻🕊🪡🧶🎮🎸🖋🖌🎨✝️🏳️‍🌈<br>All opinions on this site are my own and not my employer's etc.</p>
+<span>&copy; 2024 Cathy Wise. Powered by <a href="http://jekyllrb.com">Jekyll</a>.</span>
+<script>
+    document.querySelectorAll('a[href="'+document.URL+'"]').forEach(e => {
+        e.className = 'current';
+    });
+    document.querySelectorAll('nav a').forEach(e => {
+        if(document.URL.startsWith(e.href) && e.href !== window.location.protocol + "//" + window.location.host + "/" ) {
+            e.className = 'current';
+        }
+    });
+</script>
+</footer>
+
+
+
+
+
+</body>
+</html>

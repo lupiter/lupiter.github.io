@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="79.199829mm"
+   height="9.2984314mm"
+   viewBox="0 0 79.199829 9.2984314"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   sodipodi:docname="usm-sticker.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.0263363"
+     inkscape:cx="247.48223"
+     inkscape:cy="38.48641"
+     inkscape:window-width="1680"
+     inkscape:window-height="997"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-4.1958614,-4.3126503)">
+    <path
+       id="rect2609"
+       style="opacity:0.25;fill:none;stroke:#000000;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 4.2958614,4.4126503 V 7.4124675 L 7.7959055,13.412616 11.295949,7.4124675 h 0.999939 v 2.9998155 h 7.000089 V 7.4124675 h 0.999939 v 2.9998155 h 7.000091 V 7.4124675 h 0.999937 v 2.9998155 h 7.000089 V 7.4124675 h 0.99994 v 2.9998155 h 7.000089 V 7.4124675 h 2.749703 l 1.75028,2.9998155 1.749766,-2.9998155 h 2.75022 v 2.9998155 h 6.999573 V 7.4124675 h 1.000453 V 10.412283 H 67.29563 V 7.4124675 h 1.000456 v 2.9998155 h 6.999573 V 7.4124675 h 0.99994 v 2.9998155 h 7.000089 V 4.4126503 H 27.296007 20.295916 Z" />
+  </g>
+</svg>
