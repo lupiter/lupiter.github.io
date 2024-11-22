@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<head>
+  <title>KnitPix</title>
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+
+  <link rel="stylesheet" href="/assets/css/knitpix.css" />
+
+  <!-- <link rel="icon" href="/images/dotty/logo.png" type="image/png" /> -->
+  <!-- <link rel="apple-touch-icon" href="/images/dotty/logo-ios.png" type="image/png" /> -->
+</head>
+
+<body>
+  <header>
+    <section id="menu">
+      <h1 id="logo">
+        <img src="/images/knitpix-logo.svg" alt="Knit Pix">
+      </h1>
+      <ul role="menu">
+        <li role="menuitem"><button id="import-file-btn">Import</button></li>
+        <li role="menuitem"><button id="new-btn">New</button></li>
+        <li role="menuitem"><button id="document-btn">Resize</button></li>
+        <li role="menuitem"><button id="clear-all-btn">Clear All</button></li>
+        <li role="menuitem"><button id="download-btn">Export</button></li>
+        <li role="menuitem"><button id="save-btn">Save As</button></li>
+        <li role="menuitem"><button id="open-btn">Open</button></li>
+      </ul>
+    </section>
+    <section id="controls">
+      <fieldset id="tools-palette"><legend>Tools</legend>
+        <input type="radio" id="tool-pencil" checked name="tool" value="pencil" /><label for="tool-pencil">✏️</label>
+        <input type="radio" id="tool-bucket" name="tool" value="bucket" /><label for="tool-bucket">🪣</label>
+        <button id="undo-btn">↩️</button>
+        <button id="redo-btn">↪️</button>
+      </fieldset>
+    </section>
+  </header>
+
+  <main>
+    <svg id="swatch" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    </svg>
+  </main>
+
+  <fieldset id="colour-palette"><legend>Palette</legend>
+    <label aria-label="add colour"><input type="color" id="colour-input" value="#fff"/></label>
+  </fieldset>
+
+  <dialog id="import-file-dlg">
+    <form>
+      <label>File <input type="file" id="import-file-dlg-input" accept="image/png, image/jpeg, image/gif"/></label>
+      <div class="previews">
+        <img src="" alt="preview" id="import-file-dlg-reference" class="preview" />
+        <canvas id="import-file-dlg-preview" class="preview"></canvas>
+        <div class="spinner" id="import-file-dlg-spinner">
+          ◓
+        </div>  
+      </div>
+      <fieldset>
+        <legend>Size</legend>
+        <label>Stitches <input type="number" min="0" step="1" value="24" id="import-file-dlg-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="24" id="import-file-dlg-height-input" /></label>
+      </fieldset>
+      <fieldset>
+        <label>Colours <input type="number" min="2" step="1" value="4" max="16" id="import-file-dlg-colour-count-input" /></label>
+      </fieldset>
+      <div>
+        <button value="default" id="import-file-dlg-confirm">Open</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="new-dlg">
+    <form>
+      <fieldset>
+        <legend>Size</legend>
+        <label>Stitches <input type="number" min="0" step="1" value="24" id="new-dlg-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="24" id="new-dlg-height-input" /></label>
+      </fieldset>
+      <div>
+        <button value="default" id="new-dlg-confirm">Create</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="open-dlg">
+    <form>
+      <label>File <input type="file" id="open-dlg-input" accept=".knitpix" /></label>
+      <div>
+        <button value="default" id="open-dlg-confirm">Open</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="clear-dlg">
+    <form>
+      <h3>Are you sure?</h3>
+      <div>
+        <button value="default" id="clear-dlg-confirm">Clear All</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="document-dlg">
+    <form>
+      <p>This cannot be undone</p>
+      <fieldset>
+        <legend>Resize</legend>
+        <label>Stitches <input type="number" min="0" step="1" value="24" id="document-size-width-input" /></label>
+        <label>Rows <input type="number" min="0" step="1" value="24" id="document-size-height-input" /></label>
+      </fieldset>
+    <!-- <label>Stitch 
+      <select id="stitch-select">
+        <option>None</option>
+        <option>Knit</option>
+        <option>Purl</option>
+        <option>US Single/UK Double Crochet</option>
+        <option>US Double/UK Treble Crochet</option>
+      </select>
+    </label> -->
+      <div>
+        <button value="default" id="document-dlg-confirm">Set</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <template id="colour-palette-colour">
+    <input type="radio" class="palette-radio" name="palette-radio" />
+    <label class="colour-palette-chip"><span></span></label>
+  </template>
+
+  <script src="/assets/js/knitpix.js" type="module"></script>
+</body>

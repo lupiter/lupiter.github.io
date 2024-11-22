@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Stitch Calc</title>
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta name="theme-color" content="#ffffff">
+	<meta name="viewport"
+		content="viewport-fit=cover, width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+
+	<link rel="stylesheet" href="/assets/css/stitch-calc.css" />
+
+	<!-- <link rel="icon" href="/images/dotty/logo.png" type="image/png" /> -->
+	<!-- <link rel="apple-touch-icon" href="/images/dotty/logo-ios.png" type="image/png" /> -->
+</head>
+
+<body>
+	<form id="form">
+		<header>
+			<h1 id="logo">
+				Stitch Calc
+				<div class="buttons">
+					<button id="calculate" type="submit">Calculate</button>
+					<button id="clear" type="reset">AC</button>
+				</div>
+			</h1>
+			<hr />
+			<hr />
+			<hr />
+		</header>
+
+		<main>
+			<section>
+				<h2>You</h2>
+				<fieldset>
+					<legend>Tension</legend>
+					<label>Stitches <input type="number" min="0" step="0.1" id="you-tension-stitches" /></label>
+					<label>Rows <input type="number" min="0" step="0.1" id="you-tension-rows" /></label>
+				</fieldset>
+				<fieldset>
+					<legend>Measurement</legend>
+					<label>Chest/Bust <input type="number" min="0" step="0.1" id="you-measure-chest" /></label>
+					<label>Length <input type="number" min="0" step="0.1" id="you-measure-length" /></label>
+					<label>Waist <input type="number" min="0" step="0.1" id="you-measure-waist" /></label>
+					<label>Hips <input type="number" min="0" step="0.1" id="you-measure-hips" /></label>
+				</fieldset>
+			</section>
+
+			<section>
+				<h2>Pattern</h2>
+				<fieldset>
+					<legend>Tension</legend>
+					<label>Stitches <input type="number" min="0" step="0.1" id="pattern-tension-stitches" /></label>
+					<label>Rows <input type="number" min="0" step="0.1" id="pattern-tension-rows" /></label>
+				</fieldset>
+				<fieldset>
+					<legend>Measurement</legend>
+					<label>Chest/Bust <input type="number" min="0" step="0.1" id="pattern-measure-chest" /></label>
+					<label>Length <input type="number" min="0" step="0.1" id="pattern-measure-length" /></label>
+					<label>Waist <input type="number" min="0" step="0.1" id="pattern-measure-waist" /></label>
+					<label>Hips <input type="number" min="0" step="0.1" id="pattern-measure-hips" /></label>
+				</fieldset>
+			</section>
+		</main>
+	</form>
+
+	<details>
+		<summary>About</summary>
+		<p>This calculator is designed to help you when a knitting or crochet pattern doesn't quite work for you. If the pattern is a single size, but you want to make it larger, you could enter the pattern measurments and tension, and your measurements, and it'll tell you what tension to make it at to get your size. Alternatively, for a multi-size pattern where you just can't get the right tension (e.g. using a loom or knitting machine) enter the tension you have, the pattern tension, and your measurements, and it'll tell you what size measurements to look for in the pattern.
+		<p>The Stich Calc works with any units! As long as you're using the same units all the time. You could use stitches-per-inch and measurements in inches, or stitches per 10cm square and measurements in centimeters. Just don't mix the two.
+		<p>If using a single-size pattern, and sizing up or down, if you come across any pattern measurements (e.g. work for 20 cm and then cast off 2 stitches) you can convert that too, just make sure you use a matching box (length for rows of work, any of the others for width).
+	</details>
+
+	<script src="/assets/js/stitch-calc.js" type="module"></script>
+</body>

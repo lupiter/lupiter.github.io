@@ -1,0 +1,193 @@
+<svg id="swatch" viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="knit" preserveAspectRatio="none" viewBox="0 0 20 20">
+        <path
+            d="m 1.9652757,16.78611 6.0694486,2.42778 a 5.2916668,5.2916668 0 0 0 3.9305517,0 l 6.069448,-2.42778 A 3.1263865,3.1263865 124.0993 0 0 20,13.883333 V 2.1166667 A 1.4330531,1.4330531 34.099295 0 0 18.034724,0.78611028 L 11.965276,3.2138897 a 5.2916667,5.2916667 0 0 1 -3.9305517,0 L 1.9652757,0.78611028 A 1.4330531,1.4330531 145.9007 0 0 0,2.1166667 V 13.883333 a 3.1263865,3.1263865 55.900705 0 0 1.9652757,2.902777 z"></path>
+    </symbol>
+    <g class="row">
+        <use href="#knit" x="0" y="0" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="20" y="0" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="40" y="0" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="60" y="0" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="80" y="0" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="100" y="0" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="120" y="0" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="140" y="0" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="160" y="0" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="180" y="0" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="200" y="0" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="220" y="0" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="240" y="0" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="260" y="0" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="280" y="0" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+    </g>
+    <g class="row">
+        <use href="#knit" x="0" y="16" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="20" y="16" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="40" y="16" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="60" y="16" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="80" y="16" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="100" y="16" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="120" y="16" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="140" y="16" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="160" y="16" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="180" y="16" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="200" y="16" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="220" y="16" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="240" y="16" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="260" y="16" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="280" y="16" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+    </g>
+    <g class="row">
+        <use href="#knit" x="0" y="32" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="20" y="32" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="40" y="32" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="60" y="32" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="80" y="32" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="100" y="32" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="120" y="32" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="140" y="32" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="160" y="32" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="180" y="32" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="200" y="32" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="220" y="32" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="240" y="32" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="260" y="32" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="280" y="32" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+    </g>
+    <g class="row">
+        <use href="#knit" x="0" y="48" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="20" y="48" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="40" y="48" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="60" y="48" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="80" y="48" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="100" y="48" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="120" y="48" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="140" y="48" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="160" y="48" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="180" y="48" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="200" y="48" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="220" y="48" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="240" y="48" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="260" y="48" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="280" y="48" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+    </g>
+    <g class="row">
+        <use href="#knit" x="0" y="64" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="20" y="64" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="40" y="64" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="60" y="64" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="80" y="64" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="100" y="64" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="120" y="64" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="140" y="64" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="160" y="64" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="180" y="64" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="200" y="64" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="220" y="64" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="240" y="64" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="260" y="64" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="280" y="64" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+    </g>
+    <g class="row">
+        <use href="#knit" x="0" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="20" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="40" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="60" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="80" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="100" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="120" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="140" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="160" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="180" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="200" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="220" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="240" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="260" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="280" y="80" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+    </g>
+    <g class="row">
+        <use href="#knit" x="0" y="96" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="20" y="96" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="40" y="96" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="60" y="96" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="80" y="96" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="100" y="96" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="120" y="96" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="140" y="96" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="160" y="96" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="180" y="96" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="200" y="96" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="220" y="96" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="240" y="96" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="260" y="96" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="280" y="96" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+    </g>
+    <g class="row">
+        <use href="#knit" x="0" y="112" width="20" height="20" fill="rgba(221, 139, 166, 255)"></use>
+        <use href="#knit" x="20" y="112" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="40" y="112" width="20" height="20" fill="rgba(221, 139, 166, 255)"></use>
+        <use href="#knit" x="60" y="112" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="80" y="112" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="100" y="112" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="120" y="112" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="140" y="112" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="160" y="112" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="180" y="112" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="200" y="112" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="220" y="112" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="240" y="112" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="260" y="112" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="280" y="112" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+    </g>
+    <g class="row">
+        <use href="#knit" x="0" y="128" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="20" y="128" width="20" height="20" fill="rgba(221, 139, 166, 255)"></use>
+        <use href="#knit" x="40" y="128" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="60" y="128" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="80" y="128" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="100" y="128" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="120" y="128" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="140" y="128" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="160" y="128" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="180" y="128" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="200" y="128" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="220" y="128" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="240" y="128" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="260" y="128" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="280" y="128" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+    </g>
+    <g class="row">
+        <use href="#knit" x="0" y="144" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="20" y="144" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="40" y="144" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="60" y="144" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="80" y="144" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="100" y="144" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="120" y="144" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="140" y="144" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="160" y="144" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="180" y="144" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="200" y="144" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="220" y="144" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="240" y="144" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="260" y="144" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="280" y="144" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+    </g>
+    <g class="row">
+        <use href="#knit" x="0" y="160" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="20" y="160" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="40" y="160" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="60" y="160" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="80" y="160" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="100" y="160" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="120" y="160" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="140" y="160" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="160" y="160" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="180" y="160" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="200" y="160" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="220" y="160" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+        <use href="#knit" x="240" y="160" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="260" y="160" width="20" height="20" fill="rgba(0, 0, 0, 0)"></use>
+        <use href="#knit" x="280" y="160" width="20" height="20" fill="rgba(85, 56, 70, 255)"></use>
+    </g>
+</svg>
