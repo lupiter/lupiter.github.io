@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<head>
+  <style type="text/css">
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-family: sans-serif;
+      padding: 1rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 0 1rem silver;
+    }
+    table {
+      align-self: flex-start;
+    }
+    th {
+      text-align: right;
+    }
+    td {
+      text-align: left;
+    }
+    td,
+    th {
+      padding: 1rem;
+    }
+    button {
+      font-size: 2rem;
+    }
+    h1,
+    p {
+      margin: 0;
+    }
+    body {
+      min-height: 100vh;
+      min-width: 100vw;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(white, #eee);
+    }
+  </style>
+  <script>
+    const SKILLS = {
+      charisma: [
+        "red",
+        "pink",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "purple",
+        "white",
+        "grey",
+        "black",
+        "light brown",
+        "dark brown",
+      ],
+      writing: ["light brown", "black", "grey", "green", "yellow", "orange"],
+      photography: ["black", "grey"],
+      programming: [
+        "light brown",
+        "black",
+        "grey",
+        "green",
+        "yellow",
+        "orange",
+      ],
+      logic: [
+        "dark brown",
+        "black",
+        "light brown",
+        "white",
+        "grey",
+        "red",
+        "yellow",
+        "blue",
+        "orange",
+        "green",
+      ],
+      gardening: [
+        "dark brown",
+        "black",
+        "light brown",
+        "white",
+        "grey",
+        "red",
+        "blue",
+        "orange",
+        "green",
+      ],
+      painting: ["black", "light brown", "grey", "blue"],
+      fitness: [
+        "dark brown",
+        "white",
+        "grey",
+        "red",
+        "yellow",
+        "blue",
+        "orange",
+        "green",
+      ],
+      guitar: ["light brown", "grey", "orange"],
+      violin: ["red", "pink", "blue"],
+      comedy: ["grey", "yellow"],
+      handiness: ["dark brown", "light brown", "grey"],
+      movement: [
+        "dark brown",
+        "light brown",
+        "white",
+        "pink",
+        "yellow",
+        "blue",
+        "green",
+      ],
+      creativity: ["pink", "orange", "green", "blue", "purple", "light brown"],
+      cooking: [
+        "light brown",
+        "black",
+        "grey",
+        "white",
+        "blue",
+        "green",
+        "red",
+      ],
+      mixology: [
+        "dark brown",
+        "black",
+        "light brown",
+        "purple",
+        "white",
+        "grey",
+        "red",
+        "pink",
+        "yellow",
+        "blue",
+        "orange",
+        "green",
+      ],
+      piano: ["dark brown", "black", "white"],
+      gaming: ["dark brown", "black", "grey", "red", "green"],
+    };
+
+    const ROOMS = [
+      {
+        name: "bedroom",
+        skills: [
+          "charisma",
+          "writing",
+          "photography",
+          "programming",
+          "logic",
+          "gardening",
+          "painting",
+          "fitness",
+          "guitar",
+          "violin",
+          "comedy",
+        ],
+        styles: [
+          "storybook",
+          "queen anne",
+          "suburban contempo",
+          "mission",
+          "basics",
+          "french country",
+          "farmhouse",
+          "contempory",
+          "cosmolux",
+        ],
+      },
+      {
+        name: "storage",
+        skills: ["charisma", "handiness", "fitness"],
+        styles: [
+          "basics",
+          "contempory",
+          "cosmolux",
+          "farmhouse",
+          "mission",
+          "mid century",
+          "industrial",
+          "modern",
+          "queen anne",
+          "suburban contempo",
+          "storybook",
+          "shabby",
+        ],
+      },
+      {
+        name: "kids",
+        skills: ["movement", "creativity", "logic"],
+        styles: [
+          "modern",
+          "suburban contempo",
+          "industrial",
+          "basics",
+          "contempory",
+        ],
+      },
+      {
+        name: "patio",
+        skills: [
+          "gardening",
+          "cooking",
+          "movement",
+          "fitness",
+          "painting",
+          "logic",
+        ],
+        styles: ["patio", "island", "modern", "basics"],
+      },
+      {
+        name: "dining",
+        skills: ["gardening", "mixology", "logic"],
+        styles: [
+          "modern",
+          "queen anne",
+          "suburban contempo",
+          "mission",
+          "holidays",
+          "basics",
+          "french country",
+          "farmhouse",
+          "contempory",
+          "cosmolux",
+        ],
+      },
+      {
+        name: "living",
+        skills: [
+          "logic",
+          "photography",
+          "gardening",
+          "painting",
+          "piano",
+          "mixology",
+          "gaming",
+          "fitness",
+          "guitar",
+          "comedy",
+          "violin",
+        ],
+        styles: [
+          "mission",
+          "industrial",
+          "basics",
+          "farmhouse",
+          "contempory",
+          "cosmolux",
+        ],
+      },
+      {
+        name: "bar/games",
+        skills: [
+          "logic",
+          "mixology",
+          "gaming",
+          "fitness",
+          "guitar",
+          "comedy",
+          "violin",
+        ],
+        styles: ["modern", "industrial", "contempory", "cosmolux", "vintage"],
+      },
+      {
+        name: "kitchen",
+        skills: ["cooking", "mixology", "cooking"],
+        styles: [
+          "modern",
+          "industrial",
+          "basics",
+          "french country",
+          "farmhouse",
+          "contempory",
+        ],
+      },
+      {
+        name: "office",
+        skills: [
+          "writing",
+          "programming",
+          "logic",
+          "photography",
+          "painting",
+          "guitar",
+          "gardening",
+        ],
+        styles: [
+          "modern",
+          "queen anne",
+          "suburban contempo",
+          "mid century",
+          "industrial",
+          "farmhouse",
+          "contempory",
+          "cosmolux",
+        ],
+      },
+      {
+        name: "bathroom",
+        skills: ["charisma"],
+        styles: [
+          "queen anne",
+          "suburban contempo",
+          "industrial",
+          "basics",
+          "french country",
+          "farmhouse",
+          "contempory",
+          "cosmolux",
+        ],
+      },
+    ];
+
+    const randomInt = (min, max) => {
+      return Math.floor(min + Math.random() * (max - min));
+    };
+    const generate = (
+      budgetOut,
+      colourOut,
+      roomOut,
+      styleOut,
+      skillOut,
+      sizeOut
+    ) => {
+      const budget = randomInt(10, 200) * 100;
+      budgetOut.innerText = `§${budget.toLocaleString()}`;
+
+      const roomIndex = randomInt(0, ROOMS.length - 1);
+      const room = ROOMS[roomIndex];
+      roomOut.innerText = room.name;
+
+      const styleIndex = randomInt(0, room.styles.length - 1);
+      const style = room.styles[styleIndex];
+      styleOut.innerText = style;
+
+      const skillIndex = randomInt(0, room.skills.length - 1);
+      const skill = room.skills[skillIndex];
+      skillOut.innerText = skill;
+
+      const colourList = SKILLS[skill];
+      const colourIndex = randomInt(0, colourList.length - 1);
+      const colour = colourList[colourIndex];
+      colourOut.innerText = colour;
+
+      const size = randomInt(9, 36);
+      sizeOut.innerText = `${size.toLocaleString()} squares`;
+    };
+
+    const main = () => {
+      const budgetOut = document.getElementById("budget");
+      const colourOut = document.getElementById("colour");
+      const roomOut = document.getElementById("room");
+      const styleOut = document.getElementById("style");
+      const skillOut = document.getElementById("skill");
+      const sizeOut = document.getElementById("size");
+      const generateBtn = document.getElementById("generate");
+      generateBtn.onclick = () => {
+        generate(budgetOut, colourOut, roomOut, styleOut, skillOut, sizeOut);
+      };
+      generate(budgetOut, colourOut, roomOut, styleOut, skillOut, sizeOut);
+    };
+
+    window.onload = main;
+  </script>
+</head>
+<body>
+  <main>
+    <h1>The Designinator</h1>
+    <p>A TS4 build challenge generator</p>
+    <section>
+      <h2>Room</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th>Budget</th>
+            <td id="budget"></td>
+          </tr>
+          <tr>
+            <th>Room</th>
+            <td id="room"></td>
+          </tr>
+          <tr>
+            <th>Size</th>
+            <td id="size"></td>
+          </tr>
+          <tr>
+            <th>Style</th>
+            <td id="style"></td>
+          </tr>
+          <tr>
+            <th>Colour</th>
+            <td id="colour"></td>
+          </tr>
+          <tr>
+            <th>Skill</th>
+            <td id="skill"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button id="generate">🎲</button>
+    </section>
+    <section>
+      <h2>House</h2>
+      <table>
+        <tbody>
+          <tr>
+            <th>Budget</th>
+            <td id="house_budget"></td>
+          </tr>
+          <tr>
+            <th>Size</th>
+            <td id="house_size"></td>
+          </tr>
+          <tr>
+            <th>Colour</th>
+            <td id="house_colour"></td>
+          </tr>
+          <tr>
+            <th>Skill</th>
+            <td id="house_skill"></td>
+          </tr>
+          <tr>
+            <th>Room</th>
+            <td id="room"></td>
+          </tr>
+          <tr>
+            <th>Style</th>
+            <td id="style"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button id="generate_house">🎲</button>
+    </section>
+  </main>
+</body>
