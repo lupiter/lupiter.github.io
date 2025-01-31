@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Prior Purl Part 1: Prior
+title: Prior Purl Part 1 - Prior
 date:   2024-11-22 20:00:00
 tags: [knitting, prior purl, australia]
 ---
