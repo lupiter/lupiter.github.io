@@ -15,5 +15,13 @@
       >
     </li>
     {% endfor %}
+    <li>
+      <a
+        id="random-link"
+        data-links='[{% for link in site.links %}{"url":"{{ link.url }}","external":{% if link.external %}true{% else %}false{% endif %}}{% if forloop.last == false %},{% endif %}{% endfor %}]'
+        data-site="{{ site.url }}"
+        >Shuffle</a
+      >
+    </li>
   </ul>
 </nav>

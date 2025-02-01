@@ -2,13 +2,3 @@
 <p class="copyright">&copy; {{ site.time | date: '%Y' }} {{ site.owner.name }}</p>
 <p class="bio">{{ site.owner.bio }} {{ site.owner.disclaimer}}</p>
 <p class="icons">👩‍💻🕊🪡🧶🎮🎨✝️🏳️‍🌈</p>
-<script>
-    document.querySelectorAll('a[href="'+document.URL+'"]').forEach(e => {
-        e.className = 'current';
-    });
-    document.querySelectorAll('nav a').forEach(e => {
-        if(document.URL.startsWith(e.href) && e.href !== window.location.protocol + "//" + window.location.host + "/" ) {
-            e.className = 'current';
-        }
-    });
-</script>
