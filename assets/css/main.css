@@ -78,11 +78,11 @@ main {
 }
 
 main.prelight {
-  background: var(--screen-light-bg);
+  --screen-bg: var(--screen-light-bg);
 }
 
 main.light {
-  background: var(--screen-light-bg);
+  --screen-bg: var(--screen-light-bg);
   transition: all 0.5s;
 }
 
