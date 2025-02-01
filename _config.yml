@@ -4,13 +4,14 @@ markdown: kramdown
 highlighter:      rouge
 description:      Cathy Wise
 disqus_shortname: cathywise
-url:              https://cathywise.net # http://localhost:4000 #
+url:              http://localhost:4000 # https://cathywise.net # 
+baseurl:          ""
 title:            Cathy Wise
 # Owner/author information
 owner:
   name:           Cathy Wise
   avatar:         me-pixeld.png
-  bio:            "Software developer, hobby collector 👩‍💻🕊🪡🧶🎮🎸🖋🖌🎨✝️🏳️‍🌈"
+  bio:            "Software developer, hobby collector."
   disclaimer:     "All opinions on this site are my own and not my employer's etc."
   #email:          you@email.com
   # Social networking links used in footer. Update and remove as you like.
@@ -29,8 +30,8 @@ owner:
 # Links to include in top navigation
 # For external links add external: true
 links:
-  - title: Home
-    url: /
+  - title: About
+    url: /about
   - title: Apps
     url: /apps
   - title: Blog
@@ -41,3 +42,6 @@ links:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Australia/Canberra
 future:      true
+sass:
+  sass_dir:           _sass
+  style:              compressed

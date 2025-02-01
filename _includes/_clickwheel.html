@@ -1,0 +1,57 @@
+<div class="clickwheel">
+  <div class="spacer"></div>
+  <button id="menu">Menu</button>
+  <div class="spacer"></div>
+  <button id="back">⏮</button>
+  <button id="center" aria-label="enter"></button>
+  <button id="forward">⏭</button>
+  <div class="spacer"></div>
+  <button id="playpause">⏯</button>
+  <div class="spacer"></div>
+</div>
+
+<script type="text/javascript">
+  const menu = document.getElementById("menu");
+  const main = document.getElementsByTagName("main")[0];
+  let timer = undefined;
+
+  const getLight = () => {
+    return localStorage.getItem("light") === "on";
+  };
+
+  const checkLight = () => {
+    if (getLight()) {
+        main.classList.add("light");
+    } else {
+      main.classList.remove("light");
+      main.classList.remove("prelight");
+    }
+  };
+
+  const toggleLight = () => {
+    const on = getLight();
+    localStorage.setItem("light", on ? "" : "on");
+    checkLight();
+  };
+
+  if (getLight()) {
+    main.classList.add("prelight");
+  }
+
+  menu.onmousedown = (e) => {
+    clicking = true;
+    e.preventDefault();
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+      toggleLight();
+    }, 500);
+  };
+  menu.onmouseup = (e) => {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    e.preventDefault();
+  };
+</script>

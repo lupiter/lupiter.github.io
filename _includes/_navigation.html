@@ -1,7 +1,19 @@
 <nav id="nav" role="navigation">
-	<ul>
+  <ul>
     {% for link in site.links %}
-		<li><a href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{{ link.title }}</a></li>
-	{% endfor %}
-    </ul>
+    <li>
+      <a
+        href="{% if link.external %}{{ link.url }}{% else %}{{ site.url }}{{ link.url }}{% endif %}"
+        {%
+        if
+        link.external
+        %}target="_blank"
+        {%
+        endif
+        %}
+        >{{ link.title }}<span class="down">&gt;</span></a
+      >
+    </li>
+    {% endfor %}
+  </ul>
 </nav>

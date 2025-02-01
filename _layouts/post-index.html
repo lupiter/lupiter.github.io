@@ -5,8 +5,8 @@
 
 <body class="articles" itemscope itemtype="http://schema.org/WebPage">
 
-{% include _navigation.html %}
-
+<main>
+{% include _header.html %}
 <section id="index" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
   {% for post in site.posts %}  
   {% unless post.next %}
@@ -26,6 +26,9 @@
   
   {{ content }}
 </section><!-- /#index -->
+</main>
+
+{% include _clickwheel.html %}
 
 <footer>
   {% include _footer.html %}
