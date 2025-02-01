@@ -12,7 +12,7 @@ Stitch Algebra. Calculations for knitting and crochet, and punch card generator 
 
 A pixel art editor, styled like it's 1984. You can add it to your homescreen! 💖
 
-## [Nonotch](/Nonotch)
+## [Nonotch](/nonotch)
 
 Do you like picross? Or tamagotchi? Enjoy both with the puzzles from the tamagotchi digital pocket (button batteries not required)
 
