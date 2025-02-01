@@ -103,6 +103,20 @@ main.light {
   color: var(--ipod);
 }
 
+#music-status::after {
+  content: " ";
+  width: 0.5cm;
+  display: block;
+}
+
+#music-status.playing::after {
+  content: "▶";
+}
+
+#music-status.paused::after {
+  content: "⏸";
+}
+
 #center {
   box-shadow: 0 0 var(--screen-radius) #ccc, inset -0.1cm -0.1cm var(--screen-radius) #eee;
   border-radius: 50%;
