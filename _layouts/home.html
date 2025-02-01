@@ -1,22 +1,19 @@
-<!doctype html>
-<head>
-{% include _head.html %}
-</head>
+<html>
+  <head>
+    {% include _head.html %}
+  </head>
 
-<body class="home" itemscope itemtype="http://schema.org/WebPage">
+  <body class="home" itemscope itemtype="http://schema.org/WebPage">
+    <div id="pod">
+      <main>{% include _header.html %} {% include _navigation.html %}</main>
 
-<main>
-  {% include _header.html %}
-  {% include _navigation.html %}
-</main>
+      {% include _clickwheel.html %}
+    </div>
 
-{% include _clickwheel.html %}
+    <footer>{% include _footer.html %}</footer>
 
-<footer>
-  {% include _footer.html %}
-</footer>
+    <div id="side"></div>
 
-{% include _scripts.html %}
-
-</body>
+    {% include _scripts.html %}
+  </body>
 </html>

@@ -1,44 +1,57 @@
-<!doctype html>
-<head>
-{% include _head.html %}
-</head>
+<html>
+  <head>
+    {% include _head.html %}
+  </head>
 
-<body class="article" itemscope itemtype="http://schema.org/WebPage">
+  <body class="article" itemscope itemtype="http://schema.org/WebPage">
+    <div id="pod">
+      <main>
+        {% include _header.html %}
 
-<main>
-{% include _navigation.html %}
+        <section
+          id="main"
+          role="main"
+          itemprop="mainContentOfPage"
+          itemscope
+          itemtype="http://schema.org/Blog"
+        >
+          <article
+            itemscope
+            itemtype="http://schema.org/BlogPosting"
+            itemprop="blogPost"
+          >
+            <div class="headline-wrap">
+              <subtitle>
+                <time
+                  datetime="{{ page.date | date_to_xmlschema }}"
+                  itemprop="datePublished"
+                  >{{ page.date | date: "%B %d, %Y" }}</time
+                >
+              </subtitle>
+            </div>
+            <!--/ .headline-wrap -->
+            <div class="article-wrap" itemprop="text">
+              {{ content }}
+              <hr />
+              <footer role="contentinfo">
+                <div class="article-author-bottom">
+                  {% include _author-bio.html %}
+                </div>
+              </footer>
+            </div>
+            <!-- /.article-wrap -->
+          </article>
+        </section>
+        <!-- /#main -->
+      </main>
 
-<section id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+      {% include _clickwheel.html %}
+    </div>
 
-  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-    <div class="headline-wrap">
-      <h1 itemprop="name">{{ page.title }}</h1>
-      <subtitle>
-        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %d, %Y" }}</time>
-       </subtitle>
-      <h2>{{ page.tagline }}</h2>
-    </div><!--/ .headline-wrap -->
-    <div class="article-wrap" itemprop="text">
-      {{ content }}
-      <hr />
-      <footer role="contentinfo">
-        <div class="article-author-bottom">
-          {% include _author-bio.html %}
-        </div>
-      </footer>
-    </div><!-- /.article-wrap -->
-  </article>
-</section><!-- /#main -->
-</main>
+    <div id="side"></div>
 
-{% include _clickwheel.html %}
+    <footer>{% include _footer.html %}</footer>
 
-<footer>
-  {% include _footer.html %}
-</footer>
-
-
-{% include _scripts.html %}
-
-</body>
+    {% include _scripts.html %}
+  </body>
 </html>

@@ -2,16 +2,136 @@
 <!-- Asynchronous Google Analytics snippet -->
 <script>
   var _gaq = _gaq || [];
-  var pluginUrl = 
- '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-  _gaq.push(['_setAccount', '{{ site.google_analytics }}']);
-  _gaq.push(['_trackPageview']);
+  var pluginUrl = "//www.google-analytics.com/plugins/ga/inpage_linkid.js";
+  _gaq.push(["_require", "inpage_linkid", pluginUrl]);
+  _gaq.push(["_setAccount", "{{ site.google_analytics }}"]);
+  _gaq.push(["_trackPageview"]);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  (function () {
+    var ga = document.createElement("script");
+    ga.type = "text/javascript";
+    ga.async = true;
+    ga.src =
+      ("https:" == document.location.protocol ? "https://ssl" : "http://www") +
+      ".google-analytics.com/ga.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(ga, s);
   })();
 </script>
 {% endif %}
+
+<script type="text/javascript">
+  const menu = document.getElementById("menu");
+  const playPause = document.getElementById("playpause");
+  const music = document.getElementById("music");
+  const status = document.getElementById("music-status");
+  const next = document.getElementById("forward");
+  const main = document.getElementsByTagName("main")[0];
+  const body = document.getElementsByTagName("body")[0];
+  const footer = document.getElementsByTagName("footer")[0];
+
+  // FLIP
+
+  let showingFront = true;
+
+  body.ontransitionend = () => {
+    if (body.classList.contains("rotating-forward")) {
+      if (showingFront) {
+        body.classList.add("rotated");
+        showingFront = false;
+      } else {
+        showingFront = true;
+      }
+      body.classList.remove("rotating-forward");
+    }
+    if (body.classList.contains("rotating-back")) {
+      if (showingFront) {
+        body.classList.add("rotated");
+        showingFront = false;
+      } else {
+        showingFront = true;
+      }
+      body.classList.remove("rotating-back");
+    }
+  };
+
+  next.onclick = () => {
+    body.classList.add("rotating-forward");
+  };
+
+  footer.onclick = () => {
+    body.classList.add("rotating-back");
+    body.classList.remove("rotated");
+  };
+
+  // PLAY PAUSE
+
+  const play = async () => {
+    try {
+      await music.play();
+      status.classList.add("playing");
+      status.classList.remove("paused");
+    } catch {
+      status.classList.remove("playing");
+      status.classList.remove("paused");
+    }
+  };
+
+  playPause.onclick = () => {
+    if (music.paused) {
+      play();
+    } else {
+      music.pause();
+      status.classList.remove("playing");
+      status.classList.add("paused");
+    }
+  };
+
+  // MENU
+
+  let timer = undefined;
+
+  const getLight = () => {
+    return localStorage.getItem("light") === "on";
+  };
+
+  const checkLight = () => {
+    if (getLight()) {
+      main.classList.add("light");
+    } else {
+      main.classList.remove("light");
+      main.classList.remove("prelight");
+    }
+  };
+
+  const toggleLight = () => {
+    const on = getLight();
+    localStorage.setItem("light", on ? "" : "on");
+    checkLight();
+  };
+
+  if (getLight()) {
+    main.classList.add("prelight");
+  }
+
+  menu.onmousedown = (e) => {
+    clicking = true;
+    e.preventDefault();
+    if (timer) {
+      clearTimeout(timer);
+      timer = undefined;
+    }
+    timer = setTimeout(() => {
+      toggleLight();
+      timer = undefined;
+    }, 500);
+  };
+  menu.onmouseup = (e) => {
+    if (timer) {
+      clearTimeout(timer);
+      timer = undefined;
+      window.location.pathname = "";
+    }
+    e.preventDefault();
+  };
+</script>

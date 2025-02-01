@@ -11,10 +11,20 @@
     #ff7cb277 90%,
     #ed458b77 100%
   );
+  --ipod-side-gradient: linear-gradient(
+    to right,
+    #ed458b77,
+    #ff7cb277 50%,
+    #ed458b77 100%
+  );
+  --ipod-background: var(--ipod-gradient), url(https://grainy-gradients.vercel.app/noise.svg), white;
+  --ipod-side: var(--ipod-side-gradient), url(https://grainy-gradients.vercel.app/noise.svg), white;
   --screen-bg: #839a8e;
   --screen-light-bg: #eef;
   --screen-fg: #06004d;
   --ipod-width: 10cm;
+  --ipod-height: 19cm;
+  --ipod-thickness: 2cm;
   --ipod-frame: 1cm;
   --screen-inset: 0.3cm;
   --screen-radius: 0.2cm;
@@ -48,19 +58,44 @@ html {
 }
 
 body {
+  width: var(--ipod-width);
+  position: absolute;
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco",
     "Helvetica Neue", "Helvetica", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--ipod-gradient), url(https://grainy-gradients.vercel.app/noise.svg);
+}
+
+#pod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--ipod-background);
   margin: 0;
   width: var(--ipod-width);
-  height: 20cm;
-  margin: 0.5cm;
+  height: var(--ipod-height);
   position: absolute;
   border-radius: calc(var(--screen-radius)/2);
   box-shadow: .25cm .25cm 1cm rgba(0,0,0,0.25);
+  transition: transform 1.5s;
+  z-index: 10;
+  transform: translateZ(var(--ipod-thickness)/2) translateX(0) rotate3d(0, 1, 0, 0deg);
+}
+
+.rotating-forward #pod {
+  z-index: 10;
+  transform: translateZ(0) translateX(calc(var(--ipod-thickness)/2)) rotate3d(0, 1, 0, 90deg);
+}
+
+.rotating-back #pod {
+  z-index: -10;
+  transform: translateZ(0) translateX(calc(var(--ipod-thickness)/2)) rotate3d(0, 1, 0, 90deg);
+}
+
+.rotated #pod {
+  z-index: -10;
+  transform: translateZ(calc(-1 * var(--ipod-thickness)/2)) rotate3d(0, 1, 0, 180deg);
 }
 
 main {
@@ -86,6 +121,11 @@ main.light {
   transition: all 0.5s;
 }
 
+main svg {
+  fill: var(--screen-fg);
+  stroke: var(--screen-fg);
+}
+
 .clickwheel {
   background: white;
   background: linear-gradient(to right, #eee, white 100%);
@@ -97,6 +137,8 @@ main.light {
   width: var(--screen-width);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  top: 1cm;
 }
 
 .clickwheel button {
@@ -145,17 +187,41 @@ main.light {
 
 
 footer {
-  width: calc(100% - 3cm);
-  bottom: calc(var(--ipod-frame) / 4);
+  width: var(--ipod-width);
+  height: var(--ipod-height);
+  background: var(--ipod-background);
   position: absolute;
-  padding: 1em;
-  text-align: center;
-  font-size: x-small;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  z-index: -10;
+  transition: transform 1.5s;
+  transform: translateZ(calc(-1 * var(--ipod-thickness)/2)) translateX(0) rotate3d(0, 1, 0, 180deg);
+}
+
+.rotating-forward footer {
+  z-index: -10;
+  transform: translateZ(0) translateX(calc(-1 * var(--ipod-thickness)/2)) rotate3d(0, 1, 0, 90deg) ;
+}
+
+.rotating-back footer {
+  z-index: 10;
+  transform: translateZ(0) translateX(calc(-1 * var(--ipod-thickness)/2)) rotate3d(0, 1, 0, 90deg);
+}
+
+.rotated footer {
+  z-index: 10;
+  transform: translateZ(var(--ipod-thickness)/2) translateX(0) rotate3d(0, 1, 0, 0deg);
 }
 
 footer p {
+  width: calc(100% - 3cm);
+  padding: 0 1em;
+  text-align: center;
+  font-size: x-small;
   opacity: 0.75;
+  color: white;
 }
 
 footer .icons {
@@ -163,6 +229,26 @@ footer .icons {
   opacity: 1;
   letter-spacing: 0.4cm;
   text-shadow: 0 0 var(--screen-radius) white;
+  padding-bottom: 1em;
+}
+
+#side {
+  height: var(--ipod-height);
+  width: var(--ipod-thickness);
+  background: var(--ipod-side);
+  position: absolute;
+  transition: transform 1.5s;
+  transform: translateZ(0) translateX(calc(-1 * var(--ipod-width)/2)) rotate3d(0, 1, 0, 90deg);
+  z-index: 5;
+  box-shadow: .25cm .25cm 1cm rgba(0,0,0,0.25);
+}
+
+.rotated #side {
+  transform: translateZ(0) translateX(calc(var(--ipod-width)/2)) rotate3d(0, 1, 0, 90deg);
+}
+
+.rotating-forward #side, .rotating-back #side {
+  transform: translateZ(calc(var(--ipod-width)/2)) translateX(0) rotate3d(0, 1, 0, 0deg);
 }
 
 a {
@@ -235,7 +321,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 1px solid var(--screen-fg);
+  border-bottom: 2px solid var(--screen-fg);
   font-weight: bold;
 }
 
@@ -264,6 +350,7 @@ subtitle {
   text-align: center;
   width: 100%;
   display: block;
+  margin: 16px 0;
 }
 
 .bio-photo {

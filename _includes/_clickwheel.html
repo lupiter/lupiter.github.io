@@ -9,84 +9,9 @@
   <button id="playpause">⏯</button>
   <div class="spacer"></div>
 </div>
-<audio loop preload="none" src="{{ site.url }}/assets/audio/music.mp3" id="music"></audio>
-
-<script type="text/javascript">
-  const menu = document.getElementById("menu");
-  const playPause = document.getElementById("playpause");
-  const music = document.getElementById("music");
-  const status = document.getElementById("music-status");
-  const main = document.getElementsByTagName("main")[0];
-
-  // PLAY PAUSE
-
-  const play = async () => {
-    try {
-        await music.play();
-        status.classList.add("playing");
-        status.classList.remove("paused");
-    } catch {
-        status.classList.remove("playing");
-        status.classList.remove("paused");
-    }
-  }
-
-  playPause.onclick = () => {
-    if (music.paused) {
-        play();
-    } else {
-        music.pause();
-        status.classList.remove("playing");
-        status.classList.add("paused");
-    }
-  }
-
-  // MENU
-
-  let timer = undefined;
-
-  const getLight = () => {
-    return localStorage.getItem("light") === "on";
-  };
-
-  const checkLight = () => {
-    if (getLight()) {
-      main.classList.add("light");
-    } else {
-      main.classList.remove("light");
-      main.classList.remove("prelight");
-    }
-  };
-
-  const toggleLight = () => {
-    const on = getLight();
-    localStorage.setItem("light", on ? "" : "on");
-    checkLight();
-  };
-
-  if (getLight()) {
-    main.classList.add("prelight");
-  }
-
-  menu.onmousedown = (e) => {
-    clicking = true;
-    e.preventDefault();
-    if (timer) {
-      clearTimeout(timer);
-      timer = undefined;
-    }
-    timer = setTimeout(() => {
-      toggleLight();
-      timer = undefined;
-    }, 500);
-  };
-  menu.onmouseup = (e) => {
-    if (timer) {
-      clearTimeout(timer);
-      timer = undefined;
-
-      window.history.back();
-    }
-    e.preventDefault();
-  };
-</script>
+<audio
+  loop
+  preload="none"
+  src="{{ site.url }}/assets/audio/music.mp3"
+  id="music"
+></audio>

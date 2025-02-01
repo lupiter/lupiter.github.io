@@ -1,40 +1,55 @@
-<!doctype html>
-<head>
-{% include _head.html %}
-</head>
+<html>
+  <head>
+    {% include _head.html %}
+  </head>
 
-<body class="articles" itemscope itemtype="http://schema.org/WebPage">
+  <body class="articles" itemscope itemtype="http://schema.org/WebPage">
+    <div id="pod">
+      <main>
+        {% include _header.html %}
+        <section
+          id="index"
+          itemprop="mainContentOfPage"
+          itemscope
+          itemtype="http://schema.org/Blog"
+        >
+          {% for post in site.posts %} {% unless post.next %}
+          <h3>{{ post.date | date: '%Y' }}</h3>
+          {% else %} {% capture year %}{{ post.date | date: '%Y' }}{% endcapture
+          %} {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture
+          %} {% if year != nyear %}
+          <h3>{{ post.date | date: '%Y' }}</h3>
+          {% endif %} {% endunless %}
+          <article
+            itemscope
+            itemtype="http://schema.org/BlogPosting"
+            itemprop="blogPost"
+          >
+            <h2 itemprop="headline">
+              <a
+                href="{{ site.url }}{{ post.url }}"
+                rel="bookmark"
+                title="{{ post.title }}"
+                >{{ post.title }}</a
+              >
+            </h2>
+            <p itemprop="text">
+              {% if post.description %}{{ post.description }}{% else %}{{
+              post.content | strip_html | truncatewords: 50 }}{% endif %}
+            </p>
+          </article>
+          {% endfor %} {{ content }}
+        </section>
+        <!-- /#index -->
+      </main>
 
-<main>
-{% include _header.html %}
-<section id="index" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
-  {% for post in site.posts %}  
-  {% unless post.next %}
-    <h3>{{ post.date | date: '%Y' }}</h3>
-    {% else %}
-      {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-      {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-      {% if year != nyear %}
-        <h3>{{ post.date | date: '%Y' }}</h3>
-      {% endif %}
-    {% endunless %}
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-      <h2 itemprop="headline"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}">{{ post.title }}</a></h2>
-      <p itemprop="text">{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | truncatewords: 50 }}{% endif %}</p>
-    </article>
-  {% endfor %}
-  
-  {{ content }}
-</section><!-- /#index -->
-</main>
+      {% include _clickwheel.html %}
+    </div>
 
-{% include _clickwheel.html %}
+    <div id="side"></div>
 
-<footer>
-  {% include _footer.html %}
-</footer>
+    <footer>{% include _footer.html %}</footer>
 
-{% include _scripts.html %}
-  
-</body>
+    {% include _scripts.html %}
+  </body>
 </html>
