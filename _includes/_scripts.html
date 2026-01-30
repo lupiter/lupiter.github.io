@@ -33,14 +33,16 @@
 
   // RANDOM LINK
 
-  const linkData = randomLink.dataset["links"];
-  const links = JSON.parse(linkData);
-  const site = randomLink.dataset["site"];
-  const idx = Math.round(Math.random() * (links.length - 1));
-  const link = links[idx];
-  randomLink.href = link.external ? link.url : site + link.url;
-  if (link.external) {
-    randomLink.target = "_blank";
+  if (randomLink) {
+    const linkData = randomLink.dataset["links"];
+    const links = JSON.parse(linkData);
+    const site = randomLink.dataset["site"];
+    const idx = Math.round(Math.random() * (links.length - 1));
+    const link = links[idx];
+    randomLink.href = link.external ? link.url : site + link.url;
+    if (link.external) {
+      randomLink.target = "_blank";
+    }
   }
 
   // CURRENT LINK
@@ -48,7 +50,7 @@
   document.querySelectorAll('a[href="' + document.URL + '"]').forEach((e) => {
     e.className = "current";
   });
-  
+
   document.querySelectorAll("nav a").forEach((e) => {
     if (
       document.URL.startsWith(e.href) &&
