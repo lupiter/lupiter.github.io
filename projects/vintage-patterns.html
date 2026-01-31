@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Patterns</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .intro {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th:hover {
+            background-color: #2980b9;
+        }
+
+        th::after {
+            content: '';
+            display: inline-block;
+            margin-left: 6px;
+            width: 0;
+            height: 0;
+            vertical-align: middle;
+        }
+
+        th.sort-asc::after {
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 6px solid white;
+        }
+
+        th.sort-desc::after {
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 6px solid white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vintage Patterns</h1>
+    
+    <p class="intro">
+        A collection of vintage knitting and craft patterns from various publishers and decades. 
+        This archive documents historical patterns, their origins, and specifications.
+    </p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Link</th>
+                    <th>Publisher</th>
+                    <th>Year</th>
+                    <th>Decade</th>
+                    <th>Country</th>
+                    <th>Size(s)</th>
+                    <th>Publication Type</th>
+                    <th>Original Price</th>
+                    <th>Craft(s)</th>
+                    <th>Category</th>
+                    <th>Age</th>
+                    <th>Yarn(s)</th>
+                    <th>Needle(s)</th>
+                    <th>Gauge(s)</th>
+                    <th>Pattern Count</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Pattern entries go here -->
+                <tr>
+                    <td>110 Tralin Crocheted Edgings</td>
+                    <td><a href="https://archive.org/details/110-tralin-crocheted-edgings">https://archive.org/details/110-tralin-crocheted-edgings</a></td>
+                    <td>The Braddon Printing Co., Sydney</td>
+                    <td>1933</td>
+                    <td>1930s</td>
+                    <td>Australia</td>
+                    <td></td>
+                    <td>Book</td>
+                    <td>1 shilling</td>
+                    <td>Crochet</td>
+                    <td>Stitch Book, Edgings</td>
+                    <td></td>
+                    <td>Coat's Mercer-Crochet cotton, size 50</td>
+                    <td></td>
+                    <td></td>
+                    <td>110</td>
+                    <td><a href="https://trove.nla.gov.au/newspaper/article/22192677?searchTerm=tralin%20crocheted%20edgings">Citation for date</a></td>
+                </tr>
+                <tr>
+                    <td>Ayr Spotted Jumper</td>
+                    <td><a href="https://archive.org/details/ayr-spotted-jumper-601">https://archive.org/details/ayr-spotted-jumper-601</a></td>
+                    <td>The Braddon Printing Co., Sydney</td>
+                    <td></td>
+                    <td>1930s</td>
+                    <td>Scotland</td>
+                    <td>34/36" bust</td>
+                    <td>Leaflet</td>
+                    <td>2 pence</td>
+                    <td>Knitting</td>
+                    <td>Clothing, Tops, Tee; Clothing, Sweater, Pullover</td>
+                    <td>Adult</td>
+                    <td>5 oz. Templeton's "OPALSHEEN" in Gold No. 2722; 3 oz. Templeton's "OPALSHEEN" in Clover No. 2720 (2 oz. extra with long sleeves)</td>
+                    <td>No. 10 & No. 12</td>
+                    <td>8.5st = 1"</td>
+                    <td>1</td>
+                    <td>Decade is estimate based on styles</td>
+                </tr>
+                <tr>
+                    <td>Bestway 1807 Fair Isle Cardigan</td>
+                    <td><a href="https://archive.org/details/bestway-fair-isle-cardigan-1808">https://archive.org/details/bestway-fair-isle-cardigan-1808</a></td>
+                    <td>The Amalgamated Press, Ltd., London </td>
+                    <td></td>
+                    <td>1940s</td>
+                    <td>United Kingdom</td>
+                    <td>38" bust</td>
+                    <td>Leaflet</td>
+                    <td>3 pence</td>
+                    <td>Knitting</td>
+                    <td>Clothing, Sweater, Cardigan</td>
+                    <td>Adult</td>
+                    <td>7 oz. Sidar Magestic Wool 3-ply in natural; 0.5 oz. each of green, red, blue, yellow</td>
+                    <td>No. 9 & No. 11</td>
+                    <td>7st = 1"</td>
+                    <td>1</td>
+                    <td>Decade is estimate based on styles</td>
+                </tr>
+                <tr>
+                    <td>Bestway 1807 Fair Isle Jersey</td>
+                    <td><a href="https://archive.org/details/bestway-fair-isle-jersey-1807">https://archive.org/details/bestway-fair-isle-jersey-1807</a></td>
+                    <td>The Amalgamated Press, Ltd., London </td>
+                    <td></td>
+                    <td>1940s</td>
+                    <td>United Kingdom</td>
+                    <td>38" bust</td>
+                    <td>Leaflet</td>
+                    <td>3 pence</td>
+                    <td>Knitting</td>
+                    <td>Clothing, Tops, Tee; Clothing, Sweater, Pullover</td>
+                    <td>Adult</td>
+                    <td>5 oz. Sidar Magestic Wool 3-ply in natural; 0.5 oz. each of green, red, blue, yellow</td>
+                    <td>No. 9 & No. 12</td>
+                    <td>7st = 1"</td>
+                    <td>1</td>
+                    <td>Decade is estimate based on styles</td>
+                </tr>
+                <tr>
+                    <td>Crochet Edges by Myart</td>
+                    <td><a href="https://archive.org/details/crochet-edges-by-myart-17th-ed">https://archive.org/details/crochet-edges-by-myart-17th-ed</a></td>
+                    <td>Myart Co. Ltd., Sydney</td>
+                    <td></td>
+                    <td>1940s</td>
+                    <td>Australia</td>
+                    <td></td>
+                    <td>Book</td>
+                    <td>2 shilling</td>
+                    <td>Crochet</td>
+                    <td>Stitch Book, Edgings</td>
+                    <td></td>
+                    <td>Peri-Lusta purl knit size 12</td>
+                    <td></td>
+                    <td></td>
+                    <td>90</td>
+                    <td>Decade is estimate based on styles</td>
+                </tr>
+                <tr>
+                    <td>Gloves and Socks</td>
+                    <td><a href="https://archive.org/details/gloves-and-socks">https://archive.org/details/gloves-and-socks</a></td>
+                    <td>Southdown Press Pty. Ltd., Melbourne</td>
+                    <td>1946</td>
+                    <td>1940s</td>
+                    <td>Australia</td>
+                    <td></td>
+                    <td>Book</td>
+                    <td>2 shillings</td>
+                    <td>Knitting, Crochet</td>
+                    <td>Accessories, Hands, Gloves; Accessories, Feet / Legs, Socks</td>
+                    <td>Adult, Child, Baby</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>19</td>
+                    <td><a href="https://trove.nla.gov.au/newspaper/article/96472435?searchTerm=%22gloves%20%20socks%22">Citation for date</a></td>
+                </tr>
+                <tr>
+                    <td>Golden Eagle 549 Seawaves Jumper</td>
+                    <td><a href="https://archive.org/details/golden-eagle-seawaves-549">https://archive.org/details/golden-eagle-seawaves-549</a></td>
+                    <td>C. F. Taylor & Co. Ltd., Shipley</td>
+                    <td>1941</td>
+                    <td>1940s</td>
+                    <td>United Kingdom</td>
+                    <td>34/36" bust</td>
+                    <td>Leaflet</td>
+                    <td>3 pence</td>
+                    <td>Knitting</td>
+                    <td>Clothing, Tops, Tee; Clothing, Sweater, Pullover</td>
+                    <td>Adult</td>
+                    <td>4 oz. Polyknit 3-ply light; 3 oz. Polyknit 3-ply dark</td>
+                    <td>No. 10 & No. 12</td>
+                    <td>7st = 1"</td>
+                    <td>1</td>
+                    <td><a href="https://www.ravelry.com/patterns/library/seawaves-jumper">Citation for date</a></td>
+                </tr>
+                <tr>
+                    <td>Scotch Wool Shop 845 Greenock 4-ply Gloves</td>
+                    <td><a href="https://archive.org/details/greenock-ladies-gloves-845">https://archive.org/details/greenock-ladies-gloves-845</a></td>
+                    <td>Scotch Wool Shop, London</td>
+                    <td></td>
+                    <td>1940s</td>
+                    <td>United Kingdom</td>
+                    <td></td>
+                    <td>Leaflet</td>
+                    <td>6 pence</td>
+                    <td>Knitting</td>
+                    <td>Accessories, Hands, Gloves;</td>
+                    <td>Adult</td>
+                    <td></td>
+                    <td>No. 12</td>
+                    <td>8st & 10 rows = 1"</td>
+                    <td>2</td>
+                    <td>Decade is estimate based on styles and price of other patterns by the same publisher</td>
+                </tr>
+
+                <tr>
+                    <td>Jumpers & Coats</td>
+                    <td><a href="https://archive.org/details/home-notes-jumpers-coates-1937">https://archive.org/details/home-notes-jumpers-coates-1937</a></td>
+                    <td>Home Notes</td>
+                    <td>1937</td>
+                    <td>1930s</td>
+                    <td>Australia</td>
+                    <td>One size for each pattern, 32", 34", 35", 36", 38", 40"</td>
+                    <td>Book</td>
+                    <td></td>
+                    <td>Knitting</td>
+                    <td>Clothing, Sweater, Cardigan; Clothing, Sweater, Pullover; Clothing, Coat, Jacket</td>
+                    <td>Adult</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>10</td>
+                    <td>Free with magazine</td>
+                </tr>
+                <tr>
+                    <td>Spring Knitting</td>
+                    <td><a href="https://archive.org/details/home-notes-spring-knitting-1938">https://archive.org/details/home-notes-spring-knitting-1938</a></td>
+                    <td>Home Notes</td>
+                    <td>1938</td>
+                    <td>1930s</td>
+                    <td>Australia</td>
+                    <td>One size for each pattern, 32", 34", 35", 36", 38", 40"</td>
+                    <td>Book</td>
+                    <td></td>
+                    <td>Knitting</td>
+                    <td>Clothing, Sweater, Cardigan; Clothing, Sweater, Pullover; Clothing, Coat, Jacket</td>
+                    <td>Adult, Child</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>10</td>
+                    <td>Free with magazine</td>
+                </tr>
+                <tr>
+                    <td>Lincoln 688: Spring Knitting</td>
+                    <td><a href="https://archive.org/details/lincoln-688">https://archive.org/details/lincoln-688</a></td>
+                    <td>Licoln Mills, Coburg</td>
+                    <td></td>
+                    <td>1940s</td>
+                    <td>Australia</td>
+                    <td>One size for each pattern, 33", 34", 35"</td>
+                    <td>Book</td>
+                    <td>7 pence</td>
+                    <td>Knitting</td>
+                    <td>Clothing, Sweater, Pullover; Clothing, Tops, Tee</td>
+                    <td>Adult</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>6</td>
+                    <td>Decade is estimate based on styles</td>
+                </tr>
+
+                <tr>
+                    <td>Lorna Rose No. 11: Fair Isle Set: Scarf, Gloves and Beanie</td>
+                    <td><a href="https://archive.org/details/lorna-rose-fair-isle-set-11">https://archive.org/details/lorna-rose-fair-isle-set-11</a></td>
+                    <td>Lorna Rose, Christchurch</td>
+                    <td></td>
+                    <td>1930s</td>
+                    <td>New Zealand</td>
+                    <td></td>
+                    <td>Leaflet</td>
+                    <td></td>
+                    <td>Knitting</td>
+                    <td>Accessories, Hands, Gloves; Accessories, Feet / Legs, Socks; Accessories, Head, Hat; Accessory, Scarf, Shawl</td>
+                    <td>Adult</td>
+                    <td>7 sks light, 2 sks dark 4-ply fingering wool</td>
+                    <td>No. 11, No. 12, No. 13</td>
+                    <td></td>
+                    <td>3</td>
+                    <td>Decade is estimate based on styles</td>
+                </tr>
+
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const table = document.querySelector('table');
+            const headers = table.querySelectorAll('th');
+            const tbody = table.querySelector('tbody');
+
+            headers.forEach((header, index) => {
+                header.addEventListener('click', () => {
+                    const rows = Array.from(tbody.querySelectorAll('tr'));
+                    const isAscending = header.classList.contains('sort-asc');
+                    
+                    // Remove sort classes from all headers
+                    headers.forEach(h => h.classList.remove('sort-asc', 'sort-desc'));
+                    
+                    // Toggle sort direction
+                    header.classList.add(isAscending ? 'sort-desc' : 'sort-asc');
+                    
+                    // Sort rows
+                    rows.sort((a, b) => {
+                        const aValue = a.cells[index].textContent.trim();
+                        const bValue = b.cells[index].textContent.trim();
+                        
+                        // Try numeric sort first
+                        const aNum = parseFloat(aValue);
+                        const bNum = parseFloat(bValue);
+                        
+                        if (!isNaN(aNum) && !isNaN(bNum)) {
+                            return isAscending ? bNum - aNum : aNum - bNum;
+                        }
+                        
+                        // Fall back to string sort
+                        if (isAscending) {
+                            return bValue.localeCompare(aValue);
+                        } else {
+                            return aValue.localeCompare(bValue);
+                        }
+                    });
+                    
+                    // Re-append sorted rows
+                    rows.forEach(row => tbody.appendChild(row));
+                });
+            });
+        });
+    </script>
+</body>
+</html>

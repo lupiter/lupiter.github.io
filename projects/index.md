@@ -35,3 +35,15 @@ DS game guide
 ## [Let Me Show You My Pokémons](http://lupiter.tumblr.com)
 
 Drawing all 720 Pokémon.
+
+## [Vintage Patterns](vintage-patterns.html)
+
+Vintage patterns, mostly knitting, some crochet, mostly Australian. Uploaded to archive.org but indexed here for easier navigation. Scanned from my personal collection.
+
+## Other
+
+* [Dotty](dotty.html)
+* [GBC Colors](gbc-colors.html)
+* [knitpix](knitpix.html)
+* [stitch calc](stitch-calc.html)
+* [ts4 challenge](ts4-challenge.html)
